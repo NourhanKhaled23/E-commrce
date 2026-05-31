@@ -1,14 +1,19 @@
 export interface Product {
   id: number;
+  title: string;
   name: string;
   description: string;
   price: number;
+  discountPercentage?: number;
   comparePrice?: number;
+  originalPrice?: number;
   images: string[];
   thumbnail: string;
   categoryId: number;
+  categorySlug?: string;
   category: string;
   stock: number;
+  rating?: number;
   avgRating: number;
   reviewCount: number;
   sellerId: number;
@@ -30,7 +35,7 @@ export interface FilterState {
   categoryId: number | null;
   minPrice: number;
   maxPrice: number;
-  sort: 'newest' | 'price-asc' | 'price-desc' | 'rating';
+  sort: 'newest' | 'price_asc' | 'price_desc' | 'rating' | 'popular';
   rating: number | null;
   inStock: boolean;
   search: string;

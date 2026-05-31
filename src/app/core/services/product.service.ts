@@ -5,7 +5,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 const DEFAULT_FILTERS: FilterState = {
   categoryId: null, minPrice: 0, maxPrice: 9999,
-  sort: 'newest', rating: null, inStock: false, search: ''
+  sort: 'newest', rating: null, inStock: false, search: '',
 };
 
 @Injectable({ providedIn: 'root' })
@@ -54,13 +54,13 @@ export class ProductService {
     const skip = (page - 1) * this.pageSize;
     let url = `${this.apiUrl}?limit=${this.pageSize}&skip=${skip}`;
 
-    if (filters.search) url += `&search=${encodeURIComponent(filters.search)}`;
-    if (filters.categoryId) url += `&categoryId=${filters.categoryId}`;
-    if (filters.sort) url += `&sort=${filters.sort}`;
-    if (filters.minPrice > 0) url += `&minPrice=${filters.minPrice}`;
+    if (filters.search)          url += `&search=${encodeURIComponent(filters.search)}`;
+    if (filters.categoryId)      url += `&categoryId=${filters.categoryId}`;
+    if (filters.sort)            url += `&sort=${filters.sort}`;
+    if (filters.minPrice > 0)    url += `&minPrice=${filters.minPrice}`;
     if (filters.maxPrice < 9999) url += `&maxPrice=${filters.maxPrice}`;
-    if (filters.inStock) url += `&inStock=true`;
-    if (filters.rating) url += `&rating=${filters.rating}`;
+    if (filters.inStock)         url += `&inStock=true`;
+    if (filters.rating)          url += `&minRating=${filters.rating}`;
 
     this.http.get<ProductResponse>(url).pipe(
       takeUntilDestroyed(this.destroyRef)

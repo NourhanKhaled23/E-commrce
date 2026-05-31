@@ -43,6 +43,30 @@ interface ProductFilters {
   skip?: number;
 }
 
+/**
+ * Normalize a raw product from JSON so every consumer sees consistent fields:
+ *   title / name  (JSON uses `title`, model uses `name`)
+ *   rating / avgRating  (JSON uses `rating`, model uses `avgRating`)
+ *   comparePrice / originalPrice  (JSON may use either)
+ */
+function normalizeProduct(p: any): any {
+  return {
+    ...p,
+    title:       p.title       ?? p.name ?? '',
+    name:        p.name        ?? p.title ?? '',
+    rating:      p.rating      ?? p.avgRating ?? 0,
+    avgRating:   p.avgRating   ?? p.rating ?? 0,
+    comparePrice:  p.comparePrice  ?? p.originalPrice ?? null,
+    originalPrice: p.originalPrice ?? p.comparePrice  ?? null,
+    reviewCount: p.reviewCount ?? 0,
+    stock:       p.stock       ?? 0,
+    tags:        p.tags        ?? [],
+    images:      (p.images && p.images.length > 0) ? p.images : [p.thumbnail],
+    active:      p.active !== false,
+    createdAt:   p.createdAt   ?? new Date().toISOString(),
+  };
+}
+
 function parseProductFilters(params: HttpParams): ProductFilters {
   return {
     search:       params.get('search')       || undefined,
@@ -130,9 +154,10 @@ export const mockApiInterceptor: HttpInterceptorFn = (req, next) => {
     return http.get<any>('/assets/mock-data/products.json').pipe(
       delay(200),
       map(data => {
-        const all = Array.isArray(data) ? data : (data.products ?? []);
+        const raw = Array.isArray(data) ? data : (data.products ?? []);
+        const all = raw.map(normalizeProduct);
         const featured = [...all].filter(p => p.active !== false)
-          .sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0))
+          .sort((a, b) => (b.avgRating ?? 0) - (a.avgRating ?? 0))
           .slice(0, 8);
         return new HttpResponse({ status: 200, body: featured });
       })
@@ -159,7 +184,8 @@ export const mockApiInterceptor: HttpInterceptorFn = (req, next) => {
     return http.get<any>('/assets/mock-data/products.json').pipe(
       delay(250),
       map(data => {
-        const allProducts = Array.isArray(data) ? data : (data.products ?? []);
+        const raw = Array.isArray(data) ? data : (data.products ?? []);
+        const allProducts = raw.map(normalizeProduct);
         const filters = parseProductFilters(req.params);
         const filtered = applyProductFilters(allProducts, filters);
         const total = filtered.length;
@@ -219,11 +245,11 @@ export const mockApiInterceptor: HttpInterceptorFn = (req, next) => {
     return http.get<any>('/assets/mock-data/products.json').pipe(
       delay(150),
       map(data => {
-        const all = Array.isArray(data) ? data : (data.products ?? []);
+        const raw = Array.isArray(data) ? data : (data.products ?? []);
         const id = parseInt(productMatch[1]);
-        const product = all.find((p: any) => p.id === id);
+        const product = raw.find((p: any) => p.id === id);
         return product
-          ? new HttpResponse({ status: 200, body: product })
+          ? new HttpResponse({ status: 200, body: normalizeProduct(product) })
           : new HttpResponse({ status: 404, body: { message: 'Product not found' } });
       })
     );

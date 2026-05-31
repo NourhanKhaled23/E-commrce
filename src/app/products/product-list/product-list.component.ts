@@ -53,9 +53,7 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.productService.products().length === 0) {
-      this.productService.loadProducts();
-    }
+    this.productService.resetFilters();
     if (this.categoryService.categories().length === 0) {
       this.categoryService.loadCategories();
     }

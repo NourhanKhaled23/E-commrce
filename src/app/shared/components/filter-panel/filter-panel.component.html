@@ -8,7 +8,7 @@
   <div class="filter-section">
     <h5>Sort By</h5>
     <div class="sort-options">
-      @for (opt of [{v:'newest',l:'Newest'},{v:'price-asc',l:'Price: Low'},{v:'price-desc',l:'Price: High'},{v:'rating',l:'Top Rated'}]; track opt.v) {
+      @for (opt of [{v:'newest',l:'Newest'},{v:'price_asc',l:'Price: Low'},{v:'price_desc',l:'Price: High'},{v:'rating',l:'Top Rated'},{v:'popular',l:'Popular'}]; track opt.v) {
         <button class="sort-chip" [class.active]="productService.filters().sort === opt.v" (click)="setSort(opt.v)">{{ opt.l }}</button>
       }
     </div>

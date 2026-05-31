@@ -120,11 +120,11 @@
               @for (product of productService.pagedProducts(); track product.id) {
                 <div class="list-card">
                   <a [routerLink]="'/products/' + product.id" class="list-card-img-link">
-                    <img [src]="product.thumbnail" [alt]="product.name" class="list-card-img" loading="lazy">
+                    <img [src]="product.thumbnail" [alt]="product.title || product.name" class="list-card-img" loading="lazy">
                   </a>
                   <div class="list-card-body">
                     <span class="list-card-category">{{ product.category }}</span>
-                    <a [routerLink]="'/products/' + product.id" class="list-card-name">{{ product.name }}</a>
+                    <a [routerLink]="'/products/' + product.id" class="list-card-name">{{ product.title || product.name }}</a>
                     <p class="list-card-desc">{{ product.description }}</p>
                     <div class="list-card-footer">
                       <span class="list-card-price">{{ product.price | currency:'USD':'symbol':'1.2-2' }}</span>
