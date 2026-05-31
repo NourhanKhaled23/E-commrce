@@ -200,8 +200,8 @@
 }
 
 .category-card {
-  background: var(--color-primary);
-  border: 1px solid transparent;
+  background: linear-gradient(160deg, #1E1916 0%, #2A1F14 100%);
+  border: 0.5px solid transparent;
   border-radius: var(--radius-sm);
   padding: var(--space-10) var(--space-6);
   text-align: center;
@@ -211,12 +211,13 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-4);
+  overflow: hidden;
 }
 
 .category-card:hover {
-  border-color: var(--color-accent);
+  border-color: rgba(200,169,110,0.4);
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 24px rgba(42,31,20,0.25);
 }
 
 .category-icon i {
@@ -236,7 +237,7 @@
   font-weight: 600;
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
-  color: var(--color-text-inverse);
+  color: rgba(245,240,232,0.85);
 }
 
 /* ════════════════════════════════
@@ -386,7 +387,7 @@
    SECTION 8 — NEWSLETTER
    ════════════════════════════════ */
 .newsletter-section-home {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1C1714 100%);
   padding: var(--space-20) var(--space-8);
   position: relative;
   overflow: hidden;
