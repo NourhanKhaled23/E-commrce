@@ -105,6 +105,7 @@ export class ProductCrudComponent implements OnInit {
     const cat = this.admin.categories().find(c => c.slug === this.form.category);
     const catId = cat?.id || 1;
     const productData = {
+      title: this.sanitizeService.sanitizeText(this.form.name),
       name: this.sanitizeService.sanitizeText(this.form.name),
       description: this.sanitizeService.sanitizeText(this.form.description),
       price: this.sanitizeService.sanitizeNumber(this.form.price),

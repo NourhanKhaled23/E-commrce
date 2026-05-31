@@ -59,8 +59,14 @@
               },
               "src/assets"
             ],
-            "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css", "node_modules/bootstrap-icons/font/bootstrap-icons.css", "src/styles.css"],
-            "polyfills": ["zone.js"],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "src/styles.css"
+            ],
+            "polyfills": [
+              "zone.js"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -95,10 +101,16 @@
               "buildTarget": "e-commerce:build:production"
             },
             "development": {
-              "buildTarget": "e-commerce:build:development"
+              "buildTarget": "e-commerce:build:development",
+              "host": "0.0.0.0",
+              "port": 5000
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "host": "0.0.0.0",
+            "port": 5000
+          }
         },
         "test": {
           "builder": "@angular/build:unit-test"
@@ -107,4 +119,3 @@
     }
   }
 }
-

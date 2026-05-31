@@ -42,7 +42,7 @@ export class FilterPanelComponent implements OnInit {
   }
 
   setSort(sort: string): void {
-    this.productService.updateFilter({ sort: sort as 'newest' | 'price-asc' | 'price-desc' | 'rating' });
+    this.productService.updateFilter({ sort: sort as 'newest' | 'price_asc' | 'price_desc' | 'rating' });
   }
 
   resetAll(): void {

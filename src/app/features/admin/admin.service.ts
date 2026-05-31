@@ -93,11 +93,11 @@ export class AdminService {
       categories: this.http.get<Category[]>('/assets/mock-data/categories.json'),
     }).subscribe({
       next: ({ orders, products, users, banners, categories }) => {
-        this.orders.set(orders);
-        this.products.set(products);
-        this.users.set(users.map(us => ({ ...us, status: (us as any).status || 'active' })));
-        this.banners.set(banners);
-        this.categories.set(categories);
+        this.orders.set(orders ?? []);
+        this.products.set(products ?? []);
+        this.users.set((users ?? []).map(us => ({ ...us, status: (us as any).status || 'active' })));
+        this.banners.set(banners ?? []);
+        this.categories.set(categories ?? []);
         this.loading.set(false);
       },
       error: () => this.loading.set(false),

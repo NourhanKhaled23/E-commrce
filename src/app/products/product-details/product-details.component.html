@@ -63,7 +63,7 @@
 
             <!-- Overlays -->
             <div class="img-badge-row">
-              @if (p.discountPercentage > 0) {
+              @if ((p.discountPercentage ?? 0) > 0) {
                 <span class="img-badge sale-badge">-{{ p.discountPercentage | number:'1.0-0' }}%</span>
               }
               @if ((p.stock ?? 0) === 0) {
