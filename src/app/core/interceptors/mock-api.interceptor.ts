@@ -44,12 +44,24 @@ interface ProductFilters {
 }
 
 /**
+ * Replace dummyjson CDN URLs with reliable picsum.photos placeholders.
+ */
+function fixImageUrl(url: string | undefined, seed: number): string {
+  if (!url) return `https://picsum.photos/seed/${seed}/200/200`;
+  if (url.includes('cdn.dummyjson.com')) {
+    return `https://picsum.photos/seed/${seed}/200/200`;
+  }
+  return url;
+}
+
+/**
  * Normalize a raw product from JSON so every consumer sees consistent fields:
  *   title / name  (JSON uses `title`, model uses `name`)
  *   rating / avgRating  (JSON uses `rating`, model uses `avgRating`)
  *   comparePrice / originalPrice  (JSON may use either)
  */
 function normalizeProduct(p: any): any {
+  const id = p.id ?? Math.floor(Math.random() * 10000);
   return {
     ...p,
     title:       p.title       ?? p.name ?? '',
@@ -61,7 +73,8 @@ function normalizeProduct(p: any): any {
     reviewCount: p.reviewCount ?? 0,
     stock:       p.stock       ?? 0,
     tags:        p.tags        ?? [],
-    images:      (p.images && p.images.length > 0) ? p.images : [p.thumbnail],
+    thumbnail:   fixImageUrl(p.thumbnail, id),
+    images:      ((p.images && p.images.length > 0 ? p.images : [p.thumbnail]) as string[]).map(u => fixImageUrl(u, id)),
     active:      p.active !== false,
     createdAt:   p.createdAt   ?? new Date().toISOString(),
   };
