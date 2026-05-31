@@ -5,10 +5,9 @@
     <span class="sep">/</span>
     <a routerLink="/products">Products</a>
     <span class="sep">/</span>
-    @if (product(); as p) { <a [routerLink]="[]" class="current">{{ p.category }}</a> }
+    @if (product(); as p) { <span class="current">{{ p.category }}</span> }
   </nav>
 
-  <!-- Loading State -->
   @if (isLoading()) {
     <div class="detail-skeleton">
       <div class="sk-layout">
@@ -26,29 +25,69 @@
     </div>
   } @else {
     @let p = product();
+    @let imgs = galleryImages();
     @if (p) {
-      <!-- Main Product Section -->
       <div class="product-detail-layout">
-        <!-- Image Gallery -->
+
+        <!-- ═══════ IMAGE GALLERY ═══════ -->
         <div class="product-gallery">
-          <div class="main-image" [class.skeleton-shimmer]="!imageLoaded()" (click)="openLightbox(selectedImage())" role="button" tabindex="0" (keydown.enter)="openLightbox(selectedImage())">
-            @if (imageError() || !imageLoaded()) {
-              <div class="img-placeholder">
-                <i class="bi bi-image"></i>
+
+          <!-- Main image with zoom -->
+          <div class="main-image-wrapper"
+               [class.zoom-cursor]="imageLoaded() && !imageError()"
+               (mousemove)="onZoomMove($event)"
+               (mouseleave)="onZoomLeave()"
+               (click)="openLightbox(selectedImage())"
+               role="button" tabindex="0"
+               (keydown.enter)="openLightbox(selectedImage())"
+               aria-label="Open image gallery">
+
+            <div class="main-image" [class.skeleton-shimmer]="!imageLoaded()">
+              @if (imageError() || !imageLoaded()) {
+                <div class="img-placeholder"><i class="bi bi-image"></i></div>
+              }
+              <img #mainImgRef
+                   [src]="imgs[selectedImage()] || p.thumbnail"
+                   [alt]="p.title ?? p.name"
+                   [class.loaded]="imageLoaded() && !imageError()"
+                   (load)="onMainLoad()" (error)="onImageError()" />
+            </div>
+
+            <!-- Zoom lens -->
+            @if (zoomActive()) {
+              <div class="zoom-lens"
+                   [style.background-image]="zoomStyle().backgroundImage"
+                   [style.background-position]="zoomStyle().backgroundPosition">
               </div>
             }
-            <img [src]="p.images[selectedImage()] || p.thumbnail" [alt]="p.name"
-                 [class.loaded]="imageLoaded() && !imageError()"
-                 (load)="onMainLoad()" (error)="onImageError()" />
-            <div class="img-zoom-hint"><i class="bi bi-arrows-angle-expand"></i></div>
-            <button class="wishlist-btn-lg" [class.active]="inWishlist()" (click)="toggleWishlist(); $event.stopPropagation()" title="Toggle wishlist">
+
+            <!-- Overlays -->
+            <div class="img-badge-row">
+              @if (p.discountPercentage > 0) {
+                <span class="img-badge sale-badge">-{{ p.discountPercentage | number:'1.0-0' }}%</span>
+              }
+              @if ((p.stock ?? 0) === 0) {
+                <span class="img-badge oos-badge">Out of Stock</span>
+              }
+            </div>
+            <div class="img-zoom-hint"><i class="bi bi-arrows-angle-expand"></i> Zoom</div>
+            <button class="wishlist-btn-lg" [class.active]="inWishlist()"
+                    (click)="toggleWishlist(); $event.stopPropagation()" title="Toggle wishlist">
               <i class="bi" [class.bi-heart-fill]="inWishlist()" [class.bi-heart]="!inWishlist()"></i>
             </button>
+
+            <!-- Counter badge -->
+            @if (imgs.length > 1) {
+              <div class="img-counter">{{ selectedImage() + 1 }} / {{ imgs.length }}</div>
+            }
           </div>
-          @if (p.images.length > 1) {
+
+          <!-- Thumbnail strip -->
+          @if (imgs.length > 1) {
             <div class="thumbnails">
-              @for (img of p.images; track $index) {
-                <button class="thumb" [class.active]="$index === selectedImage()" (click)="selectImage($index)">
+              @for (img of imgs; track $index) {
+                <button class="thumb" [class.active]="$index === selectedImage()"
+                        (click)="selectImage($index)" [title]="'View image ' + ($index + 1)">
                   <img [src]="img" [alt]="'View ' + $index" (error)="onThumbError($index)" />
                   <span class="thumb-overlay"></span>
                 </button>
@@ -57,53 +96,67 @@
           }
         </div>
 
-        <!-- Product Info (sticky) -->
+        <!-- ═══════ PRODUCT INFO ═══════ -->
         <div class="product-info-detail">
           <p class="detail-category">{{ p.category }}</p>
-          <h1 class="detail-title">{{ p.name }}</h1>
+          <h1 class="detail-title">{{ p.title ?? p.name }}</h1>
 
           <div class="detail-rating">
-            @for (s of getStars(p.avgRating); track s) {
-              <i class="bi" [class.bi-star-fill]="s <= p.avgRating" [class.bi-star-half]="s - 0.5 <= p.avgRating && s > p.avgRating" [class.bi-star]="s > p.avgRating"></i>
+            @for (s of getStars(p.rating ?? p.avgRating); track s) {
+              <i class="bi"
+                 [class.bi-star-fill]="s <= (p.rating ?? p.avgRating)"
+                 [class.bi-star-half]="s - 0.5 <= (p.rating ?? p.avgRating) && s > (p.rating ?? p.avgRating)"
+                 [class.bi-star]="s > (p.rating ?? p.avgRating)"></i>
             }
-            <span>{{ p.avgRating.toFixed(1) }}</span>
+            <span>{{ (p.rating ?? p.avgRating ?? 0).toFixed(1) }}</span>
             <span class="rating-barrier">|</span>
-            <span class="review-link" (click)="setTab('reviews')">{{ p.reviewCount }} {{ p.reviewCount === 1 ? 'review' : 'reviews' }}</span>
-            @if (p.brand) { <span class="rating-barrier">|</span> <span class="brand-name">{{ p.brand }}</span> }
+            <span class="review-link" (click)="setTab('reviews')">
+              {{ p.reviewCount ?? 0 }} {{ (p.reviewCount ?? 0) === 1 ? 'review' : 'reviews' }}
+            </span>
+            @if (p.brand) {
+              <span class="rating-barrier">|</span>
+              <span class="brand-name">{{ p.brand }}</span>
+            }
           </div>
 
           <div class="detail-price-row">
             <span class="detail-price">{{ p.price | currency:'USD':'symbol':'1.2-2' }}</span>
-            @if (p.comparePrice) {
-              <span class="detail-compare">{{ p.comparePrice | currency:'USD':'symbol':'1.2-2' }}</span>
-              <span class="detail-save">Save {{ ((1 - p.price / p.comparePrice) * 100) | number:'1.0-0' }}%</span>
+            @if (p.originalPrice ?? p.comparePrice; as cp) {
+              <span class="detail-compare">{{ cp | currency:'USD':'symbol':'1.2-2' }}</span>
+              <span class="detail-save">Save {{ ((1 - p.price / cp) * 100) | number:'1.0-0' }}%</span>
             }
           </div>
 
-          <!-- Stock Urgency -->
           <div class="stock-section">
             @let stock = stockUrgency();
             <div class="stock-row">
-              <i class="bi" [class.bi-check-circle-fill]="stock.level === 'high' || stock.level === 'medium'" [class.bi-exclamation-circle-fill]="stock.level === 'low' || stock.level === 'critical'" [class.bi-x-circle-fill]="stock.level === 'empty'"></i>
-              <span [class.stock-critical]="stock.level === 'critical'" [class.stock-success]="stock.level === 'high' || stock.level === 'medium'" [class.stock-low]="stock.level === 'low'" [class.stock-empty]="stock.level === 'empty'">{{ stock.label }}</span>
+              <i class="bi"
+                 [class.bi-check-circle-fill]="stock.level === 'high' || stock.level === 'medium'"
+                 [class.bi-exclamation-circle-fill]="stock.level === 'low' || stock.level === 'critical'"
+                 [class.bi-x-circle-fill]="stock.level === 'empty'"></i>
+              <span [class.stock-critical]="stock.level === 'critical'"
+                    [class.stock-success]="stock.level === 'high' || stock.level === 'medium'"
+                    [class.stock-low]="stock.level === 'low'"
+                    [class.stock-empty]="stock.level === 'empty'">{{ stock.label }}</span>
             </div>
             @if (stock.level !== 'empty' && stock.level !== 'high') {
               <div class="stock-bar-track">
-                <div class="stock-bar-fill" [style.width.%]="stock.pct" [class.critical]="stock.level === 'critical'" [class.low]="stock.level === 'low'"></div>
+                <div class="stock-bar-fill" [style.width.%]="stock.pct"
+                     [class.critical]="stock.level === 'critical'"
+                     [class.low]="stock.level === 'low'"></div>
               </div>
             }
           </div>
 
           <p class="detail-desc">{{ p.description }}</p>
 
-          <!-- Quantity + Add to Cart -->
           <div class="detail-actions">
             <div class="quantity-selector">
-              <button class="qty-btn" (click)="changeQuantity(-1)" [disabled]="quantity() <= 1" aria-label="Decrease quantity"><i class="bi bi-dash"></i></button>
+              <button class="qty-btn" (click)="changeQuantity(-1)" [disabled]="quantity() <= 1"><i class="bi bi-dash"></i></button>
               <span class="qty-value">{{ quantity() }}</span>
-              <button class="qty-btn" (click)="changeQuantity(1)" [disabled]="p.stock > 0 && quantity() >= p.stock" aria-label="Increase quantity"><i class="bi bi-plus"></i></button>
+              <button class="qty-btn" (click)="changeQuantity(1)" [disabled]="(p.stock ?? 0) > 0 && quantity() >= (p.stock ?? 0)"><i class="bi bi-plus"></i></button>
             </div>
-            <button class="btn-primary-of add-cart-btn" (click)="addToCart()" [disabled]="p.stock === 0">
+            <button class="btn-primary-of add-cart-btn" (click)="addToCart()" [disabled]="(p.stock ?? 0) === 0">
               @if (addedToCart()) { <i class="bi bi-check2 added-bounce"></i> Added! }
               @else { <i class="bi bi-cart-plus"></i> Add to Cart }
             </button>
@@ -112,7 +165,6 @@
             </button>
           </div>
 
-          <!-- Seller Info -->
           @if (seller(); as s) {
             <div class="seller-info">
               <div class="seller-avatar">{{ s.name.charAt(0) }}</div>
@@ -123,8 +175,7 @@
             </div>
           }
 
-          <!-- Tags -->
-          @if (p.tags.length > 0) {
+          @if ((p.tags ?? []).length > 0) {
             <div class="detail-tags">
               @for (tag of p.tags; track tag) {
                 <span class="tag-badge">{{ tag }}</span>
@@ -132,7 +183,6 @@
             </div>
           }
 
-          <!-- Guarantee -->
           <div class="guarantee-row">
             <div class="guarantee-item"><i class="bi bi-truck"></i> Free shipping</div>
             <div class="guarantee-item"><i class="bi bi-arrow-return-left"></i> 30-day returns</div>
@@ -141,18 +191,18 @@
         </div>
       </div>
 
-      <!-- Tabs -->
+      <!-- ═══════ TABS ═══════ -->
       <div class="detail-tabs">
         <button class="tab-btn" [class.active]="activeTab() === 'description'" (click)="setTab('description')">
           <i class="bi bi-file-text"></i> Description
         </button>
         <button class="tab-btn" [class.active]="activeTab() === 'reviews'" (click)="setTab('reviews')">
-          <i class="bi bi-chat-text"></i> Reviews ({{ p.reviewCount }})
+          <i class="bi bi-chat-text"></i> Reviews ({{ p.reviewCount ?? 0 }})
         </button>
         <div class="tab-indicator" [style.transform]="activeTab() === 'reviews' ? 'translateX(100%)' : 'translateX(0)'"></div>
       </div>
 
-      <div class="tab-content" [class.fade-in]="true">
+      <div class="tab-content fade-in">
         @if (activeTab() === 'description') {
           <div class="description-content">
             <p class="desc-text">{{ p.description }}</p>
@@ -161,7 +211,7 @@
                 <div class="attr-item"><span class="attr-label">Brand</span><span class="attr-value">{{ p.brand }}</span></div>
               }
               <div class="attr-item"><span class="attr-label">Category</span><span class="attr-value">{{ p.category }}</span></div>
-              @if (p.tags.length) {
+              @if ((p.tags ?? []).length) {
                 <div class="attr-item"><span class="attr-label">Tags</span><span class="attr-value">{{ p.tags.join(', ') }}</span></div>
               }
               <div class="attr-item"><span class="attr-label">Stock</span><span class="attr-value">{{ p.stock }} units</span></div>
@@ -173,7 +223,6 @@
         }
       </div>
 
-      <!-- Related Products -->
       @if (relatedProducts().length > 0) {
         <div class="related-section">
           <div class="section-title">
@@ -188,7 +237,6 @@
         </div>
       }
 
-      <!-- Recently Viewed -->
       @if (recentlyViewedService.items().length > 0) {
         <div class="related-section">
           <div class="section-title">
@@ -206,32 +254,78 @@
   }
 </div>
 
-<!-- Lightbox -->
-@if (lightboxOpen() && product(); as p) {
-  <div class="lightbox-overlay" (click)="closeLightbox()" role="dialog" aria-label="Image lightbox">
-    <button class="lightbox-close" (click)="closeLightbox(); $event.stopPropagation()" aria-label="Close"><i class="bi bi-x-lg"></i></button>
-    <button class="lightbox-nav lightbox-prev" (click)="prevLightbox(); $event.stopPropagation()" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
-    <button class="lightbox-nav lightbox-next" (click)="nextLightbox(); $event.stopPropagation()" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
-    <div class="lightbox-content" (click)="$event.stopPropagation()">
-      <img [src]="p.images[lightboxIndex()] || p.thumbnail" [alt]="p.name" />
-      <div class="lightbox-counter">{{ lightboxIndex() + 1 }} / {{ p.images.length }}</div>
+<!-- ═══════════════════════════════════════
+     ENHANCED LIGHTBOX
+═══════════════════════════════════════ -->
+@if (lightboxOpen()) {
+  @let imgs = galleryImages();
+  @let p = product();
+  <div class="lightbox-overlay"
+       (click)="closeLightbox()"
+       (touchstart)="onLbTouchStart($event)"
+       (touchend)="onLbTouchEnd($event)"
+       role="dialog" aria-modal="true" aria-label="Image viewer">
+
+    <!-- Controls -->
+    <div class="lb-controls">
+      <button class="lb-ctrl-btn" (click)="toggleLightboxZoom(); $event.stopPropagation()" [class.active]="lightboxZoomed()" title="Zoom">
+        <i class="bi" [class.bi-zoom-in]="!lightboxZoomed()" [class.bi-zoom-out]="lightboxZoomed()"></i>
+      </button>
+      <span class="lb-counter">{{ lightboxIndex() + 1 }} / {{ imgs.length }}</span>
+      <button class="lb-ctrl-btn" (click)="closeLightbox(); $event.stopPropagation()" title="Close (Esc)">
+        <i class="bi bi-x-lg"></i>
+      </button>
     </div>
+
+    <!-- Nav buttons -->
+    @if (imgs.length > 1) {
+      <button class="lightbox-nav lightbox-prev" (click)="prevLightbox(); $event.stopPropagation()" aria-label="Previous (←)">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <button class="lightbox-nav lightbox-next" (click)="nextLightbox(); $event.stopPropagation()" aria-label="Next (→)">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    }
+
+    <!-- Main image -->
+    <div class="lightbox-stage" (click)="$event.stopPropagation()">
+      <div class="lightbox-img-wrap"
+           [class.lb-zoomed]="lightboxZoomed()"
+           [class.lb-slide-left]="lightboxSlideDir() === 'left'"
+           [class.lb-slide-right]="lightboxSlideDir() === 'right'">
+        <img [src]="imgs[lightboxIndex()]"
+             [alt]="(p?.title ?? p?.name) + ' image ' + (lightboxIndex() + 1)"
+             (dblclick)="toggleLightboxZoom()"
+             draggable="false" />
+      </div>
+    </div>
+
+    <!-- Thumbnail strip -->
+    @if (imgs.length > 1) {
+      <div class="lb-thumbs-strip" #lbThumbsRef (click)="$event.stopPropagation()">
+        @for (img of imgs; track $index) {
+          <button class="lb-thumb" [class.active]="$index === lightboxIndex()"
+                  (click)="goToLightboxImage($index)">
+            <img [src]="img" [alt]="'Thumbnail ' + $index" draggable="false" />
+          </button>
+        }
+      </div>
+    }
   </div>
 }
 
-<!-- Floating Mobile Add-to-Cart -->
-@if (product() && product()!.stock > 0) {
+<!-- Floating Mobile Bar -->
+@if (product() && (product()!.stock ?? 0) > 0) {
   <div class="floating-cart-bar">
     <div class="fc-price">{{ product()!.price | currency:'USD':'symbol':'1.2-2' }}</div>
     <div class="fc-actions">
       <div class="quantity-selector fc-qty">
         <button class="qty-btn" (click)="changeQuantity(-1)" [disabled]="quantity() <= 1"><i class="bi bi-dash"></i></button>
         <span class="qty-value">{{ quantity() }}</span>
-        <button class="qty-btn" (click)="changeQuantity(1)" [disabled]="product()!.stock > 0 && quantity() >= product()!.stock"><i class="bi bi-plus"></i></button>
+        <button class="qty-btn" (click)="changeQuantity(1)" [disabled]="(product()!.stock ?? 0) > 0 && quantity() >= (product()!.stock ?? 0)"><i class="bi bi-plus"></i></button>
       </div>
       <button class="btn-primary-of fc-add-btn" (click)="addToCart()">
-        @if (addedToCart()) { <i class="bi bi-check2"></i> }
-        @else { Add to Cart }
+        @if (addedToCart()) { <i class="bi bi-check2"></i> } @else { Add to Cart }
       </button>
     </div>
   </div>

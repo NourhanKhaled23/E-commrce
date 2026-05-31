@@ -1,4 +1,7 @@
-import { Component, OnInit, OnDestroy, inject, ChangeDetectionStrategy, signal, computed, effect } from '@angular/core';
+import {
+  Component, OnInit, OnDestroy, inject, ChangeDetectionStrategy,
+  signal, computed, HostListener, ElementRef, ViewChild
+} from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
@@ -30,10 +33,25 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   protected imageError = signal(false);
   protected addedToCart = signal(false);
   protected activeTab = signal<'description' | 'reviews'>('description');
-  protected lightboxOpen = signal(false);
-  protected lightboxIndex = signal(0);
   protected seller = signal<any>(null);
   protected sellerRating = signal('4.8');
+
+  // ── Lightbox state ──────────────────────────────
+  protected lightboxOpen = signal(false);
+  protected lightboxIndex = signal(0);
+  protected lightboxZoomed = signal(false);
+  protected lightboxSlideDir = signal<'left' | 'right' | null>(null);
+
+  // ── Zoom magnifier state ─────────────────────────
+  protected zoomActive = signal(false);
+  protected zoomStyle = signal({ backgroundImage: '', backgroundPosition: '0% 0%', display: 'none' });
+
+  // ── Touch / swipe ───────────────────────────────
+  private touchStartX = 0;
+  private touchStartY = 0;
+
+  @ViewChild('mainImgRef') mainImgRef?: ElementRef<HTMLImageElement>;
+  @ViewChild('lbThumbsRef') lbThumbsRef?: ElementRef<HTMLDivElement>;
 
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
@@ -45,7 +63,10 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   protected readonly recentlyViewedService = inject(RecentlyViewedService);
   protected readonly comparisonService = inject(ComparisonService);
 
-  protected readonly inWishlist = computed(() => this.product() ? this.wishlistService.isInWishlist(this.product()!.id) : false);
+  protected readonly inWishlist = computed(() =>
+    this.product() ? this.wishlistService.isInWishlist(this.product()!.id) : false
+  );
+
   protected readonly stockUrgency = computed(() => {
     const s = this.product()?.stock ?? 0;
     if (s === 0) return { label: 'Out of Stock', level: 'empty', pct: 0 };
@@ -54,6 +75,27 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     if (s <= 50) return { label: `${s} in stock`, level: 'medium', pct: 70 };
     return { label: 'In Stock', level: 'high', pct: 100 };
   });
+
+  protected readonly galleryImages = computed(() => {
+    const p = this.product();
+    if (!p) return [];
+    const imgs = Array.isArray(p.images) && p.images.length > 0 ? p.images : [p.thumbnail];
+    return imgs.filter(Boolean);
+  });
+
+  // ── Keyboard handler ─────────────────────────────
+  @HostListener('document:keydown', ['$event'])
+  onKeyDown(e: KeyboardEvent): void {
+    if (!this.lightboxOpen()) return;
+    switch (e.key) {
+      case 'Escape':    this.closeLightbox(); break;
+      case 'ArrowLeft': this.prevLightbox(); break;
+      case 'ArrowRight':this.nextLightbox(); break;
+      case '+':
+      case '=':         this.lightboxZoomed.set(true); break;
+      case '-':         this.lightboxZoomed.set(false); break;
+    }
+  }
 
   ngOnInit(): void {
     document.body.classList.add('has-floating-cart');
@@ -65,6 +107,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     document.body.classList.remove('has-floating-cart');
+    document.body.style.overflow = '';
   }
 
   loadProduct(id: number): void {
@@ -105,16 +148,109 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  selectImage(index: number): void { this.selectedImage.set(index); this.imageLoaded.set(false); this.imageError.set(false); }
+  // ── Gallery ──────────────────────────────────────
+  selectImage(index: number): void {
+    this.selectedImage.set(index);
+    this.imageLoaded.set(false);
+    this.imageError.set(false);
+    this.zoomActive.set(false);
+  }
+
   onMainLoad(): void { this.imageLoaded.set(true); }
   onImageError(): void { this.imageError.set(true); }
-  onThumbError($index: number): void {}
+  onThumbError(_index: number): void {}
 
-  openLightbox(index: number): void { this.lightboxIndex.set(index); this.lightboxOpen.set(true); }
-  closeLightbox(): void { this.lightboxOpen.set(false); }
-  prevLightbox(): void { this.lightboxIndex.update(i => i > 0 ? i - 1 : (this.product()?.images.length ?? 1) - 1); }
-  nextLightbox(): void { this.lightboxIndex.update(i => i < (this.product()?.images.length ?? 1) - 1 ? i + 1 : 0); }
+  // ── Zoom magnifier ───────────────────────────────
+  onZoomMove(e: MouseEvent): void {
+    if (!this.imageLoaded() || this.imageError()) return;
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    const imgs = this.galleryImages();
+    const src = imgs[this.selectedImage()] || '';
+    this.zoomStyle.set({
+      backgroundImage: `url('${src}')`,
+      backgroundPosition: `${x}% ${y}%`,
+      display: 'block',
+    });
+    this.zoomActive.set(true);
+  }
 
+  onZoomLeave(): void {
+    this.zoomActive.set(false);
+    this.zoomStyle.set({ backgroundImage: '', backgroundPosition: '0% 0%', display: 'none' });
+  }
+
+  // ── Lightbox ─────────────────────────────────────
+  openLightbox(index: number): void {
+    this.lightboxIndex.set(index);
+    this.lightboxOpen.set(true);
+    this.lightboxZoomed.set(false);
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => this.scrollLbThumb(index), 50);
+  }
+
+  closeLightbox(): void {
+    this.lightboxOpen.set(false);
+    this.lightboxZoomed.set(false);
+    document.body.style.overflow = '';
+  }
+
+  prevLightbox(): void {
+    const len = this.galleryImages().length;
+    this.lightboxSlideDir.set('right');
+    this.lightboxIndex.update(i => (i - 1 + len) % len);
+    this.lightboxZoomed.set(false);
+    setTimeout(() => this.lightboxSlideDir.set(null), 350);
+    this.scrollLbThumb(this.lightboxIndex());
+  }
+
+  nextLightbox(): void {
+    const len = this.galleryImages().length;
+    this.lightboxSlideDir.set('left');
+    this.lightboxIndex.update(i => (i + 1) % len);
+    this.lightboxZoomed.set(false);
+    setTimeout(() => this.lightboxSlideDir.set(null), 350);
+    this.scrollLbThumb(this.lightboxIndex());
+  }
+
+  goToLightboxImage(index: number): void {
+    const cur = this.lightboxIndex();
+    this.lightboxSlideDir.set(index > cur ? 'left' : 'right');
+    this.lightboxIndex.set(index);
+    this.lightboxZoomed.set(false);
+    setTimeout(() => this.lightboxSlideDir.set(null), 350);
+    this.scrollLbThumb(index);
+  }
+
+  toggleLightboxZoom(): void {
+    this.lightboxZoomed.update(z => !z);
+  }
+
+  private scrollLbThumb(index: number): void {
+    const el = this.lbThumbsRef?.nativeElement;
+    if (!el) return;
+    const thumbs = el.querySelectorAll<HTMLElement>('.lb-thumb');
+    if (thumbs[index]) {
+      thumbs[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }
+
+  // ── Touch / swipe (lightbox) ─────────────────────
+  onLbTouchStart(e: TouchEvent): void {
+    this.touchStartX = e.touches[0].clientX;
+    this.touchStartY = e.touches[0].clientY;
+  }
+
+  onLbTouchEnd(e: TouchEvent): void {
+    const dx = e.changedTouches[0].clientX - this.touchStartX;
+    const dy = e.changedTouches[0].clientY - this.touchStartY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      dx < 0 ? this.nextLightbox() : this.prevLightbox();
+    }
+  }
+
+  // ── Cart / Wishlist ───────────────────────────────
   changeQuantity(delta: number): void {
     const p = this.product();
     if (!p) return;
@@ -127,7 +263,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     if (p) {
       this.cartService.addToCart(p, this.quantity());
       this.addedToCart.set(true);
-      this.notificationService.show(`${p.name} added to cart`, 'success');
+      this.notificationService.show(`${p.title ?? p.name} added to cart`, 'success');
       setTimeout(() => this.addedToCart.set(false), 2000);
     }
   }
@@ -142,18 +278,16 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   setTab(tab: 'description' | 'reviews'): void { this.activeTab.set(tab); }
 
   onCardAddToCart(product: Product): void {
-    // cartService.addToCart is handled by ProductCardComponent
-    this.notificationService.show(`${product.name} added to cart`, 'success');
+    this.notificationService.show(`${(product as any).title ?? (product as any).name} added to cart`, 'success');
   }
 
   onCardToggleWishlist(productId: number): void {
-    // wishlistService.toggle is handled by ProductCardComponent
-    this.notificationService.show(this.wishlistService.isInWishlist(productId) ? 'Added to wishlist' : 'Removed from wishlist', 'info');
+    this.notificationService.show(
+      this.wishlistService.isInWishlist(productId) ? 'Added to wishlist' : 'Removed from wishlist', 'info'
+    );
   }
 
-  getStars(rating: number): number[] {
-    return [1, 2, 3, 4, 5];
-  }
+  getStars(_rating: number): number[] { return [1, 2, 3, 4, 5]; }
 
   toggleComparison(): void {
     const p = this.product();
