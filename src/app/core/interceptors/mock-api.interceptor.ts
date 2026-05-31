@@ -77,7 +77,7 @@ function parseProductFilters(params: HttpParams): ProductFilters {
     minRating:    params.get('minRating')    ? +params.get('minRating')!   : undefined,
     inStock:      params.get('inStock')      === 'true'                    ? true : undefined,
     sellerId:     params.get('sellerId')     ? +params.get('sellerId')!    : undefined,
-    sort:         (params.get('sort') as any) || 'newest',
+    sort:         ((params.get('sort') as any) || 'newest').replace(/-/g, '_'),
     limit:        params.get('limit')        ? +params.get('limit')!       : 20,
     skip:         params.get('skip')         ? +params.get('skip')!        : 0,
   };
@@ -170,7 +170,8 @@ export const mockApiInterceptor: HttpInterceptorFn = (req, next) => {
     return http.get<any>('/assets/mock-data/products.json').pipe(
       delay(200),
       map(data => {
-        const all = Array.isArray(data) ? data : (data.products ?? []);
+        const raw = Array.isArray(data) ? data : (data.products ?? []);
+        const all = raw.map(normalizeProduct);
         const filtered = all.filter((p: any) =>
           p.title?.toLowerCase().includes(query) || p.description?.toLowerCase().includes(query)
         );
@@ -211,7 +212,8 @@ export const mockApiInterceptor: HttpInterceptorFn = (req, next) => {
     return http.get<any>('/assets/mock-data/products.json').pipe(
       delay(250),
       map(data => {
-        const all = Array.isArray(data) ? data : (data.products ?? []);
+        const raw = Array.isArray(data) ? data : (data.products ?? []);
+        const all = raw.map(normalizeProduct);
         const filtered = all.filter((p: any) => p.category?.toLowerCase() === category.toLowerCase());
         return new HttpResponse({ status: 200, body: { products: filtered, total: filtered.length, skip: 0, limit: filtered.length } });
       })
