@@ -1,0 +1,224 @@
+<div class="page-container">
+  <div class="page-title"><h1>My Profile</h1></div>
+
+  @let u = user();
+  @if (!u) {
+    <div class="empty-state"><i class="bi bi-person"></i><h3>Not logged in</h3><a routerLink="/auth/login" class="btn-primary-of">Sign In</a></div>
+  } @else {
+    <div class="profile-layout">
+      <aside class="profile-sidebar">
+
+        <!-- Avatar upload area -->
+        <div class="avatar-upload-wrapper">
+          <div class="avatar-display">
+            <app-user-avatar
+              [userId]="u.id"
+              [name]="u.name"
+              [role]="u.role"
+              [size]="96"
+              [showBadge]="true">
+            </app-user-avatar>
+            <button class="avatar-change-btn" (click)="triggerUpload()" type="button" title="Change photo">
+              <i class="bi bi-camera-fill"></i>
+            </button>
+          </div>
+          <input #fileInput type="file" accept="image/jpeg,image/png,image/webp"
+            style="display:none" (change)="onFileSelected($event)" />
+          @if (uploadError()) {
+            <div class="avatar-error">{{ uploadError() }}</div>
+          }
+          @if (avatarPreview()) {
+            <button class="avatar-remove-btn" (click)="removeAvatar()" type="button">
+              <i class="bi bi-x-circle"></i> Remove photo
+            </button>
+          }
+        </div>
+
+        <div class="profile-name">{{ u.name }}</div>
+        <div class="profile-role">{{ u.role }}</div>
+        <div class="profile-stats">
+          <div class="profile-stat"><span class="profile-stat-label">Wallet</span><span class="profile-stat-value">${{ u.walletBalance | number:'1.2-2' }}</span></div>
+          <div class="profile-stat"><span class="profile-stat-label">Loyalty Points</span><span class="profile-stat-value">{{ u.loyaltyPoints }}</span></div>
+        </div>
+      </aside>
+
+      <main>
+        @if (saveMessage(); as msg) {
+          <div class="alert-of" [class.alert-success]="msg.includes('successfully')" [class.alert-error]="!msg.includes('successfully')">{{ msg }}</div>
+        }
+
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profile-section">
+          <h3>Personal Information</h3>
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label class="form-label-of" for="p-name">Full Name</label>
+              <input type="text" id="p-name" class="form-input-of" formControlName="name" [class.is-invalid]="f['name'].touched && f['name'].invalid" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label class="form-label-of" for="p-email">Email</label>
+              <input type="email" id="p-email" class="form-input-of" formControlName="email" [disabled]="true" />
+            </div>
+            <div class="form-group flex-1">
+              <label class="form-label-of" for="p-phone">Phone</label>
+              <input type="tel" id="p-phone" class="form-input-of" formControlName="phone" [class.is-invalid]="f['phone'].touched && f['phone'].invalid" />
+            </div>
+          </div>
+          <h3 class="profile-section-subtitle">Shipping Address</h3>
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label class="form-label-of" for="p-street">Street</label>
+              <input type="text" id="p-street" class="form-input-of" formControlName="street" />
+            </div>
+          </div>
+          <div class="form-row form-row-3">
+            <div class="form-group">
+              <label class="form-label-of" for="p-city">City</label>
+              <input type="text" id="p-city" class="form-input-of" formControlName="city" />
+            </div>
+            <div class="form-group">
+              <label class="form-label-of" for="p-state">State</label>
+              <input type="text" id="p-state" class="form-input-of" formControlName="state" />
+            </div>
+            <div class="form-group">
+              <label class="form-label-of" for="p-zip">Zip Code</label>
+              <input type="text" id="p-zip" class="form-input-of" formControlName="zipCode" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label class="form-label-of" for="p-country">Country</label>
+              <input type="text" id="p-country" class="form-input-of" formControlName="country" />
+            </div>
+          </div>
+          <button type="submit" class="btn-primary-of" [disabled]="isSaving()">
+            @if (isSaving()) { Saving... } @else { Save Changes }
+          </button>
+        </form>
+
+        <!-- Payment Methods -->
+        <div class="profile-section">
+          <div class="pm-section-header">
+            <h3>Payment Methods</h3>
+            @if (!showAddCard()) {
+              <button class="pm-add-btn" (click)="openAddCard()">
+                <i class="bi bi-plus-lg"></i> Add Card
+              </button>
+            }
+          </div>
+
+          @if (u.savedCards && u.savedCards.length > 0) {
+            <div class="pm-card-list">
+              @for (card of u.savedCards; track card.id) {
+                <div class="pm-card" [class.pm-card-default]="card.isDefault">
+                  <div class="pm-card-icon">
+                    <i class="bi" [class.bi-credit-card-2-front]="card.brand === 'Amex'" [class.bi-credit-card]="card.brand !== 'Amex'"></i>
+                  </div>
+                  <div class="pm-card-info">
+                    <div class="pm-card-brand">{{ card.brand }}</div>
+                    <div class="pm-card-number">•••• •••• •••• {{ card.last4 }}</div>
+                    <div class="pm-card-expiry">Expires {{ card.expMonth }}/{{ card.expYear }}</div>
+                  </div>
+                  <div class="pm-card-actions">
+                    @if (card.isDefault) {
+                      <span class="pm-default-badge">Default</span>
+                    } @else {
+                      <button class="pm-btn-ghost" (click)="setDefaultCard(card.id)">Set default</button>
+                    }
+                    <button class="pm-btn-remove" (click)="removeCard(card.id)" title="Remove card">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                </div>
+              }
+            </div>
+          } @else if (!showAddCard()) {
+            <div class="pm-empty">
+              <i class="bi bi-credit-card"></i>
+              <p>No saved cards yet. Add one for faster checkout.</p>
+            </div>
+          }
+
+          @if (showAddCard()) {
+            <form [formGroup]="cardForm" (ngSubmit)="addCard()" class="pm-add-form">
+              <h4 class="pm-add-title">Add New Card</h4>
+              <div class="pm-form-row">
+                <div class="pm-form-group pm-flex-2">
+                  <label>Card Number <span class="pm-req">*</span></label>
+                  <input type="text" formControlName="cardNumber" maxlength="16"
+                    placeholder="1234567890123456"
+                    (input)="formatCardNumber($event)"
+                    [class.pm-invalid]="cf['cardNumber'].touched && cf['cardNumber'].invalid" />
+                  <span class="pm-hint">Last 4 digits saved — no CVV stored</span>
+                  @if (cf['cardNumber'].touched && cf['cardNumber'].errors?.['required']) {
+                    <span class="pm-err">Card number is required</span>
+                  }
+                  @if (cf['cardNumber'].touched && cf['cardNumber'].errors?.['pattern']) {
+                    <span class="pm-err">Must be 16 digits</span>
+                  }
+                </div>
+                <div class="pm-form-group pm-flex-1">
+                  <label>Card Type</label>
+                  <select formControlName="brand">
+                    <option value="Visa">Visa</option>
+                    <option value="Mastercard">Mastercard</option>
+                    <option value="Amex">Amex</option>
+                    <option value="Discover">Discover</option>
+                  </select>
+                </div>
+              </div>
+              <div class="pm-form-row">
+                <div class="pm-form-group pm-flex-2">
+                  <label>Name on Card <span class="pm-req">*</span></label>
+                  <input type="text" formControlName="nameOnCard" placeholder="John Doe"
+                    [class.pm-invalid]="cf['nameOnCard'].touched && cf['nameOnCard'].invalid" />
+                  @if (cf['nameOnCard'].touched && cf['nameOnCard'].errors?.['required']) {
+                    <span class="pm-err">Name is required</span>
+                  }
+                </div>
+                <div class="pm-form-group pm-flex-1">
+                  <label>Exp. Month <span class="pm-req">*</span></label>
+                  <input type="number" formControlName="expMonth" min="1" max="12" placeholder="MM"
+                    [class.pm-invalid]="cf['expMonth'].touched && cf['expMonth'].invalid" />
+                </div>
+                <div class="pm-form-group pm-flex-1">
+                  <label>Exp. Year <span class="pm-req">*</span></label>
+                  <input type="number" formControlName="expYear" min="2026" placeholder="YYYY"
+                    [class.pm-invalid]="cf['expYear'].touched && cf['expYear'].invalid" />
+                </div>
+              </div>
+              <div class="pm-form-actions">
+                <button type="button" class="pm-btn-cancel" (click)="cancelAddCard()">Cancel</button>
+                <button type="submit" class="pm-btn-save" [disabled]="savingCard()">
+                  @if (savingCard()) { Saving... } @else { <i class="bi bi-lock-fill"></i> Save Card }
+                </button>
+              </div>
+            </form>
+          }
+        </div>
+
+        <!-- Loyalty Dashboard -->
+        <div class="profile-section">
+          <h3>Loyalty Program</h3>
+          <app-loyalty-dashboard></app-loyalty-dashboard>
+        </div>
+
+        <div class="profile-section">
+          <h3>Quick Links</h3>
+          <div class="profile-links">
+            <a routerLink="/orders" class="profile-link-card">
+              <i class="bi bi-box-seam"></i>
+              <span>Order History</span>
+            </a>
+            <a routerLink="/wishlist" class="profile-link-card">
+              <i class="bi bi-heart"></i>
+              <span>Wishlist</span>
+              @if (wishlistCount() > 0) { <span class="badge-wishlist">{{ wishlistCount() }}</span> }
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+  }
+</div>

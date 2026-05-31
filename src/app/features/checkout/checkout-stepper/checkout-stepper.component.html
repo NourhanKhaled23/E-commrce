@@ -1,0 +1,16 @@
+<div class="checkout-stepper">
+  <div class="stepper-labels">
+    @for (label of labels; track $index) {
+      <span class="step-label" [class.active]="$index + 1 <= currentStep()" [class.current]="$index + 1 === currentStep()">
+        {{ label }}
+      </span>
+    }
+  </div>
+  <div class="stepper-track">
+    <div class="stepper-fill" [style.width.%]="((currentStep() - 1) / (labels.length - 1)) * 100"
+         role="progressbar"
+         [attr.aria-valuenow]="((currentStep() - 1) / (labels.length - 1)) * 100"
+         aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <h1>Open Fashion</h1>
+      <div class="decorative-line"><span class="diamond"></span></div>
+      <p class="auth-subtitle">Sign in to your account</p>
+    </div>
+
+    @if (errorMessage(); as msg) {
+      <div class="auth-error"><i class="bi bi-exclamation-circle"></i> {{ msg }}</div>
+    }
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form">
+      <div class="form-group">
+        <label class="form-label-of" for="email">Email</label>
+        <input type="email" id="email" class="form-input-of" formControlName="email" placeholder="Enter your email"
+          [class.is-invalid]="f['email'].touched && f['email'].invalid" />
+        @if (f['email'].touched && f['email'].errors?.['required']) { <span class="form-error">Email is required</span> }
+        @if (f['email'].touched && f['email'].errors?.['email']) { <span class="form-error">Enter a valid email</span> }
+      </div>
+
+      <div class="form-group">
+        <label class="form-label-of" for="password">Password</label>
+        <div class="input-wrapper">
+          <input [type]="showPassword() ? 'text' : 'password'" id="password" class="form-input-of" formControlName="password"
+            placeholder="Enter your password" [class.is-invalid]="f['password'].touched && f['password'].invalid" />
+          <button type="button" class="input-icon-btn" (click)="togglePassword()" tabindex="-1">
+            <i class="bi" [class.bi-eye]="!showPassword()" [class.bi-eye-slash]="showPassword()"></i>
+          </button>
+        </div>
+        @if (f['password'].touched && f['password'].errors?.['required']) { <span class="form-error">Password is required</span> }
+        @if (f['password'].touched && f['password'].errors?.['minlength']) { <span class="form-error">Password must be at least 3 characters</span> }
+        <div class="form-row-between">
+          <span></span>
+          <a routerLink="/auth/forgot-password" class="forgot-link">Forgot password?</a>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary-of btn-block auth-submit" [disabled]="isLoading()">
+        @if (isLoading()) { <span class="btn-spinner"></span> Signing In... }
+        @else { Sign In }
+      </button>
+    </form>
+
+    <div class="divider-decorated"><span class="diamond"></span></div>
+
+    <div class="social-login-section">
+      <p class="social-login-label">Or continue with</p>
+      <div class="social-buttons">
+        <button type="button" class="btn-social btn-google" (click)="mockGoogleSignIn()" [disabled]="googleLoading()">
+          <i class="bi bi-google"></i>
+          <span>Google</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="auth-demo">
+      <p><strong>Admin:</strong> admin@openfashion.com / admin123</p>
+      <p><strong>Customer:</strong> customer@openfashion.com / customer123</p>
+      <p><strong>Seller:</strong> seller@openfashion.com / seller123</p>
+    </div>
+
+    <div class="divider-decorated"><span class="diamond"></span></div>
+    <p class="auth-switch">Don't have an account? <a routerLink="/auth/register">Create Account</a></p>
+  </div>
+</div>

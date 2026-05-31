@@ -1,0 +1,109 @@
+<div class="loyalty-dashboard">
+  <!-- Tier Badge & Points -->
+  <div class="loyalty-hero">
+    <div class="tier-badge" [style.background]="tierColor(tier())">
+      <i class="bi" [ngClass]="tierIcon(tier())"></i>
+    </div>
+    <div class="tier-info">
+      <span class="tier-label" [style.color]="tierColor(tier())">{{ tier() }} Member</span>
+      <div class="points-display">
+        <span class="points-value">{{ points() | number }}</span>
+        <span class="points-label">Points</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress to Next Tier -->
+  @if (tier() !== 'Gold') {
+    <div class="tier-progress-section">
+      <div class="progress-header">
+        <span>Progress to {{ tier() === 'Bronze' ? 'Silver' : 'Gold' }}</span>
+        <span class="progress-pct">{{ tierProgress() }}%</span>
+      </div>
+      <div class="progress-track">
+        <div 
+          class="progress-fill" 
+          [style.width.%]="tierProgress()"
+          [style.background]="tierColor(tier() === 'Bronze' ? 'Silver' : 'Gold')"
+        ></div>
+      </div>
+      <p class="progress-hint">{{ pointsToNextTier() | number }} more points to unlock {{ tier() === 'Bronze' ? 'Silver' : 'Gold' }}</p>
+    </div>
+  } @else {
+    <div class="tier-progress-section gold-status">
+      <i class="bi bi-gem"></i>
+      <p>You've reached the highest tier! Enjoy exclusive benefits.</p>
+    </div>
+  }
+
+  <!-- Redeem Points -->
+  <div class="redeem-section">
+    <h4>Redeem Points</h4>
+    <p class="redeem-rate">100 points = $1.00 off your next order</p>
+
+    @if (canRedeem()) {
+      <div class="redeem-controls">
+        <div class="redeem-input-group">
+          <label>Points to redeem:</label>
+          <input 
+            type="number" 
+            class="form-input-of redeem-input" 
+            [value]="redeemAmount()" 
+            (input)="updateRedeemAmount($any($event.target).value)"
+            [min]="100"
+            [max]="maxRedeemable()"
+            step="100"
+          />
+          <span class="redeem-dollar">= ${{ dollarValue() | number:'1.2-2' }}</span>
+        </div>
+        <button class="btn-accent redeem-btn" (click)="onRedeem()">
+          <i class="bi bi-gift"></i> Redeem Now
+        </button>
+      </div>
+    } @else {
+      <p class="text-muted">You need at least 100 points to redeem.</p>
+    }
+
+    @if (loyaltyDiscount() > 0) {
+      <div class="discount-applied">
+        <i class="bi bi-check-circle-fill"></i>
+        ${{ loyaltyDiscount() | number:'1.2-2' }} loyalty discount applied to your cart!
+      </div>
+    }
+  </div>
+
+  <!-- Points History -->
+  @if (history().length > 0) {
+    <div class="history-section">
+      <h4>Points History</h4>
+      <div class="history-table-wrapper">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Type</th>
+              <th class="text-end">Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (entry of history(); track entry.date) {
+              <tr>
+                <td class="text-muted">{{ entry.date | timeAgo }}</td>
+                <td>{{ entry.description }}</td>
+                <td>
+                  <span class="history-badge" [class.earned]="entry.type === 'earned'" [class.redeemed]="entry.type === 'redeemed'">
+                    {{ entry.type }}
+                  </span>
+                </td>
+                <td class="text-end" [class.text-success]="entry.type === 'earned'" [class.text-danger]="entry.type === 'redeemed'">
+                  {{ entry.type === 'earned' ? '+' : '-' }}{{ entry.points | number }}
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  }
+</div>

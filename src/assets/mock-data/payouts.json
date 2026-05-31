@@ -1,0 +1,55 @@
+[
+  {
+    "id": 1,
+    "sellerId": 3,
+    "amount": 1250.00,
+    "fee": 125.00,
+    "net": 1125.00,
+    "status": "paid",
+    "requestedAt": "2026-04-01T10:00:00Z",
+    "paidAt": "2026-04-05T14:30:00Z",
+    "reference": "PAY-2026-0401-001"
+  },
+  {
+    "id": 2,
+    "sellerId": 3,
+    "amount": 890.50,
+    "fee": 89.05,
+    "net": 801.45,
+    "status": "paid",
+    "requestedAt": "2026-03-15T09:00:00Z",
+    "paidAt": "2026-03-19T11:20:00Z",
+    "reference": "PAY-2026-0315-002"
+  },
+  {
+    "id": 3,
+    "sellerId": 3,
+    "amount": 2100.00,
+    "fee": 210.00,
+    "net": 1890.00,
+    "status": "processing",
+    "requestedAt": "2026-05-01T08:00:00Z",
+    "reference": "PAY-2026-0501-003"
+  },
+  {
+    "id": 4,
+    "sellerId": 3,
+    "amount": 675.25,
+    "fee": 67.53,
+    "net": 607.72,
+    "status": "pending",
+    "requestedAt": "2026-05-20T12:00:00Z",
+    "reference": "PAY-2026-0520-004"
+  },
+  {
+    "id": 5,
+    "sellerId": 3,
+    "amount": 1540.00,
+    "fee": 154.00,
+    "net": 1386.00,
+    "status": "paid",
+    "requestedAt": "2026-02-10T10:00:00Z",
+    "paidAt": "2026-02-14T16:45:00Z",
+    "reference": "PAY-2026-0210-005"
+  }
+]

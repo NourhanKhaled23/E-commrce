@@ -1,0 +1,70 @@
+<div class="page-container">
+  <div class="page-title">
+    <h1>My Wishlist</h1>
+    @if (wishlistService.count(); as count) {
+      <p class="wishlist-count">{{ count }} {{ count === 1 ? 'item' : 'items' }} saved</p>
+    }
+    @if (products().length > 0) {
+      <button class="share-btn" (click)="shareWishlist()" title="Share wishlist">
+        <i class="bi bi-share"></i> Share
+      </button>
+    }
+  </div>
+
+  @if (isLoading()) {
+    <div class="skeleton-grid">
+      @for (_ of [1,2,3,4,5,6]; track $index) {
+        <div class="skeleton-card">
+          <div class="skeleton-img skeleton-pulse"></div>
+          <div class="skeleton-body">
+            <div class="skeleton-line skeleton-pulse" style="width:40%;height:12px;"></div>
+            <div class="skeleton-line skeleton-pulse" style="width:75%;height:16px;"></div>
+            <div class="skeleton-footer">
+              <div class="skeleton-line skeleton-pulse" style="width:30%;height:18px;"></div>
+              <div class="skeleton-circle skeleton-pulse"></div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  @if (!isLoading()) {
+    @if (products().length === 0) {
+      <div class="empty-state enhanced-empty">
+        <div class="empty-icon-wrapper"><i class="bi bi-heart"></i></div>
+        <h3>Your wishlist is empty</h3>
+        <p>Save items you love and come back to them later.</p>
+        <a routerLink="/products" class="btn-primary-of"><i class="bi bi-arrow-left"></i> Browse Products</a>
+      </div>
+    } @else {
+      <div class="product-grid-of">
+        @for (product of products(); track product.id) {
+          <div class="product-card-of wishlist-card">
+            <button class="wishlist-remove-btn" (click)="removeFromWishlist(product.id)" title="Remove from wishlist">
+              <i class="bi bi-x"></i>
+            </button>
+            <a [routerLink]="['/products', product.id]" class="product-card-image">
+              <img [src]="product.thumbnail" [alt]="product.name" loading="lazy" />
+            </a>
+            <div class="product-card-body">
+              <p class="product-card-category">{{ product.category }}</p>
+              <h3 class="product-card-title">
+                <a [routerLink]="['/products', product.id]">{{ product.name }}</a>
+              </h3>
+              <div class="product-card-footer">
+                <span class="product-card-price">{{ product.price | currency:'USD':'symbol':'1.2-2' }}</span>
+                <div class="product-card-actions-wl">
+                  <button class="share-item-btn" (click)="shareProduct(product)" title="Share"><i class="bi bi-share"></i></button>
+                  <button class="btn-primary-of btn-sm-of" (click)="addToCart(product)">
+                    <i class="bi bi-cart-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  }
+</div>

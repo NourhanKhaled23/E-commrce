@@ -1,0 +1,202 @@
+<div class="inventory">
+  <div class="page-header">
+    <div>
+      <h1><i class="bi bi-box-seam"></i> Product Inventory</h1>
+      <p class="page-subtitle">Manage your product catalog</p>
+    </div>
+    <button class="btn btn-seller" (click)="openAddModal()">
+      <i class="bi bi-plus-lg"></i> Add Product
+    </button>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num">{{ seller.myProducts().length }}</span>
+      <span class="stat-label">Total</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num active-num">{{ activeProducts().length }}</span>
+      <span class="stat-label">Active</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num inactive-num">{{ inactiveProducts().length }}</span>
+      <span class="stat-label">Inactive</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num low-num">{{ seller.lowStockProducts().length }}</span>
+      <span class="stat-label">Low Stock</span>
+    </div>
+  </div>
+
+  <!-- Search & Filter -->
+  <div class="toolbar">
+    <div class="search-box">
+      <i class="bi bi-search"></i>
+      <input type="text" placeholder="Search products…"
+             [ngModel]="searchQuery()"
+             (ngModelChange)="searchQuery.set($event)" />
+    </div>
+    <select class="filter-select" [ngModel]="statusFilter()" (ngModelChange)="statusFilter.set($event)">
+      <option value="all">All Status</option>
+      <option value="active">Active</option>
+      <option value="inactive">Inactive</option>
+    </select>
+  </div>
+
+  <!-- Products Table -->
+  @if (seller.loading()) {
+    <div class="loading-state">
+      <div class="spinner-border text-success"></div>
+      <p>Loading products…</p>
+    </div>
+  } @else if (filteredProducts().length === 0) {
+    <div class="empty-state">
+      <i class="bi bi-box-seam"></i>
+      <p>No products found</p>
+    </div>
+  } @else {
+    <div class="table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Rating</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (product of filteredProducts(); track product.id) {
+            <tr [class.inactive-row]="product.active === false">
+              <td>
+                <div class="product-cell">
+                  <img [src]="product.thumbnail" [alt]="product.name" class="product-thumb" />
+                  <div class="product-info">
+                    <span class="product-name">{{ product.name }}</span>
+                    <span class="product-id">ID: {{ product.id }}</span>
+                  </div>
+                </div>
+              </td>
+              <td><span class="category-tag">{{ product.category }}</span></td>
+              <td class="price-cell">{{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
+              <td>
+                @if (editingStockId() === product.id) {
+                  <div class="stock-edit">
+                    <input type="number" class="stock-input" min="0"
+                           [(ngModel)]="editStockValue"
+                           (keyup.enter)="saveStock(product.id)"
+                           (keyup.escape)="cancelStockEdit()" />
+                    <button class="stock-btn save" (click)="saveStock(product.id)"
+                            title="Save">
+                      <i class="bi bi-check-lg"></i>
+                    </button>
+                    <button class="stock-btn cancel" (click)="cancelStockEdit()"
+                            title="Cancel">
+                      <i class="bi bi-x-lg"></i>
+                    </button>
+                  </div>
+                } @else {
+                  <div class="stock-display" (click)="startStockEdit(product)">
+                    <span class="stock-value" [class.low]="product.stock < 5"
+                          [class.out]="product.stock === 0">
+                      {{ product.stock }}
+                    </span>
+                    <i class="bi bi-pencil-fill stock-edit-icon"></i>
+                  </div>
+                }
+              </td>
+              <td>
+                <div class="rating-cell">
+                  <i class="bi bi-star-fill"></i>
+                  {{ product.avgRating | number:'1.1-1' }}
+                </div>
+              </td>
+              <td>
+                <span class="active-badge" [class.active]="product.active !== false"
+                      [class.inactive]="product.active === false">
+                  {{ product.active !== false ? 'Active' : 'Inactive' }}
+                </span>
+              </td>
+              <td>
+                <div class="action-btns">
+                  <button class="action-btn edit" (click)="openEditModal(product)"
+                          title="Edit">
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                  @if (product.active !== false) {
+                    <button class="action-btn delete" (click)="deactivateProduct(product.id)"
+                            title="Deactivate">
+                      <i class="bi bi-trash3"></i>
+                    </button>
+                  }
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>
+
+<!-- Add / Edit Modal -->
+@if (showModal()) {
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-dialog" (click)="$event.stopPropagation()">
+      <div class="modal-header-custom">
+        <h3>{{ editingProduct() ? 'Edit Product' : 'Add New Product' }}</h3>
+        <button class="modal-close" (click)="closeModal()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="modal-body-custom">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Product Name <span class="req">*</span></label>
+            <input type="text" class="form-control" [(ngModel)]="formName" />
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <input type="text" class="form-control" [(ngModel)]="formCategory" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="form-control" rows="3" [(ngModel)]="formDescription"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Price <span class="req">*</span></label>
+            <input type="number" class="form-control" [(ngModel)]="formPrice" min="0" step="0.01" />
+          </div>
+          <div class="form-group">
+            <label>Stock <span class="req">*</span></label>
+            <input type="number" class="form-control" [(ngModel)]="formStock" min="0" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Thumbnail URL</label>
+          <input type="url" class="form-control" [(ngModel)]="formThumbnail"
+                 placeholder="https://..." />
+        </div>
+        <div class="form-group">
+          <label>Tags (comma-separated)</label>
+          <input type="text" class="form-control" [(ngModel)]="formTags"
+                 placeholder="fashion, summer, sale" />
+        </div>
+      </div>
+      <div class="modal-footer-custom">
+        <button class="btn btn-outline-secondary" (click)="closeModal()">Cancel</button>
+        <button class="btn btn-seller" (click)="saveProduct()"
+                [disabled]="!formName || formPrice <= 0">
+          {{ editingProduct() ? 'Update' : 'Create' }}
+        </button>
+      </div>
+    </div>
+  </div>
+}
+

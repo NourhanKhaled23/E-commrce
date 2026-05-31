@@ -1,0 +1,38 @@
+<div class="search-bar-wrapper">
+  <div class="search-bar">
+    <i class="bi bi-search search-icon"></i>
+    <input type="text" class="search-input" placeholder="Search products..."
+           [(ngModel)]="query" (ngModelChange)="onInput($event)"
+           (focus)="onFocus()" autocomplete="off" />
+    @if (query()) {
+      <button class="search-clear" (click)="clearSearch()"><i class="bi bi-x"></i></button>
+    }
+  </div>
+
+  @if (showDropdown()) {
+    <div class="search-dropdown">
+      @if (recentSearches().length > 0) {
+        <div class="search-dropdown-header">
+          Recent Searches
+          <button class="search-clear" style="float:right;font-size:11px;text-transform:uppercase;letter-spacing:0.08em" (click)="clearRecent()">Clear</button>
+        </div>
+        @for (search of recentSearches(); track search) {
+          <div class="search-dropdown-item" (click)="selectRecent(search)">
+            <i class="bi bi-clock-history"></i>
+            <span>{{ search }}</span>
+          </div>
+        }
+      }
+      @if (topSearches.length > 0) {
+        <div class="search-dropdown-header">Popular Searches</div>
+        @for (ts of topSearches; track ts.query) {
+          <div class="search-dropdown-item" (click)="selectRecent(ts.query)">
+            <i class="bi bi-fire"></i>
+            <span>{{ ts.query }}</span>
+            <span class="search-dropdown-count">{{ ts.count }}x</span>
+          </div>
+        }
+      }
+    </div>
+  }
+</div>

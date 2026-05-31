@@ -1,0 +1,35 @@
+@if (totalPages() > 1) {
+  <nav class="pagination-container d-flex justify-content-center align-items-center gap-1 my-4">
+    <button
+      class="page-btn"
+      [disabled]="currentPage() === 1"
+      (click)="onPageClick(currentPage() - 1)"
+      aria-label="Previous page"
+    >
+      <i class="bi bi-chevron-left"></i>
+    </button>
+
+    @for (p of pages(); track $index) {
+      @if (p === 0) {
+        <span class="page-ellipsis px-1">…</span>
+      } @else {
+        <button
+          class="page-btn"
+          [class.active]="p === currentPage()"
+          (click)="onPageClick(p)"
+        >
+          {{ p }}
+        </button>
+      }
+    }
+
+    <button
+      class="page-btn"
+      [disabled]="currentPage() === totalPages()"
+      (click)="onPageClick(currentPage() + 1)"
+      aria-label="Next page"
+    >
+      <i class="bi bi-chevron-right"></i>
+    </button>
+  </nav>
+}

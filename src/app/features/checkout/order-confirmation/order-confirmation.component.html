@@ -1,0 +1,29 @@
+<div class="confirmation-page">
+  <div class="confirmation-icon"><i class="bi bi-check-circle-fill"></i></div>
+  <h2>Order Confirmed!</h2>
+  <p class="confirmation-subtitle">Thank you for your purchase.</p>
+  <p class="confirmation-order-id">Order #<strong>{{ orderId() }}</strong></p>
+
+  <div class="confirmation-details">
+    <h5>Order Summary</h5>
+    <div class="conf-summary-row"><span>Items ({{ items().length }})</span><span>${{ subtotal() | number:'1.2-2' }}</span></div>
+    @if (discount() > 0) {
+      <div class="conf-summary-row conf-success"><span>Discount</span><span>-${{ discount() | number:'1.2-2' }}</span></div>
+    }
+    <div class="conf-summary-row"><span>Shipping</span><span class="conf-free">Free</span></div>
+    <hr />
+    <div class="conf-summary-row conf-total-row"><span>Total</span><span>${{ total() | number:'1.2-2' }}</span></div>
+    @if (promoCode()) {
+      <p class="conf-promo-note">Promo code <strong>{{ promoCode() }}</strong> applied</p>
+    }
+  </div>
+
+  <p class="conf-email-note">
+    <i class="bi bi-envelope"></i> You will receive an email confirmation shortly.
+  </p>
+
+  <div class="conf-actions">
+    <a routerLink="/orders" class="btn-primary-of"><i class="bi bi-box-seam"></i> View Orders</a>
+    <a routerLink="/products" class="btn-outline-of"><i class="bi bi-arrow-left"></i> Continue Shopping</a>
+  </div>
+</div>

@@ -1,0 +1,131 @@
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <h1>Open Fashion</h1>
+      <div class="decorative-line"><span class="diamond"></span></div>
+      <p class="auth-subtitle">Create your account</p>
+    </div>
+
+    @if (errorMessage(); as msg) {
+      <div class="auth-error"><i class="bi bi-exclamation-circle"></i> {{ msg }}</div>
+    }
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="auth-form">
+      <div class="form-group">
+        <label class="form-label-of" for="name">Full Name</label>
+        <input type="text" id="name" class="form-input-of" formControlName="name" placeholder="John Doe"
+          [class.is-invalid]="f['name'].touched && f['name'].invalid" />
+        @if (f['name'].touched && f['name'].errors?.['required']) { <span class="form-error">Name is required</span> }
+      </div>
+
+      <div class="form-group">
+        <label class="form-label-of" for="email">Email</label>
+        <input type="email" id="email" class="form-input-of" formControlName="email" placeholder="you@example.com"
+          [class.is-invalid]="f['email'].touched && f['email'].invalid" />
+        @if (f['email'].touched && f['email'].errors?.['required']) { <span class="form-error">Email is required</span> }
+        @if (f['email'].touched && f['email'].errors?.['email']) { <span class="form-error">Invalid email</span> }
+      </div>
+
+      <div class="form-group">
+        <label class="form-label-of" for="phone">Phone <small>(optional)</small></label>
+        <input type="tel" id="phone" class="form-input-of" formControlName="phone" placeholder="+1 555-123-4567"
+          [class.is-invalid]="f['phone'].touched && f['phone'].invalid" />
+        @if (f['phone'].touched && f['phone'].errors?.['pattern']) { <span class="form-error">Invalid phone format</span> }
+      </div>
+
+      <div class="form-group">
+        <label class="form-label-of" for="password">Password</label>
+        <div class="input-wrapper">
+          <input [type]="showPassword() ? 'text' : 'password'" id="password" class="form-input-of" formControlName="password" placeholder="Min 6 characters"
+            [class.is-invalid]="f['password'].touched && f['password'].invalid" />
+          <button type="button" class="input-icon-btn" (click)="togglePassword()" tabindex="-1">
+            <i class="bi" [class.bi-eye]="!showPassword()" [class.bi-eye-slash]="showPassword()"></i>
+          </button>
+        </div>
+        @if (f['password'].touched && f['password'].errors?.['required']) { <span class="form-error">Password is required</span> }
+        @if (f['password'].touched && f['password'].errors?.['minlength']) { <span class="form-error">At least 6 characters</span> }
+      </div>
+
+      <div class="form-group">
+        <label class="form-label-of" for="confirmPassword">Confirm Password</label>
+        <div class="input-wrapper">
+          <input [type]="showConfirm() ? 'text' : 'password'" id="confirmPassword" class="form-input-of" formControlName="confirmPassword" placeholder="Repeat password"
+            [class.is-invalid]="f['confirmPassword'].touched && f['confirmPassword'].invalid" />
+          <button type="button" class="input-icon-btn" (click)="toggleConfirm()" tabindex="-1">
+            <i class="bi" [class.bi-eye]="!showConfirm()" [class.bi-eye-slash]="showConfirm()"></i>
+          </button>
+        </div>
+        @if (f['confirmPassword'].touched && f['confirmPassword'].errors?.['required']) { <span class="form-error">Please confirm</span> }
+      </div>
+
+      <div class="form-group">
+        <label class="form-label-of">I want to</label>
+        <div class="role-selector">
+          <label class="role-option" [class.active]="registerForm.get('role')?.value === 'customer'">
+            <input type="radio" formControlName="role" value="customer" />
+            <i class="bi bi-person"></i>
+            <span>Buy Products</span>
+          </label>
+          <label class="role-option" [class.active]="registerForm.get('role')?.value === 'seller'">
+            <input type="radio" formControlName="role" value="seller" />
+            <i class="bi bi-shop"></i>
+            <span>Sell Products</span>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary-of btn-block auth-submit" [disabled]="isLoading()">
+        @if (isLoading()) { <span class="btn-spinner"></span> Creating Account... }
+        @else { Create Account }
+      </button>
+    </form>
+
+    <div class="divider-decorated"><span class="diamond"></span></div>
+    <p class="auth-switch">Already have an account? <a routerLink="/auth/login">Sign In</a></p>
+  </div>
+</div>
+
+<!-- Email Verification Modal -->
+@if (registeredUser(); as user) {
+  @if (modalOpen()) {
+    <div class="of-modal-overlay" (click)="dismissModal()">
+      <div class="of-modal" (click)="$event.stopPropagation()" role="dialog" aria-modal="true" aria-label="Email verification">
+        <div class="verify-modal-icon-row">
+          <div class="verify-modal-icon-circle">
+            <i class="bi bi-envelope-check"></i>
+          </div>
+          <h5 class="verify-modal-title">Verify Your Email</h5>
+        </div>
+        <div class="verify-modal-body">
+          <p class="verify-modal-text">
+            We sent a confirmation email to <strong>{{ user.email }}</strong>
+          </p>
+          <div class="verify-modal-email-preview">
+            <p class="verify-email-header">From: Open Fashion &lt;noreply@openfashion.com&gt;</p>
+            <p class="verify-email-header">To: {{ user.email }}</p>
+            <p class="verify-email-subject">Subject: Confirm your Open Fashion account</p>
+            <hr class="verify-email-divider" />
+            <p>Hi <strong>{{ user.name }}</strong>,</p>
+            <p>Thanks for creating your Open Fashion account! Please confirm your email address by clicking the link below:</p>
+            <p class="verify-email-cta-row">
+              <a href="javascript:void(0)" class="verify-email-cta-btn">
+                Confirm Email Address
+              </a>
+            </p>
+            <p class="verify-email-footnote">
+              Or copy this link: <span class="verify-email-link">https://openfashion.com/verify?token=mock-verification-{{ user.id }}</span>
+            </p>
+            <p class="verify-email-footnote verify-email-ignore">
+              If you did not create an account, please ignore this email.
+            </p>
+          </div>
+        </div>
+        <div class="verify-modal-footer">
+          <button type="button" class="btn-primary-of" (click)="dismissModal()">
+            I&apos;ll Verify Later
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+}

@@ -1,0 +1,149 @@
+<div class="onboarding-container">
+  <div class="onboarding-card">
+    <div class="onboarding-hero">
+      <div class="onboarding-eyebrow">SELLER PORTAL</div>
+      <div class="onboarding-divider"></div>
+      <h1 class="onboarding-title">Shop Setup</h1>
+      <p class="onboarding-sub">Complete your seller profile in 3 easy steps</p>
+    </div>
+
+    <!-- Stepper -->
+    <div class="setup-stepper">
+      @for (s of steps; track s.num) {
+        <div class="stepper-item">
+          <div class="step-circle"
+               [class.step-active]="currentStep() === s.num"
+               [class.step-done]="currentStep() > s.num">
+            @if (currentStep() > s.num) {
+              <i class="bi bi-check-lg"></i>
+            } @else {
+              {{ s.num }}
+            }
+          </div>
+          <span class="step-label">{{ s.label }}</span>
+        </div>
+        @if (!$last) {
+          <div class="step-connector" [class.connector-done]="currentStep() > s.num"></div>
+        }
+      }
+    </div>
+
+    <!-- Step 1: Shop Info -->
+    @if (currentStep() === 1) {
+      <div class="step-content animate-in">
+        <div class="form-section">
+          <h3 class="form-section-title"><i class="bi bi-info-circle"></i> Shop Information</h3>
+          <div class="form-field">
+            <label class="form-label">Shop Name <span class="required-mark">*</span></label>
+            <input type="text" class="form-input" [(ngModel)]="shopName" placeholder="e.g. The Style Boutique" />
+          </div>
+          <div class="form-field">
+            <label class="form-label">Shop Description <span class="required-mark">*</span></label>
+            <textarea class="form-textarea" rows="4" [(ngModel)]="description" placeholder="Tell customers about your shop..."></textarea>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Logo URL</label>
+            <input type="url" class="form-input" [(ngModel)]="logoUrl" placeholder="https://example.com/logo.png" />
+          </div>
+          @if (logoUrl()) {
+            <div class="logo-preview">
+              <img [src]="logoUrl()" alt="Logo" (error)="logoUrl.set('')" />
+            </div>
+          }
+        </div>
+        <div class="form-nav">
+          <div></div>
+          <button class="btn-next" (click)="nextStep()" [disabled]="!shopName() || !description()">
+            Next <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    }
+
+    <!-- Step 2: Bank Details -->
+    @if (currentStep() === 2) {
+      <div class="step-content animate-in">
+        <div class="form-section">
+          <h3 class="form-section-title"><i class="bi bi-bank"></i> Bank Details</h3>
+          <div class="form-field">
+            <label class="form-label">Account Holder Name <span class="required-mark">*</span></label>
+            <input type="text" class="form-input" [(ngModel)]="accountName" placeholder="Full legal name" />
+          </div>
+          <div class="form-field">
+            <label class="form-label">Account Number <span class="required-mark">*</span></label>
+            <input type="text" class="form-input" [(ngModel)]="accountNumber" placeholder="XXXX-XXXX-XXXX" />
+          </div>
+          <div class="form-field">
+            <label class="form-label">Bank Name <span class="required-mark">*</span></label>
+            <input type="text" class="form-input" [(ngModel)]="bank" placeholder="e.g. National Bank" />
+          </div>
+        </div>
+        <div class="form-nav">
+          <button class="btn-back" (click)="prevStep()">
+            <i class="bi bi-arrow-left"></i> Back
+          </button>
+          <button class="btn-next" (click)="nextStep()" [disabled]="!accountName() || !accountNumber() || !bank()">
+            Next <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    }
+
+    <!-- Step 3: Review & Submit -->
+    @if (currentStep() === 3) {
+      <div class="step-content animate-in">
+        <div class="form-section">
+          <h3 class="form-section-title"><i class="bi bi-clipboard-check"></i> Review & Submit</h3>
+          <div class="review-block">
+            <h5><i class="bi bi-shop"></i> Shop Info</h5>
+            <div class="review-grid">
+              <div class="review-item">
+                <span class="review-label">Shop Name</span>
+                <span class="review-value">{{ shopName() }}</span>
+              </div>
+              <div class="review-item">
+                <span class="review-label">Description</span>
+                <span class="review-value">{{ description() }}</span>
+              </div>
+              @if (logoUrl()) {
+                <div class="review-item">
+                  <span class="review-label">Logo</span>
+                  <img [src]="logoUrl()" class="review-logo" alt="Logo" />
+                </div>
+              }
+            </div>
+          </div>
+          <div class="review-block">
+            <h5><i class="bi bi-bank2"></i> Bank Details</h5>
+            <div class="review-grid">
+              <div class="review-item">
+                <span class="review-label">Account Name</span>
+                <span class="review-value">{{ accountName() }}</span>
+              </div>
+              <div class="review-item">
+                <span class="review-label">Account Number</span>
+                <span class="review-value">{{ maskAccount(accountNumber()) }}</span>
+              </div>
+              <div class="review-item">
+                <span class="review-label">Bank</span>
+                <span class="review-value">{{ bank() }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-nav">
+          <button class="btn-back" (click)="prevStep()">
+            <i class="bi bi-arrow-left"></i> Back
+          </button>
+          <button class="btn-next btn-submit" (click)="submit()" [disabled]="submitting()">
+            @if (submitting()) {
+              <span class="spinner"></span> Submitting...
+            } @else {
+              <i class="bi bi-check2-all"></i> Submit Application
+            }
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</div>

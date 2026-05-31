@@ -1,0 +1,36 @@
+.checkout-stepper {
+  margin-bottom: 1.5rem;
+}
+.stepper-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.step-label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+
+  &.active {
+    color: var(--color-accent);
+  }
+
+  &.current {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+}
+.stepper-track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-bg-tertiary);
+  overflow: hidden;
+}
+.stepper-fill {
+  height: 100%;
+  background: var(--color-accent);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 3px;
+}

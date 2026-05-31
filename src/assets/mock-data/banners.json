@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Summer Collection 2026",
+    "subtitle": "Discover the latest trends for sunny days",
+    "image": "https://picsum.photos/seed/banner1/1200/400",
+    "link": "/products?category=sports-accessories",
+    "active": true,
+    "sortOrder": 1,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 2,
+    "title": "New Arrivals",
+    "subtitle": "Fresh styles just dropped — shop now",
+    "image": "https://picsum.photos/seed/banner2/1200/400",
+    "link": "/products?sort=newest",
+    "active": true,
+    "sortOrder": 2,
+    "createdAt": "2026-05-10T00:00:00Z"
+  },
+  {
+    "id": 3,
+    "title": "Flash Sale — Up to 50% Off",
+    "subtitle": "Limited time offers on electronics & fashion",
+    "image": "https://picsum.photos/seed/banner3/1200/400",
+    "link": "/products",
+    "active": false,
+    "sortOrder": 3,
+    "createdAt": "2026-05-15T00:00:00Z"
+  },
+  {
+    "id": 4,
+    "title": "Free Shipping Worldwide",
+    "subtitle": "On all orders over $50",
+    "image": "https://picsum.photos/seed/banner4/1200/400",
+    "link": "/products",
+    "active": true,
+    "sortOrder": 4,
+    "createdAt": "2026-05-20T00:00:00Z"
+  }
+]

@@ -1,0 +1,297 @@
+[
+  {
+    "id": 1001,
+    "userId": 1,
+    "items": [
+      {
+        "product": {
+          "id": 1,
+          "title": "Essence Mascara Lash Princess",
+          "price": 9.99,
+          "category": "beauty",
+          "thumbnail": "https://picsum.photos/seed/1-0/600/600",
+          "sellerId": 2
+        },
+        "quantity": 2
+      },
+      {
+        "product": {
+          "id": 2,
+          "title": "Eyeshadow Palette with Mirror",
+          "price": 19.99,
+          "category": "beauty",
+          "thumbnail": "https://picsum.photos/seed/2-0/600/600",
+          "sellerId": 2
+        },
+        "quantity": 1
+      }
+    ],
+    "subtotal": 39.97,
+    "discount": 0,
+    "totalAmount": 39.97,
+    "status": "delivered",
+    "timeline": [
+      {
+        "status": "placed",
+        "timestamp": "2026-05-13T10:00:00Z",
+        "note": "Order placed",
+        "completed": true
+      },
+      {
+        "status": "confirmed",
+        "timestamp": "2026-05-13T10:05:00Z",
+        "note": "Payment confirmed",
+        "completed": true
+      },
+      {
+        "status": "processing",
+        "timestamp": "2026-05-13T14:00:00Z",
+        "note": "Processing in warehouse",
+        "completed": true
+      },
+      {
+        "status": "shipped",
+        "timestamp": "2026-05-14T09:00:00Z",
+        "note": "Shipped via UPS",
+        "completed": true
+      },
+      {
+        "status": "out_for_delivery",
+        "timestamp": "2026-05-15T08:00:00Z",
+        "note": "Out for delivery",
+        "completed": true
+      },
+      {
+        "status": "delivered",
+        "timestamp": "2026-05-15T14:30:00Z",
+        "note": "Delivered",
+        "completed": true
+      }
+    ],
+    "shippingAddress": {
+      "street": "123 Beauty Ave",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10001",
+      "country": "United States"
+    },
+    "paymentMethod": "card",
+    "createdAt": "2026-05-13T10:00:00Z",
+    "estimatedDelivery": "2026-05-18T00:00:00Z",
+    "sellerId": 2
+  },
+  {
+    "id": 1002,
+    "userId": 1,
+    "items": [
+      {
+        "product": {
+          "id": 3,
+          "title": "Powder Canister",
+          "price": 14.99,
+          "category": "beauty",
+          "thumbnail": "https://picsum.photos/seed/3-0/600/600",
+          "sellerId": 2
+        },
+        "quantity": 1
+      }
+    ],
+    "subtotal": 14.99,
+    "discount": 0,
+    "totalAmount": 14.99,
+    "status": "shipped",
+    "timeline": [
+      {
+        "status": "placed",
+        "timestamp": "2026-05-19T09:15:00Z",
+        "note": "Order placed",
+        "completed": true
+      },
+      {
+        "status": "confirmed",
+        "timestamp": "2026-05-19T09:16:00Z",
+        "note": "Payment confirmed",
+        "completed": true
+      },
+      {
+        "status": "processing",
+        "timestamp": "2026-05-19T12:00:00Z",
+        "note": "Processing",
+        "completed": true
+      },
+      {
+        "status": "shipped",
+        "timestamp": "2026-05-20T10:00:00Z",
+        "note": "Shipped via FedEx",
+        "completed": true
+      }
+    ],
+    "shippingAddress": {
+      "street": "123 Beauty Ave",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10001",
+      "country": "United States"
+    },
+    "paymentMethod": "paypal",
+    "createdAt": "2026-05-19T09:15:00Z",
+    "estimatedDelivery": "2026-05-24T00:00:00Z",
+    "sellerId": 2
+  },
+  {
+    "id": 1003,
+    "userId": 2,
+    "items": [
+      {
+        "product": {
+          "id": 4,
+          "title": "Red Lipstick",
+          "price": 12.99,
+          "category": "beauty",
+          "thumbnail": "https://picsum.photos/seed/4-0/600/600",
+          "sellerId": 2
+        },
+        "quantity": 3
+      }
+    ],
+    "subtotal": 38.97,
+    "discount": 5,
+    "totalAmount": 33.97,
+    "status": "processing",
+    "timeline": [
+      {
+        "status": "placed",
+        "timestamp": "2026-05-20T18:45:00Z",
+        "note": "Order placed",
+        "completed": true
+      },
+      {
+        "status": "confirmed",
+        "timestamp": "2026-05-20T18:46:00Z",
+        "note": "Payment confirmed",
+        "completed": true
+      },
+      {
+        "status": "processing",
+        "timestamp": "2026-05-21T08:00:00Z",
+        "note": "Processing",
+        "completed": true
+      }
+    ],
+    "shippingAddress": {
+      "street": "456 Glamour Rd",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zipCode": "90001",
+      "country": "United States"
+    },
+    "paymentMethod": "wallet",
+    "promoCode": "SAVE10",
+    "createdAt": "2026-05-20T18:45:00Z",
+    "estimatedDelivery": "2026-05-25T00:00:00Z",
+    "sellerId": 2
+  },
+  {
+    "id": 1004,
+    "userId": 1,
+    "items": [
+      {
+        "product": {
+          "id": 1,
+          "title": "Essence Mascara Lash Princess",
+          "price": 9.99,
+          "category": "beauty",
+          "thumbnail": "https://picsum.photos/seed/1-0/600/600",
+          "sellerId": 2
+        },
+        "quantity": 1
+      },
+      {
+        "product": {
+          "id": 4,
+          "title": "Red Lipstick",
+          "price": 12.99,
+          "category": "beauty",
+          "thumbnail": "https://picsum.photos/seed/4-0/600/600",
+          "sellerId": 2
+        },
+        "quantity": 1
+      }
+    ],
+    "subtotal": 22.98,
+    "discount": 0,
+    "totalAmount": 22.98,
+    "status": "cancelled",
+    "timeline": [
+      {
+        "status": "placed",
+        "timestamp": "2026-05-18T10:00:00Z",
+        "note": "Order placed",
+        "completed": true
+      },
+      {
+        "status": "confirmed",
+        "timestamp": "2026-05-18T10:01:00Z",
+        "note": "Payment confirmed",
+        "completed": true
+      },
+      {
+        "status": "cancelled",
+        "timestamp": "2026-05-18T12:00:00Z",
+        "note": "Cancelled by customer",
+        "completed": true
+      }
+    ],
+    "shippingAddress": {
+      "street": "789 Fashion St",
+      "city": "Chicago",
+      "state": "IL",
+      "zipCode": "60601",
+      "country": "United States"
+    },
+    "paymentMethod": "cod",
+    "createdAt": "2026-05-18T10:00:00Z",
+    "estimatedDelivery": null,
+    "sellerId": 2
+  },
+  {
+    "id": 1005,
+    "userId": 1,
+    "items": [
+      {
+        "product": {
+          "id": 10,
+          "title": "iPhone 15 Pro",
+          "price": 999.99,
+          "category": "smartphones",
+          "thumbnail": "https://picsum.photos/seed/10-0/600/600",
+          "sellerId": 2
+        },
+        "quantity": 1
+      }
+    ],
+    "subtotal": 999.99,
+    "discount": 0,
+    "totalAmount": 999.99,
+    "status": "placed",
+    "timeline": [
+      {
+        "status": "placed",
+        "timestamp": "2026-05-22T14:00:00Z",
+        "note": "Order placed",
+        "completed": true
+      }
+    ],
+    "shippingAddress": {
+      "street": "123 Beauty Ave",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10001",
+      "country": "United States"
+    },
+    "paymentMethod": "card",
+    "createdAt": "2026-05-22T14:00:00Z",
+    "estimatedDelivery": "2026-05-27T00:00:00Z",
+    "sellerId": 2
+  }
+]

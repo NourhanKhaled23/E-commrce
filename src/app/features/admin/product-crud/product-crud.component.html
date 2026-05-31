@@ -1,0 +1,130 @@
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Products</h1>
+    <p class="admin-page-meta">{{ totalProducts() }} products</p>
+  </div>
+  <button class="admin-btn-primary" (click)="openCreate()">
+    <i class="bi bi-plus-lg"></i> Add Product
+  </button>
+</div>
+
+<div class="admin-filters">
+  <input class="admin-search-input" type="text" placeholder="Search products..." [value]="search()" (input)="search.set($any($event.target).value)">
+</div>
+
+<div class="admin-table-wrapper">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th class="sortable-header" (click)="sort('id')">
+          ID <i class="bi" [class.bi-caret-up-fill]="sortField()==='id' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='id' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='id'"></i>
+        </th>
+        <th>Image</th>
+        <th class="sortable-header" (click)="sort('name')">
+          Name <i class="bi" [class.bi-caret-up-fill]="sortField()==='name' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='name' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='name'"></i>
+        </th>
+        <th class="sortable-header" (click)="sort('category')">
+          Category <i class="bi" [class.bi-caret-up-fill]="sortField()==='category' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='category' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='category'"></i>
+        </th>
+        <th class="sortable-header" (click)="sort('price')" style="text-align:right">
+          Price <i class="bi" [class.bi-caret-up-fill]="sortField()==='price' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='price' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='price'"></i>
+        </th>
+        <th class="sortable-header" (click)="sort('stock')" style="text-align:right">
+          Stock <i class="bi" [class.bi-caret-up-fill]="sortField()==='stock' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='stock' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='stock'"></i>
+        </th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of paginatedProducts(); track product.id) {
+        <tr>
+          <td class="td-muted">#{{ product.id }}</td>
+          <td><img [src]="product.thumbnail" class="product-thumb" alt="" loading="lazy"></td>
+          <td>{{ product.name }}</td>
+          <td><span class="badge badge-category">{{ product.category }}</span></td>
+          <td style="text-align:right" class="td-price">{{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
+          <td style="text-align:right">
+            <span class="badge" [class.badge-active]="product.stock > 10" [class.badge-pending]="product.stock > 0 && product.stock <= 10" [class.badge-restricted]="product.stock === 0">
+              {{ product.stock }}
+            </span>
+          </td>
+          <td>
+            <span class="badge" [class.badge-active]="product.active !== false" [class.badge-restricted]="product.active === false">
+              {{ product.active !== false ? 'Active' : 'Inactive' }}
+            </span>
+          </td>
+          <td>
+            <div class="row-actions">
+              <button class="action-icon-btn" title="Edit" (click)="openEdit(product)"><i class="bi bi-pencil"></i></button>
+              <button class="action-icon-btn" [class.success]="product.active === false" [class.danger]="product.active !== false" [title]="product.active !== false ? 'Deactivate' : 'Activate'" (click)="toggleProductActive(product)">
+                <i class="bi" [class.bi-eye-slash]="product.active !== false" [class.bi-eye]="product.active === false"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      } @empty {
+        <tr><td colspan="8" style="text-align:center;padding:48px 16px;color:#6B5C3E">No products found</td></tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<div class="admin-pagination">
+  <span class="pagination-info">Showing {{ paginationStart() }}–{{ paginationEnd() }} of {{ totalProducts() }}</span>
+  <div class="pagination-controls">
+    <button class="page-btn" [disabled]="page() <= 1" (click)="page.set(page() - 1)"><i class="bi bi-chevron-left"></i></button>
+    @for (p of pageNumbers(); track $index) {
+      <button class="page-btn" [class.active]="p === page()" (click)="page.set(p)">{{ p === 0 ? '...' : p }}</button>
+    }
+    <button class="page-btn" [disabled]="page() * pageSize >= totalProducts()" (click)="page.set(page() + 1)"><i class="bi bi-chevron-right"></i></button>
+  </div>
+</div>
+
+@if (showModal()) {
+  <div class="admin-modal-backdrop" (click)="closeModal()"></div>
+  <div class="admin-modal-dialog" role="dialog">
+    <div class="admin-modal-content">
+      <div class="admin-modal-header">
+        <h5 class="admin-modal-title">{{ editingProduct() ? 'Edit Product' : 'Add Product' }}</h5>
+        <button type="button" class="admin-modal-close" (click)="closeModal()"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="admin-modal-body">
+        <div class="form-grid">
+          <div class="form-group"><label>Product Name</label><input class="admin-input" [(ngModel)]="form.name" placeholder="Enter product name"></div>
+          <div class="form-group"><label>Category</label>
+            <select class="admin-input" [(ngModel)]="form.category">
+              <option value="">Select category</option>
+              @for (cat of admin.categories(); track cat.id) {
+                <option [value]="cat.slug">{{ cat.name }}</option>
+              }
+            </select>
+          </div>
+          <div class="form-group"><label>Price ($)</label><input class="admin-input" type="number" step="0.01" [(ngModel)]="form.price" placeholder="0.00"></div>
+          <div class="form-group"><label>Compare Price ($)</label><input class="admin-input" type="number" step="0.01" [(ngModel)]="form.comparePrice" placeholder="0.00"></div>
+          <div class="form-group"><label>Stock</label><input class="admin-input" type="number" [(ngModel)]="form.stock" placeholder="0"></div>
+          <div class="form-group"><label>Brand</label><input class="admin-input" [(ngModel)]="form.brand" placeholder="Brand name"></div>
+          <div class="form-group"><label>Seller ID</label><input class="admin-input" type="number" [(ngModel)]="form.sellerId" placeholder="1"></div>
+          <div class="form-group full-width"><label>Description</label><textarea class="admin-input" rows="3" [(ngModel)]="form.description" placeholder="Product description"></textarea></div>
+          <div class="form-group full-width"><label>Image URL</label><input class="admin-input" [(ngModel)]="form.imageUrl" placeholder="https://picsum.photos/seed/..."></div>
+          @if (editingProduct()) {
+            <div class="form-group full-width">
+              <label class="toggle-label">
+                <input type="checkbox" [(ngModel)]="form.active">
+                <span class="toggle-text">{{ form.active ? 'Active' : 'Inactive' }}</span>
+                <span class="toggle-hint">(Inactive = hidden from storefront)</span>
+              </label>
+            </div>
+          }
+        </div>
+      </div>
+      <div class="admin-modal-footer">
+        <button class="admin-btn-close-modal" (click)="closeModal()">Cancel</button>
+        @if (editingProduct()) {
+          <button class="admin-btn-danger" (click)="deleteProduct()">Delete</button>
+        }
+        <button class="admin-btn-save" (click)="saveProduct()">{{ editingProduct() ? 'Update' : 'Create' }}</button>
+      </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,63 @@
+:host { display: block; }
+.dash-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.dash-header h1 { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 400; letter-spacing: 0.04em; margin: 0; }
+.dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.kpi-card { background: var(--color-white); border: 1px solid var(--color-border); padding: 20px; transition: box-shadow var(--transition-fast); }
+.kpi-card:hover { box-shadow: var(--shadow-sm); }
+.kpi-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.kpi-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1.1rem; }
+.kpi-icon.revenue { background: #E8F5E9; color: var(--color-success); }
+.kpi-icon.orders { background: #E3F2FD; color: var(--color-info); }
+.kpi-icon.users { background: #F3E5F5; color: #7B1FA2; }
+.kpi-icon.products { background: #FFF3E0; color: #E65100; }
+.kpi-icon.pending { background: #FFF8E1; color: #F57F17; }
+.kpi-icon.shipped { background: #FBE9E7; color: #BF360C; }
+.kpi-icon.delivered { background: #E8F5E9; color: var(--color-success); }
+.kpi-icon.lowstock { background: var(--color-danger-bg); color: var(--color-error); }
+.kpi-value { font-family: var(--font-heading); font-size: 1.75rem; font-weight: 500; line-height: 1; }
+.kpi-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-muted); margin-top: 4px; }
+.chart-section { background: var(--color-white); border: 1px solid var(--color-border); padding: 24px; margin-bottom: 32px; }
+.chart-section h2 { font-family: var(--font-heading); font-size: 1.125rem; font-weight: 400; margin: 0 0 16px; }
+.chart-bars { display: flex; align-items: flex-end; gap: 8px; height: 180px; padding-top: 20px; }
+.chart-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.chart-bar { width: 100%; max-width: 48px; background: var(--color-accent); border-radius: var(--radius-sm) var(--radius-sm) 0 0; min-height: 4px; transition: height var(--transition-smooth); position: relative; }
+.chart-bar:hover { opacity: 0.85; }
+.chart-bar-value { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: 500; color: var(--color-text-secondary); white-space: nowrap; }
+.chart-label { font-size: 10px; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.dash-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+.dash-card { background: var(--color-white); border: 1px solid var(--color-border); padding: 24px; }
+.dash-card h2 { font-family: var(--font-heading); font-size: 1.125rem; font-weight: 400; margin: 0 0 16px; }
+.dash-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.dash-card-header h2 { margin: 0; }
+.dash-card-header a { font-size: 12px; color: var(--color-accent); text-decoration: none; letter-spacing: 0.04em; }
+.dash-card-header a:hover { text-decoration: underline; }
+.order-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--color-border); font-size: 13px; }
+.order-row:last-child { border-bottom: none; }
+.order-row-id { font-family: var(--font-heading); font-weight: 500; color: var(--color-text); }
+.order-row-status { font-size: 11px; padding: 2px 8px; border-radius: var(--radius-sm); text-transform: capitalize; border: 1px solid; }
+.order-row-total { font-family: var(--font-heading); font-weight: 500; }
+.stock-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--color-border); font-size: 13px; }
+.stock-row:last-child { border-bottom: none; }
+.stock-name { flex: 1; }
+.stock-count { font-size: 12px; padding: 2px 8px; border-radius: var(--radius-sm); background: var(--color-danger-bg); color: var(--color-error); font-weight: 500; }
+html.dark .stock-count { background: rgba(220, 38, 38, 0.2); color: #ef9a9a; }
+.empty-state { text-align: center; padding: 32px 16px; color: var(--color-text-muted); }
+.cat-chart { display: flex; flex-direction: column; gap: 10px; }
+.cat-row { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+.cat-name { min-width: 130px; color: var(--color-text); text-transform: capitalize; }
+.cat-bar-wrapper { flex: 1; }
+.cat-bar { height: 20px; background: var(--color-bg-secondary); border-radius: var(--radius-sm); overflow: hidden; }
+.cat-bar-fill { height: 100%; background: var(--color-accent); border-radius: var(--radius-sm); transition: width var(--transition-smooth); min-width: 4px; }
+.cat-value { min-width: 70px; text-align: right; font-family: var(--font-heading); font-weight: 500; color: var(--color-text); }
+html.dark .kpi-icon.revenue { background: rgba(22, 163, 74, 0.2); color: #66bb6a; }
+html.dark .kpi-icon.orders { background: rgba(37, 99, 235, 0.2); color: #90caf9; }
+html.dark .kpi-icon.users { background: rgba(123, 31, 162, 0.2); color: #ce93d8; }
+html.dark .kpi-icon.products { background: rgba(230, 81, 0, 0.2); color: #ffab91; }
+html.dark .kpi-icon.pending { background: rgba(245, 158, 11, 0.2); color: #ffd54f; }
+html.dark .kpi-icon.shipped { background: rgba(191, 54, 12, 0.2); color: #ff8a65; }
+html.dark .kpi-icon.delivered { background: rgba(22, 163, 74, 0.2); color: #66bb6a; }
+html.dark .kpi-icon.lowstock { background: rgba(220, 38, 38, 0.2); color: #ef9a9a; }
+
+@media (max-width: 1024px) {
+  .dash-cols { grid-template-columns: 1fr; }
+}

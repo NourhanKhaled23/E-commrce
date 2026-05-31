@@ -1,0 +1,101 @@
+.payment-page { max-width: 600px; }
+.payment-heading { font-family: var(--font-heading); margin-bottom: 1rem; }
+
+/* Tabs */
+.payment-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.payment-tab { display: flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.25rem; border: 1px solid var(--color-border); border-radius: 2rem; background: var(--color-bg); font-size: 0.85rem; cursor: pointer; transition: all 0.2s; color: var(--color-text-secondary); }
+.payment-tab:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.payment-tab.active { background: var(--color-accent-light); border-color: var(--color-accent); color: var(--color-accent); font-weight: 600; }
+.payment-tab i { font-size: 1rem; }
+
+/* Stripe card section */
+.stripe-card-section { padding: 0.25rem 0 0.5rem; }
+.stripe-loading { display: flex; align-items: center; gap: 0.75rem; padding: 1.5rem; color: var(--color-text-muted); font-size: 0.9rem; }
+.stripe-init-error { display: flex; gap: 0.75rem; padding: 1.25rem; background: color-mix(in srgb, var(--color-danger) 8%, transparent); border: 1px solid color-mix(in srgb, var(--color-danger) 25%, transparent); border-radius: 0.75rem; color: var(--color-danger); }
+.stripe-init-error i { font-size: 1.25rem; flex-shrink: 0; margin-top: 0.1rem; }
+.stripe-init-error p { margin: 0.25rem 0 0; font-size: 0.85rem; opacity: 0.85; }
+.stripe-key-hint { font-size: 0.8rem; margin-top: 0.5rem !important; }
+.stripe-key-hint code { background: rgba(0,0,0,0.06); padding: 0.1rem 0.3rem; border-radius: 0.25rem; font-size: 0.78rem; }
+
+/* Card wrapper */
+.stripe-card-wrapper { margin-bottom: 0.75rem; }
+.stripe-label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 600; color: var(--color-text-muted); margin-bottom: 0.5rem; }
+.stripe-secure-badge { margin-left: auto; font-size: 0.7rem; font-weight: 500; color: var(--color-success); background: color-mix(in srgb, var(--color-success) 10%, transparent); padding: 0.15rem 0.5rem; border-radius: 2rem; }
+
+/* The actual Stripe iframe container */
+.stripe-card-element {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-bg);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  min-height: 44px;
+}
+.stripe-card-element:focus-within {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent);
+}
+
+/* Stripe validation errors */
+.stripe-card-errors {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: color-mix(in srgb, var(--color-danger) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-danger) 20%, transparent);
+  border-radius: 0.4rem;
+  color: var(--color-danger);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+/* Test hint */
+.stripe-test-hint { display: flex; align-items: flex-start; gap: 0.4rem; font-size: 0.78rem; color: var(--color-text-muted); background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: 0.5rem; padding: 0.6rem 0.85rem; margin-bottom: 0.75rem; }
+.stripe-test-hint code { font-size: 0.78rem; background: rgba(0,0,0,0.06); padding: 0.1rem 0.3rem; border-radius: 0.25rem; }
+
+/* Card brand logos row */
+.stripe-card-logos { display: flex; align-items: center; gap: 0.75rem; font-size: 1.25rem; color: var(--color-text-muted); margin-bottom: 0.5rem; }
+.stripe-pci-badge { color: var(--color-success); font-size: 1rem; }
+
+/* Pay button */
+.stripe-pay-btn { display: inline-flex; align-items: center; gap: 0.5rem; min-width: 160px; justify-content: center; }
+.stripe-pay-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.spinner-sm { width: 14px; height: 14px; border-width: 2px; }
+
+/* Other payment methods */
+.payment-method-content { text-align: center; padding: 1.5rem 0; }
+.payment-method-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
+.cod-icon { color: var(--color-accent-secondary); }
+.wallet-icon { color: var(--color-accent); }
+.payment-method-title { margin-bottom: 0.25rem; }
+.payment-method-desc { color: var(--color-text-muted); margin-bottom: 0.75rem; }
+.paypal-icon { font-size: 3rem; color: var(--color-info); display: block; margin-bottom: 1rem; }
+.paypal-desc { color: var(--color-text-muted); margin-bottom: 0.75rem; }
+.paypal-loading { margin-bottom: 0.75rem; }
+.paypal-loading p { margin-top: 0.5rem; text-align: center; }
+.wallet-balance { margin-bottom: 0.25rem; }
+.wallet-balance strong { color: var(--color-success); }
+.wallet-error { color: var(--color-danger); font-size: 0.875rem; margin-bottom: 0.75rem; }
+
+/* Actions */
+.payment-actions { display: flex; gap: 0.75rem; margin-top: 1.5rem; align-items: center; }
+
+/* Mock card form */
+.mock-card-notice { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--color-warning); background: #FFF8EC; border: 1px solid color-mix(in srgb, var(--color-warning) 30%, transparent); border-radius: 0.5rem; padding: 0.65rem 0.85rem; margin-bottom: 1rem; }
+.mock-card-notice code { font-size: 0.75rem; background: rgba(0,0,0,0.07); padding: 0.1rem 0.3rem; border-radius: 0.25rem; }
+.mock-card-form { margin-bottom: 0.75rem; }
+.mock-field-group { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.75rem; }
+.mock-field-row { display: flex; gap: 0.75rem; }
+.mock-field-row .mock-field-group { flex: 1; }
+.mock-label { font-size: 0.78rem; font-weight: 600; color: var(--color-text-muted); }
+.mock-input { padding: 0.65rem 0.85rem; border: 1px solid var(--color-border); border-radius: 0.5rem; font-size: 0.9rem; background: var(--color-bg); color: var(--color-text); width: 100%; transition: border-color 0.2s, box-shadow 0.2s; font-family: inherit; }
+.mock-input:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent); }
+.mock-invalid { border-color: var(--color-danger) !important; }
+
+html.dark .stripe-secure-badge { color: var(--color-success-bg); background: rgba(26, 74, 46, 0.25); }
+html.dark .stripe-pci-badge { color: var(--color-success-bg); }
+html.dark .stripe-test-hint code { background: var(--color-bg-surface); }
+html.dark .mock-card-notice { color: #fcd34d; background: rgba(146, 64, 14, 0.2); border-color: rgba(252, 211, 77, 0.3); }
+html.dark .paypal-icon { color: #5dade2; }

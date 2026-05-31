@@ -1,0 +1,5 @@
+@let cfg = config();
+<span [class]="'status-badge os-' + status()">
+  <i class="bi {{ cfg.icon }}"></i>
+  {{ cfg.label }}
+</span>

@@ -1,0 +1,96 @@
+<div class="page-container">
+  <div class="page-title">
+    <h1>Shopping Cart</h1>
+  </div>
+
+  @let items = cartService.cartItems();
+  @if (items.length === 0) {
+    <div class="empty-state enhanced-empty">
+      <div class="empty-icon-wrapper"><i class="bi bi-bag"></i></div>
+      <h3>Your cart is empty</h3>
+      <p>Browse our collection and find something you love.</p>
+      <a routerLink="/products" class="btn-primary-of"><i class="bi bi-arrow-left"></i> Start Shopping</a>
+    </div>
+  } @else {
+    <div class="cart-layout">
+      <div class="cart-items">
+        @for (item of items; track item.product.id) {
+          <div class="cart-item">
+            <a [routerLink]="['/products', item.product.id]" class="cart-item-image">
+              <img [src]="item.product.thumbnail" [alt]="item.product.name" />
+            </a>
+            <div class="cart-item-info">
+              <div class="cart-item-header">
+                <div>
+                  <p class="cart-item-category">{{ item.product.category }}</p>
+                  <h3 class="cart-item-name">
+                    <a [routerLink]="['/products', item.product.id]">{{ item.product.name }}</a>
+                  </h3>
+                </div>
+                <button class="remove-btn" (click)="removeItem(item.product.id)" title="Remove"><i class="bi bi-x"></i></button>
+              </div>
+              <div class="cart-item-footer">
+                <div class="quantity-control">
+                  <button class="qty-btn" (click)="updateQuantity(item.product.id, item.quantity - 1)" [disabled]="item.quantity <= 1"><i class="bi bi-dash"></i></button>
+                  <span class="qty-value">{{ item.quantity }}</span>
+                  <button class="qty-btn" (click)="updateQuantity(item.product.id, item.quantity + 1)" [disabled]="item.quantity >= item.product.stock"><i class="bi bi-plus"></i></button>
+                </div>
+                <span class="cart-item-price">{{ (item.product.price * item.quantity) | currency:'USD':'symbol':'1.2-2' }}</span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="order-summary">
+        <h3 class="summary-title">Order Summary</h3>
+        <div class="summary-row">
+          <span>Subtotal ({{ cartService.cartCount() }} items)</span>
+          <span>{{ cartService.cartTotal() | currency:'USD':'symbol':'1.2-2' }}</span>
+        </div>
+        @if (cartService.discount() > 0) {
+          <div class="summary-row summary-discount">
+            <span>Discount <button class="remove-promo-btn" (click)="removePromo()" title="Remove">×</button></span>
+            <span>-{{ cartService.discount() | currency:'USD':'symbol':'1.2-2' }}</span>
+          </div>
+        }
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span class="free-shipping">Free</span>
+        </div>
+        <div class="divider"></div>
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <span>{{ cartService.finalTotal() | currency:'USD':'symbol':'1.2-2' }}</span>
+        </div>
+
+        <!-- Promo Code -->
+        @if (!cartService.promo()) {
+          <div class="promo-section">
+            <label class="form-label-of">Promo Code</label>
+            <div class="promo-input-row">
+              <input class="form-input-of promo-input" [(ngModel)]="promoInput" placeholder="Enter code" (keyup.enter)="applyPromo()" />
+              <button class="btn-outline-of btn-sm-of promo-apply-btn" (click)="applyPromo()" [disabled]="promoLoading() || !promoInput().trim()">
+                @if (promoLoading()) { <span class="btn-spinner"></span> }
+                @else { Apply }
+              </button>
+            </div>
+            @if (promoMessage()) {
+              <p class="promo-msg" [class.promo-success]="!promoError()" [class.promo-error]="promoError()">{{ promoMessage() }}</p>
+            }
+          </div>
+        } @else {
+          <div class="applied-promo">
+            <i class="bi bi-tag-fill"></i> <strong>{{ cartService.appliedCode() }}</strong>
+            <button class="remove-promo-btn" (click)="removePromo()">Remove</button>
+          </div>
+        }
+
+        <button class="btn-primary-of btn-block checkout-btn" (click)="proceedToCheckout()">
+          <i class="bi bi-lock-fill"></i> Proceed to Checkout
+        </button>
+        <a routerLink="/products" class="continue-link"><i class="bi bi-arrow-left"></i> Continue Shopping</a>
+      </div>
+    </div>
+  }
+</div>

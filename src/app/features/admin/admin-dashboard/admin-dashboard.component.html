@@ -1,0 +1,89 @@
+<div class="dash-header">
+  <h1>Dashboard</h1>
+</div>
+
+@if (loading()) {
+  <div class="spinner-of"></div>
+}
+
+@let s = stats();
+@if (!loading()) {
+  <div class="dash-grid">
+    <div class="kpi-card"><div class="kpi-top"><div class="kpi-icon revenue"><i class="bi bi-currency-dollar"></i></div></div><div class="kpi-value">\${{ s.totalRevenue | number:'1.0-0' }}</div><div class="kpi-label">Total Revenue</div></div>
+    <div class="kpi-card"><div class="kpi-top"><div class="kpi-icon orders"><i class="bi bi-box-seam"></i></div></div><div class="kpi-value">{{ s.totalOrders }}</div><div class="kpi-label">Total Orders</div></div>
+    <div class="kpi-card"><div class="kpi-top"><div class="kpi-icon users"><i class="bi bi-people"></i></div></div><div class="kpi-value">{{ s.activeUsers }}</div><div class="kpi-label">Active Users</div></div>
+    <div class="kpi-card"><div class="kpi-top"><div class="kpi-icon products"><i class="bi bi-tags"></i></div></div><div class="kpi-value">{{ s.totalProducts }}</div><div class="kpi-label">Products</div></div>
+    <div class="kpi-card"><div class="kpi-top"><div class="kpi-icon pending"><i class="bi bi-clock"></i></div></div><div class="kpi-value">{{ s.pendingOrders }}</div><div class="kpi-label">Pending</div></div>
+    <div class="kpi-card"><div class="kpi-top"><div class="kpi-icon shipped"><i class="bi bi-truck"></i></div></div><div class="kpi-value">{{ s.shippedOrders }}</div><div class="kpi-label">Shipped</div></div>
+    <div class="kpi-card"><div class="kpi-top"><div class="kpi-icon delivered"><i class="bi bi-check-circle"></i></div></div><div class="kpi-value">{{ s.deliveredOrders }}</div><div class="kpi-label">Delivered</div></div>
+    <div class="kpi-card"><div class="kpi-top"><div class="kpi-icon lowstock"><i class="bi bi-exclamation-triangle"></i></div></div><div class="kpi-value">{{ s.lowStockCount }}</div><div class="kpi-label">Low Stock</div></div>
+  </div>
+
+  @if (s.monthlyRevenue.length > 0) {
+    <div class="chart-section">
+      <h2>Monthly Revenue</h2>
+      <div class="chart-bars">
+        @for (m of s.monthlyRevenue; track m.month) {
+          <div class="chart-col">
+            <div class="chart-bar" [style.height.%]="(m.revenue / maxRevenue()) * 100">
+              <span class="chart-bar-value">\${{ m.revenue | number:'1.0-0' }}</span>
+            </div>
+            <span class="chart-label">{{ m.month.substring(5) }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  }
+
+  @if (revenueByCategory().length > 0) {
+    <div class="chart-section">
+      <h2>Revenue by Category</h2>
+      <div class="cat-chart">
+        @for (cat of revenueByCategory(); track cat.name) {
+          <div class="cat-row">
+            <span class="cat-name">{{ cat.name }}</span>
+            <div class="cat-bar-wrapper">
+              <div class="cat-bar" role="progressbar">
+                <div class="cat-bar-fill" [style.width.%]="(cat.revenue / maxCatRevenue()) * 100"></div>
+              </div>
+            </div>
+            <span class="cat-value">\${{ cat.revenue | number:'1.0-0' }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  }
+
+  <div class="dash-cols">
+    <div class="dash-card">
+      <div class="dash-card-header">
+        <h2>Recent Orders</h2>
+        <a routerLink="/admin/orders">View All</a>
+      </div>
+      @for (order of recentOrders(); track order.id) {
+        <div class="order-row">
+          <span class="order-row-id">#{{ order.id }}</span>
+          <span class="order-row-status">{{ order.status.replace('_', ' ') }}</span>
+          <span class="order-row-total">\${{ order.totalAmount | number:'1.2-2' }}</span>
+        </div>
+      } @empty {
+        <div class="empty-state">No orders yet</div>
+      }
+    </div>
+
+    <div class="dash-card">
+      <div class="dash-card-header">
+        <h2>Low Stock Alert</h2>
+        <a routerLink="/admin/products">Manage</a>
+      </div>
+      @for (p of lowStockProducts(); track p.id) {
+        <div class="stock-row">
+          <span class="stock-name">{{ p.name }}</span>
+          <span class="stock-count">{{ p.stock }} left</span>
+        </div>
+      } @empty {
+        <div class="empty-state">All products well stocked</div>
+      }
+    </div>
+  </div>
+}

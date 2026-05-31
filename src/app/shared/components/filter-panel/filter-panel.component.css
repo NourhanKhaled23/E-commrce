@@ -1,0 +1,38 @@
+.filter-panel { padding:0.5rem 0; }
+.filter-header { display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--color-border,#E8E0D4); }
+.filter-header h4 { font-family:var(--font-serif,Georgia,serif);font-size:1rem;margin:0; }
+.btn-text { background:none;border:none;color:var(--color-accent,#C8A96E);font-size:0.8rem;cursor:pointer;padding:0; }
+.btn-text:hover { opacity:0.8; }
+.filter-section { margin-bottom:1.25rem; }
+.filter-section h5 { font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--color-text-muted,#6B5C3E);margin-bottom:0.5rem; }
+.sort-options { display:flex;flex-wrap:wrap;gap:0.35rem; }
+.sort-chip { padding:0.35rem 0.75rem;border:1px solid var(--color-border,#E8E0D4);border-radius:2rem;background:var(--color-bg-card,#FFFFFF);font-size:0.8rem;cursor:pointer;transition:all 0.2s;color:var(--color-text-body,#1A1512); }
+.sort-chip.active { border-color:var(--color-accent,#C8A96E);background:var(--color-accent-light,#E8D5B0);color:var(--color-accent,#C8A96E); }
+.sort-chip:hover { border-color:var(--color-accent,#C8A96E); }
+
+.cat-accordion { display:flex;flex-direction:column;gap:0.25rem; }
+.cat-group { border:none; }
+.cat-summary { display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0;font-size:0.85rem;color:var(--color-text-body,#1A1512);cursor:pointer;font-weight:500;list-style:none; }
+.cat-summary::-webkit-details-marker { display:none; }
+.cat-summary::marker { display:none;content:''; }
+.cat-summary.active { color:var(--color-accent,#C8A96E); }
+.cat-summary span { cursor:pointer; }
+.cat-summary span:hover { color:var(--color-accent,#C8A96E); }
+.cat-chevron { font-size:0.7rem;transition:transform 0.2s;margin-left:auto;color:var(--color-text-muted,#6B5C3E); }
+.cat-group[open] .cat-chevron { transform:rotate(180deg); }
+.cat-children { padding:0.25rem 0 0.5rem 1.25rem;display:flex;flex-direction:column;gap:0.15rem; }
+.category-checkbox { display:flex;align-items:center;gap:0.5rem;padding:0.3rem 0;cursor:pointer;font-size:0.85rem;color:var(--color-text-muted,#6B5C3E); }
+.category-checkbox.active { color:var(--color-accent,#C8A96E);font-weight:500; }
+.category-checkbox input { accent-color:var(--color-accent,#C8A96E); }
+
+.price-range-inputs { display:flex;align-items:center;gap:0.5rem; }
+.price-input { width:100%;padding:0.4rem 0.5rem;font-size:0.85rem; }
+.price-sep { color:var(--color-text-muted,#6B5C3E); }
+.rating-filters { display:flex;flex-direction:column;gap:0.25rem; }
+.rating-chip { display:flex;align-items:center;gap:0.2rem;padding:0.35rem 0.5rem;border:1px solid transparent;border-radius:0.4rem;background:none;cursor:pointer;font-size:0.8rem;color:var(--color-text-muted,#6B5C3E);transition:all 0.2s; }
+.rating-chip i { font-size:0.8rem;color:var(--color-text-hint,#A8967A); }
+.rating-chip.active { border-color:var(--color-accent,#C8A96E);background:var(--color-accent-light,#E8D5B0); }
+.rating-chip.active i { color:var(--color-accent,#C8A96E); }
+.rating-chip span { margin-left:0.25rem; }
+.stock-toggle { display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;cursor:pointer; }
+.stock-toggle input { accent-color:var(--color-accent,#C8A96E);width:1rem;height:1rem; }

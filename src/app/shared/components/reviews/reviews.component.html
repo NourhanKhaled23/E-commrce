@@ -1,0 +1,110 @@
+<div class="reviews-section">
+  <div class="section-heading">
+    Customer Reviews
+    <span class="review-count-badge">{{ reviews().length }} {{ reviews().length === 1 ? 'review' : 'reviews' }}</span>
+  </div>
+
+  <!-- Write a Review (only for logged-in users who purchased the product) -->
+  @if (authService.isLoggedIn() && hasPurchased() && !alreadyReviewed()) {
+    <div class="write-review-card">
+      <h4 class="write-review-title"><i class="bi bi-pencil-square"></i> Write a Review</h4>
+      <form [formGroup]="reviewForm" (ngSubmit)="submitReview()">
+        <!-- Star Rating Selector -->
+        <div class="star-selector" (mouseleave)="clearHover()">
+          <span class="star-selector-label">Your Rating</span>
+          <div class="stars-input">
+            @for (s of [1,2,3,4,5]; track s) {
+              <button type="button"
+                class="star-btn"
+                [class.filled]="s <= (hoverRating() || selectedRating())"
+                (mouseenter)="setHover(s)"
+                (click)="setRating(s)"
+                [attr.aria-label]="s + ' star' + (s > 1 ? 's' : '')">
+                <i class="bi" [class.bi-star-fill]="s <= (hoverRating() || selectedRating())" [class.bi-star]="s > (hoverRating() || selectedRating())"></i>
+              </button>
+            }
+            @if (selectedRating() > 0) {
+              <span class="rating-label">{{ ['', 'Poor', 'Fair', 'Good', 'Very Good', 'Excellent'][selectedRating()] }}</span>
+            }
+          </div>
+        </div>
+
+        <!-- Title -->
+        <div class="form-group-rv">
+          <label class="rv-label" for="rv-title">Review Title</label>
+          <input id="rv-title" type="text" class="rv-input" formControlName="title"
+            placeholder="Summarize your experience"
+            [class.rv-invalid]="f['title'].touched && f['title'].invalid" />
+          @if (f['title'].touched && f['title'].errors?.['required']) {
+            <span class="rv-error">Title is required</span>
+          }
+        </div>
+
+        <!-- Comment -->
+        <div class="form-group-rv">
+          <label class="rv-label" for="rv-comment">Your Review</label>
+          <textarea id="rv-comment" class="rv-textarea" formControlName="comment" rows="4"
+            placeholder="Share your experience with this product..."
+            [class.rv-invalid]="f['comment'].touched && f['comment'].invalid"></textarea>
+          @if (f['comment'].touched && f['comment'].errors?.['required']) {
+            <span class="rv-error">Review text is required</span>
+          }
+          @if (f['comment'].touched && f['comment'].errors?.['minlength']) {
+            <span class="rv-error">Review must be at least 10 characters</span>
+          }
+        </div>
+
+        <button type="submit" class="rv-submit-btn" [disabled]="submitting()">
+          @if (submitting()) {
+            <i class="bi bi-hourglass-split"></i> Submitting...
+          } @else {
+            <i class="bi bi-send"></i> Submit Review
+          }
+        </button>
+      </form>
+    </div>
+  } @else if (authService.isLoggedIn() && hasPurchased() && alreadyReviewed()) {
+    <div class="rv-already-reviewed">
+      <i class="bi bi-check-circle-fill"></i> You've already reviewed this product. Thank you!
+    </div>
+  }
+
+  @if (isLoading()) {
+    <div class="review-skeleton">
+      <div class="sk-shimmer sk-review-title"></div>
+      <div class="sk-shimmer sk-review-body"></div>
+      <div class="sk-shimmer sk-review-subtitle"></div>
+    </div>
+  } @else {
+    @if (reviews().length === 0) {
+      <div class="empty-reviews">
+        <i class="bi bi-chat-square-text"></i>
+        <p>No reviews yet. Be the first to review this product!</p>
+      </div>
+    } @else {
+      <div class="review-list">
+        @for (review of paged(); track review.id) {
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">{{ review.userName.charAt(0).toUpperCase() }}</div>
+              <div>
+                <div class="review-author">{{ review.userName }}</div>
+                <div class="review-date">{{ review.createdAt | date:'mediumDate' }}</div>
+              </div>
+              <div class="review-stars">
+                @for (s of [1,2,3,4,5]; track s) {
+                  <i class="bi" [class.bi-star-fill]="s <= review.rating" [class.bi-star]="s > review.rating"></i>
+                }
+              </div>
+            </div>
+            <div class="review-title">{{ review.title }}</div>
+            <p class="review-comment">{{ review.comment }}</p>
+          </div>
+        }
+      </div>
+      @if (hasMore()) {
+        <button class="btn-outline-of btn-sm-of load-more-btn" (click)="loadMore()">Show More Reviews ({{ reviews().length - paged().length }} remaining)</button>
+      }
+    }
+  }
+</div>

@@ -1,0 +1,75 @@
+<div class="filter-panel">
+  <div class="filter-header">
+    <h4>Filters</h4>
+    <button class="btn-text" (click)="resetAll()">Clear all</button>
+  </div>
+
+  <!-- Sort -->
+  <div class="filter-section">
+    <h5>Sort By</h5>
+    <div class="sort-options">
+      @for (opt of [{v:'newest',l:'Newest'},{v:'price-asc',l:'Price: Low'},{v:'price-desc',l:'Price: High'},{v:'rating',l:'Top Rated'}]; track opt.v) {
+        <button class="sort-chip" [class.active]="productService.filters().sort === opt.v" (click)="setSort(opt.v)">{{ opt.l }}</button>
+      }
+    </div>
+  </div>
+
+  <!-- Categories (accordion) -->
+  <div class="filter-section">
+    <h5>Category</h5>
+    <div class="cat-accordion">
+      @for (parent of categoryService.categories(); track parent.id) {
+        <details class="cat-group" [open]="true">
+          <summary class="cat-summary" [class.active]="productService.filters().categoryId === parent.id">
+            <span (click)="setCategory(parent.id); $event.stopPropagation()">{{ parent.name }}</span>
+            @if (parent.children?.length) { <i class="bi bi-chevron-down cat-chevron"></i> }
+          </summary>
+          @if (parent.children?.length) {
+            <div class="cat-children">
+              @for (child of parent.children; track child.id) {
+                <label class="category-checkbox" [class.active]="productService.filters().categoryId === child.id">
+                  <input type="checkbox" [checked]="productService.filters().categoryId === child.id"
+                         (change)="setCategory(child.id)" />
+                  <span>{{ child.name }}</span>
+                </label>
+              }
+            </div>
+          }
+        </details>
+      }
+    </div>
+  </div>
+
+  <!-- Price Range -->
+  <div class="filter-section">
+    <h5>Price Range</h5>
+    <div class="price-range-inputs">
+      <input type="number" class="form-input-of price-input" placeholder="Min" [(ngModel)]="minPrice" (ngModelChange)="onPriceChange()" />
+      <span class="price-sep">—</span>
+      <input type="number" class="form-input-of price-input" placeholder="Max" [(ngModel)]="maxPrice" (ngModelChange)="onPriceChange()" />
+    </div>
+  </div>
+
+  <!-- Rating -->
+  <div class="filter-section">
+    <h5>Minimum Rating</h5>
+    <div class="rating-filters">
+      @for (r of [4,3,2,1]; track r) {
+        <button class="rating-chip" [class.active]="productService.filters().rating === r" (click)="setRating(r)">
+          @for (s of [1,2,3,4,5]; track s) {
+            <i class="bi" [class.bi-star-fill]="s <= r" [class.bi-star]="s > r"></i>
+          }
+          <span>& up</span>
+        </button>
+      }
+    </div>
+  </div>
+
+  <!-- In Stock -->
+  <div class="filter-section">
+    <label class="stock-toggle">
+      <input type="checkbox" [checked]="productService.filters().inStock" (change)="toggleInStock()" />
+      <span>In Stock Only</span>
+    </label>
+  </div>
+</div>

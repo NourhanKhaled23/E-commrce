@@ -1,0 +1,73 @@
+<div class="skeleton-wrapper placeholder-glow">
+  @switch (type()) {
+    @case ('card') {
+      <div class="skeleton-grid">
+        @for (_ of [].constructor(count()); track $index) {
+          <div class="skeleton-card border rounded overflow-hidden">
+            <div class="skeleton-image bg-light placeholder col-12" style="height: 260px;"></div>
+            <div class="skeleton-body p-3">
+              <span class="placeholder col-6 mb-2 d-block"></span>
+              <span class="placeholder col-10 mb-2 d-block"></span>
+              <span class="placeholder col-4 d-block"></span>
+            </div>
+          </div>
+        }
+      </div>
+    }
+    @case ('list') {
+      <div class="d-flex flex-column gap-3">
+        @for (_ of [].constructor(count()); track $index) {
+          <div class="skeleton-list-item d-flex gap-3 align-items-center p-3 border rounded">
+            <div class="skeleton-thumb bg-light placeholder rounded" style="width: 80px; height: 80px; flex-shrink: 0;"></div>
+            <div class="flex-grow-1">
+              <span class="placeholder col-4 mb-2 d-block"></span>
+              <span class="placeholder col-8 mb-1 d-block"></span>
+              <span class="placeholder col-2 d-block"></span>
+            </div>
+          </div>
+        }
+      </div>
+    }
+    @case ('table') {
+      <div class="table-responsive">
+        <table class="table border">
+          <thead>
+            <tr>
+              <th style="width: 80px;"><span class="placeholder col-6"></span></th>
+              <th><span class="placeholder col-4"></span></th>
+              <th><span class="placeholder col-3"></span></th>
+              <th><span class="placeholder col-2"></span></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (_ of [].constructor(count()); track $index) {
+              <tr>
+                <td><span class="placeholder col-8"></span></td>
+                <td><span class="placeholder col-10"></span></td>
+                <td><span class="placeholder col-6"></span></td>
+                <td><span class="placeholder col-4"></span></td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+    @case ('detail') {
+      <div class="row g-4 my-2">
+        <div class="col-md-6">
+          <div class="skeleton-detail-img bg-light placeholder rounded w-100" style="height: 450px;"></div>
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center gap-3">
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-8" style="height: 2rem;"></span>
+          <span class="placeholder col-3" style="height: 1.5rem;"></span>
+          <span class="placeholder col-12" style="height: 4rem;"></span>
+          <div class="d-flex gap-2 mt-3">
+            <span class="placeholder col-4" style="height: 2.5rem;"></span>
+            <span class="placeholder col-2" style="height: 2.5rem;"></span>
+          </div>
+        </div>
+      </div>
+    }
+  }
+</div>

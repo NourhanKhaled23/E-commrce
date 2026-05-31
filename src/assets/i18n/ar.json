@@ -1,0 +1,83 @@
+{
+    "NAVBAR": {
+        "PRODUCTS": "المنتجات",
+        "ORDERS": "الطلبات",
+        "ADMIN": "المدير",
+        "PROFILE": "ملفي الشخصي",
+        "LOGOUT": "تسجيل الخروج",
+        "SIGN_IN": "تسجيل الدخول",
+        "SEARCH_PLACEHOLDER": "البحث عن منتجات...",
+        "WISHLIST": "المفضلة",
+        "CART": "سلة التسوق"
+    },
+    "PRODUCT_CARD": {
+        "ADD_TO_CART": "أضف إلى السلة",
+        "ADDED": "تمت الإضافة!",
+        "ADD_TO_WISHLIST": "أضف إلى المفضلة",
+        "REVIEW": "اكتب مراجعة",
+        "OUT_OF_STOCK": "نفدت الكمية",
+        "IN_STOCK": "متوفر في المخزن",
+        "LOW_STOCK": "كمية قليلة المتبقية"
+    },
+    "CONFIRM_DIALOG": {
+        "YES": "نعم",
+        "NO": "لا",
+        "CONFIRM": "تأكيد"
+    },
+    "LANGUAGE": {
+        "SWITCH_LANG": "English"
+    },
+    "HOME": {
+        "SHOP_NOW": "تسوق الآن",
+        "EXPLORE": "استكشف المجموعة"
+    },
+    "NEWSLETTER": {
+        "JOIN_COMMUNITY": "انضم إلى مجتمعنا",
+        "SUBSCRIBE_DESC": "اشترك لتلقي العروض الحصرية، والوصول المبكر إلى المنتجات الجديدة، وإلهام الموضة مباشرة في صندوق الوارد الخاص بك.",
+        "SUBSCRIBE_PLACEHOLDER": "أدخل عنوان بريدك الإلكتروني",
+        "SUBSCRIBE_BTN": "اشترك"
+    },
+    "AUTH": {
+        "LOGIN": "تسجيل الدخول",
+        "REGISTER": "إنشاء حساب",
+        "EMAIL": "البريد الإلكتروني",
+        "PASSWORD": "كلمة المرور",
+        "CONFIRM_PASSWORD": "تأكيد كلمة المرور",
+        "FORGOT_PASSWORD": "نسيت كلمة المرور؟",
+        "NO_ACCOUNT": "ليس لديك حساب؟",
+        "HAVE_ACCOUNT": "لديك حساب بالفعل؟",
+        "RESTRICTED_MSG": "تم تقييد حسابك. يرجى الاتصال بالدعم."
+    },
+    "ORDER": {
+        "STATUS_PLACED": "تم الطلب",
+        "STATUS_CONFIRMED": "مؤكد",
+        "STATUS_PROCESSING": "قيد المعالجة",
+        "STATUS_SHIPPED": "تم الشحن",
+        "STATUS_OUT_FOR_DELIVERY": "خرج للتوصيل",
+        "STATUS_DELIVERED": "تم التوصيل",
+        "STATUS_CANCELLED": "ملغى",
+        "TRACK": "تتبع الطلب",
+        "CANCEL": "إلغاء الطلب",
+        "REORDER": "إعادة الطلب"
+    },
+    "CHECKOUT": {
+        "SHIPPING": "عنوان الشحن",
+        "PAYMENT": "طريقة الدفع",
+        "REVIEW": "مراجعة الطلب",
+        "PLACE_ORDER": "تأكيد الطلب",
+        "GUEST_EMAIL": "المتابعة كضيف",
+        "PROMO_PLACEHOLDER": "كود الخصم",
+        "APPLY": "تطبيق",
+        "REMOVE": "إزالة",
+        "FREE_SHIPPING": "شحن مجاني",
+        "ORDER_TOTAL": "إجمالي الطلب",
+        "DISCOUNT": "الخصم"
+    },
+    "ERRORS": {
+        "ACCOUNT_RESTRICTED": "حسابك مقيد ولا يمكنه وضع الطلبات.",
+        "INSUFFICIENT_WALLET": "رصيد المحفظة غير كافٍ.",
+        "CARD_DECLINED": "تم رفض بطاقتك. يرجى تجربة طريقة دفع أخرى.",
+        "NETWORK_ERROR": "خطأ في الشبكة. يرجى التحقق من اتصالك.",
+        "SESSION_EXPIRED": "انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى."
+    }
+}

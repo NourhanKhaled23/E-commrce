@@ -1,0 +1,68 @@
+<footer class="footer-of">
+  <div class="footer-inner">
+    <!-- Brand Column -->
+    <div class="footer-col footer-brand-col">
+      <span class="footer-logo">OPEN FASHION</span>
+      <p class="footer-tagline">Curated elegance for the modern wardrobe. Discover premium fashion that defines your style.</p>
+      <div class="footer-social">
+        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
+          <i class="bi bi-twitter"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="bi bi-instagram"></i>
+        </a>
+        <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+          <i class="bi bi-youtube"></i>
+        </a>
+        <a href="https://pinterest.com" target="_blank" rel="noopener" aria-label="Pinterest">
+          <i class="bi bi-pinterest"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Shop Column -->
+    <div class="footer-col">
+      <h5 class="footer-heading">Shop</h5>
+      <a class="footer-link" routerLink="/products">All Products</a>
+      <a class="footer-link" routerLink="/products" [queryParams]="{category: 'clothing'}">Clothing</a>
+      <a class="footer-link" routerLink="/products" [queryParams]="{category: 'accessories'}">Accessories</a>
+      <a class="footer-link" routerLink="/products" [queryParams]="{category: 'footwear'}">Footwear</a>
+      <a class="footer-link" routerLink="/products" [queryParams]="{category: 'bags'}">Bags</a>
+    </div>
+
+    <!-- Customer Service Column -->
+    <div class="footer-col">
+      <h5 class="footer-heading">Support</h5>
+      <a class="footer-link" routerLink="/orders">My Orders</a>
+      <a class="footer-link" routerLink="/cart">Shopping Cart</a>
+      <a class="footer-link" routerLink="/wishlist">Wishlist</a>
+      <a class="footer-link" routerLink="/auth/profile">My Account</a>
+      <a class="footer-link" href="javascript:void(0)">Help Center</a>
+    </div>
+
+    <!-- Company Column -->
+    <div class="footer-col">
+      <h5 class="footer-heading">Company</h5>
+      <a class="footer-link" href="javascript:void(0)">About Us</a>
+      <a class="footer-link" href="javascript:void(0)">Careers</a>
+      <a class="footer-link" href="javascript:void(0)">Privacy Policy</a>
+      <a class="footer-link" href="javascript:void(0)">Terms of Service</a>
+      <a class="footer-link" href="javascript:void(0)">Contact</a>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-copyright">
+        &copy; {{ currentYear }} Open Fashion. All rights reserved.
+      </p>
+      <div class="footer-payment-icons">
+        <i class="bi bi-credit-card-2-front" title="Visa"></i>
+        <i class="bi bi-credit-card" title="Mastercard"></i>
+        <i class="bi bi-paypal" title="PayPal"></i>
+        <i class="bi bi-apple" title="Apple Pay"></i>
+      </div>
+    </div>
+  </div>
+</footer>

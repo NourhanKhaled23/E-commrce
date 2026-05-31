@@ -1,0 +1,145 @@
+<div class="page-container">
+  <div class="back-link">
+    <a routerLink="/orders"><i class="bi bi-arrow-left"></i> Back to Orders</a>
+  </div>
+
+  @if (isLoading()) { <div class="spinner-of"></div> }
+
+  @if (!isLoading()) {
+    @let ord = order();
+    @if (!ord) {
+      <div class="empty-state"><i class="bi bi-exclamation-circle"></i><h3>Order not found</h3><p>The order you're looking for doesn't exist.</p><a routerLink="/orders" class="btn-primary-of">View All Orders</a></div>
+    } @else {
+      <!-- Header -->
+      <div class="order-header">
+        <div>
+          <div class="order-header-top">
+            <h1 class="order-header-label">Order #{{ ord.id }}</h1>
+            <app-order-status-badge [status]="ord.status" />
+          </div>
+          <p class="order-header-date">Placed on {{ ord.createdAt | date:'fullDate' }}</p>
+          @if (ord.estimatedDelivery) {
+            <p class="order-estimated">Estimated delivery: {{ ord.estimatedDelivery | date:'mediumDate' }}</p>
+          }
+        </div>
+      </div>
+
+      <!-- Visual Order Tracker -->
+      @if (ord.status !== 'cancelled') {
+        <div class="order-tracker">
+          <div class="tracker-progress">
+            <div class="tracker-bar">
+              <div class="tracker-fill" [style.width.%]="((currentStepIndex() + 1) / statusFlow.length) * 100"></div>
+            </div>
+            <div class="tracker-steps">
+              @for (s of statusFlow; track s; let i = $index) {
+                @let cfg = statusConfig[s];
+                @let done = i <= currentStepIndex();
+                @let isCurrent = i === currentStepIndex();
+                <div class="tracker-step" [class.completed]="done" [class.current]="isCurrent" [class.future]="!done">
+                  <div class="step-circle" [style.background]="isCurrent ? cfg.color : (done ? cfg.color : 'var(--color-bg-tertiary)')"
+                       [style.borderColor]="done ? cfg.color : 'var(--color-border)'">
+                    <i class="bi" [class.bi-check-lg]="done && !isCurrent" [class]="isCurrent ? cfg.icon : ''"></i>
+                  </div>
+                  <div class="step-info">
+                    <span class="step-label">{{ cfg.label }}</span>
+                    @if (done) {
+                      @let ev = ord.timeline.find(t => t.status === s);
+                      @if (ev) {
+                        <span class="step-time">{{ ev.timestamp | date:'MMM d, h:mm a' }}</span>
+                        <span class="step-note">{{ ev.note }}</span>
+                      }
+                    }
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      } @else {
+        <!-- Cancelled timeline -->
+        <div class="order-tracker cancelled-tracker">
+          <div class="tracker-steps">
+            @for (ev of ord.timeline; track ev.status) {
+              @let cfg = statusConfig[ev.status];
+              <div class="tracker-step completed">
+                <div class="step-circle" [style.background]="cfg.color">
+                  <i class="bi" [class.bi-x-lg]="ev.status === 'cancelled'" [class.bi-check-lg]="ev.status !== 'cancelled'"></i>
+                </div>
+                <div class="step-info">
+                  <span class="step-label">{{ cfg.label }}</span>
+                  <span class="step-time">{{ ev.timestamp | date:'MMM d, h:mm a' }}</span>
+                  <span class="step-note">{{ ev.note }}</span>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Cancel Button -->
+      @if (canCancel()) {
+        <div class="cancel-section">
+          <p class="cancel-info">You can cancel this order while it's still in early stages.</p>
+          <button class="btn-outline-of cancel-order-btn" (click)="cancelOrder()" [disabled]="cancelling()">
+            @if (cancelling()) { <span class="btn-spinner"></span> Cancelling... }
+            @else { <i class="bi bi-x-circle"></i> Cancel Order }
+          </button>
+        </div>
+      }
+
+      <!-- Items + Summary Layout -->
+      <div class="order-detail-layout">
+        <div class="order-items-section">
+          <h3 class="section-heading">Items ({{ getItemCount() }})</h3>
+          <div class="order-items">
+            @for (item of ord.items; track item.product.id) {
+              <div class="order-item">
+                <a [routerLink]="['/products', item.product.id]" class="order-item-image">
+                  <img [src]="item.product.thumbnail" [alt]="item.product.name" />
+                </a>
+                <div class="order-item-info">
+                  <p class="order-item-category">{{ item.product.category }}</p>
+                  <h4 class="order-item-name"><a [routerLink]="['/products', item.product.id]">{{ item.product.name }}</a></h4>
+                  <div class="order-item-meta">
+                    <span>Qty: {{ item.quantity }}</span>
+                    <span class="order-item-price">{{ (item.product.price * item.quantity) | currency:'USD':'symbol':'1.2-2' }}</span>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="order-sidebar">
+          <div class="info-card">
+            <h3 class="section-heading">Payment</h3>
+            <p class="payment-info-line">
+              <i class="bi" [class.bi-credit-card]="ord.paymentMethod === 'card'" [class.bi-paypal]="ord.paymentMethod === 'paypal'" [class.bi-cash]="ord.paymentMethod === 'cod'" [class.bi-wallet2]="ord.paymentMethod === 'wallet'"></i>
+              {{ ord.paymentMethod === 'card' ? 'Card' : ord.paymentMethod === 'paypal' ? 'PayPal' : ord.paymentMethod === 'cod' ? 'Cash on Delivery' : 'Wallet' }}
+            </p>
+          </div>
+          <div class="info-card">
+            <h3 class="section-heading">Shipping Address</h3>
+            <div class="address-details">
+              <p>{{ ord.shippingAddress.street }}</p>
+              <p>{{ ord.shippingAddress.city }}, {{ ord.shippingAddress.state }} {{ ord.shippingAddress.zipCode }}</p>
+              <p>{{ ord.shippingAddress.country }}</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <h3 class="section-heading">Order Summary</h3>
+            <div class="summary-details">
+              <div class="summary-row"><span>Subtotal</span><span>{{ ord.subtotal | currency:'USD':'symbol':'1.2-2' }}</span></div>
+              @if (ord.discount > 0) { <div class="summary-row summary-discount"><span>Discount</span><span>-{{ ord.discount | currency:'USD':'symbol':'1.2-2' }}</span></div> }
+              <div class="summary-row"><span>Shipping</span><span class="free-shipping">Free</span></div>
+              @if (ord.promoCode) { <div class="summary-row"><span>Promo</span><span class="summary-discount">{{ ord.promoCode }}</span></div> }
+              <div class="divider"></div>
+              <div class="summary-row summary-total"><span>Total</span><span>{{ ord.totalAmount | currency:'USD':'symbol':'1.2-2' }}</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  }
+</div>

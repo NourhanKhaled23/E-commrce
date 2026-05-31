@@ -1,0 +1,104 @@
+<a [routerLink]="['/products', product().id]" class="product-card-link">
+  <div class="product-card-container">
+    @if (comparisonCount > 0) {
+      <div class="compare-count-badge">
+        <i class="bi bi-bar-chart-steps"></i> {{ comparisonCount }}
+      </div>
+    }
+    <!-- Image Area -->
+    <div class="product-card-image-section" [class.skeleton-shimmer]="!imageLoadedState()">
+      @if (imageErrorState()) {
+        <div class="product-card-img-fallback">
+          <i class="bi bi-image"></i>
+        </div>
+      } @else {
+        <img
+          [src]="product().thumbnail"
+          [alt]="product().name"
+          class="product-card-img"
+          [class.loaded]="imageLoadedState()"
+          loading="lazy"
+          (load)="onImgLoad()"
+          (error)="onImgError()"
+        />
+      }
+
+      <!-- Badges -->
+      <div class="product-card-badges">
+        @if (product().comparePrice && product().comparePrice! > product().price) {
+          <span class="badge-sale">
+            -{{ ((1 - product().price / product().comparePrice!) * 100) | number:'1.0-0' }}%
+          </span>
+        }
+      </div>
+
+      <!-- Wishlist Button -->
+      <div class="product-card-actions-top">
+        <button
+          type="button"
+          class="wishlist-btn"
+          [class.active]="wishlistService.isWishlisted(product().id)"
+          [class.animating]="heartAnimating()"
+          (click)="onToggleWishlist($event)"
+          [title]="'NAVBAR.WISHLIST' | translate"
+        >
+          <i class="bi"
+             [class.bi-heart-fill]="wishlistService.isWishlisted(product().id)"
+             [class.bi-heart]="!wishlistService.isWishlisted(product().id)">
+          </i>
+        </button>
+      </div>
+
+      <!-- Cart Button -->
+      <div class="product-card-actions-bottom">
+        <button
+          type="button"
+          class="cart-btn"
+          [disabled]="product().stock <= 0"
+          (click)="onAddToCart($event)"
+          [title]="'PRODUCT_CARD.ADD_TO_CART' | translate"
+        >
+          @if (justAdded()) {
+            <i class="bi bi-check-lg"></i>
+          } @else {
+            <i class="bi bi-bag-plus"></i>
+          }
+        </button>
+        <button
+          type="button"
+          class="compare-btn-card"
+          [class.active]="isInComparison()"
+          (click)="onToggleComparison($event)"
+          title="Compare"
+        >
+          <i class="bi bi-bar-chart-steps"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Details -->
+    <div class="product-card-body">
+      <span class="product-card-category">{{ product().category }}</span>
+      <h5 class="product-card-title">{{ product().name }}</h5>
+      <div class="product-card-rating">
+        <app-star-rating [rating]="product().avgRating" [readonly]="true"></app-star-rating>
+        <span class="product-card-review-count">({{ product().reviewCount }})</span>
+      </div>
+      <div class="product-card-footer">
+        <div class="product-price">
+          @if (product().comparePrice && product().comparePrice! > product().price) {
+            <span class="price-original">{{ product().comparePrice | currency:'USD':'symbol':'1.2-2' }}</span>
+          }
+          <span class="price-current">{{ product().price | currency:'USD':'symbol':'1.2-2' }}</span>
+        </div>
+        @if (product().stock >= 5) {
+          <span class="stock-badge stock-in">{{ 'PRODUCT_CARD.IN_STOCK' | translate }}</span>
+        } @else if (product().stock > 0) {
+          <span class="stock-badge stock-low">{{ 'PRODUCT_CARD.LOW_STOCK' | translate }} ({{ product().stock }})</span>
+        } @else {
+          <span class="stock-badge stock-out">{{ 'PRODUCT_CARD.OUT_OF_STOCK' | translate }}</span>
+        }
+      </div>
+    </div>
+  </div>
+</a>

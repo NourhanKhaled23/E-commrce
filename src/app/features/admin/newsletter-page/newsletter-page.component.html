@@ -1,0 +1,66 @@
+<div class="admin-page-header">
+  <h2>Newsletter Management</h2>
+</div>
+
+<div class="newsletter-grid">
+  <!-- Compose Form -->
+  <div class="card-of compose-card">
+    <h3 class="mb-4">Compose Newsletter</h3>
+    <form (ngSubmit)="sendNewsletter()">
+      <div class="form-group mb-3">
+        <label class="form-label-of">Subject Line</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          placeholder="e.g., New Arrivals are here!" 
+          [(ngModel)]="subject" 
+          name="subject" 
+          required 
+        />
+      </div>
+      <div class="form-group mb-4">
+        <label class="form-label-of">HTML Body</label>
+        <textarea 
+          class="form-control" 
+          rows="10" 
+          placeholder="<h1>Hello!</h1><p>Check out our new collection...</p>" 
+          [(ngModel)]="body" 
+          name="body" 
+          required
+        ></textarea>
+      </div>
+      <button 
+        type="submit" 
+        class="btn-primary-of w-100" 
+        [disabled]="isSending() || !subject() || !body() || subscribers().length === 0"
+      >
+        @if (isSending()) {
+          <i class="bi bi-arrow-repeat spin"></i> Sending...
+        } @else {
+          <i class="bi bi-send"></i> Send to {{ subscribers().length }} Subscribers
+        }
+      </button>
+    </form>
+  </div>
+
+  <!-- Subscribers List -->
+  <div class="card-of subscribers-card">
+    <h3 class="mb-4">Subscribers ({{ subscribers().length }})</h3>
+    
+    @if (subscribers().length === 0) {
+      <div class="text-muted text-center py-5">
+        <i class="bi bi-people fs-1 d-block mb-3"></i>
+        <p>No subscribers yet.</p>
+      </div>
+    } @else {
+      <div class="subscribers-list">
+        @for (email of subscribers(); track email) {
+          <div class="subscriber-item">
+            <i class="bi bi-envelope"></i>
+            <span>{{ email }}</span>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>

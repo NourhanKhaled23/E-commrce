@@ -1,0 +1,24 @@
+@if (!isAdminRoute() && !isSellerRoute()) {
+  <app-navbar></app-navbar>
+}
+
+<app-toast-container></app-toast-container>
+<app-confirm-dialog></app-confirm-dialog>
+
+<main class="animate-fade-in" id="main-content">
+  <app-error-boundary>
+    <router-outlet></router-outlet>
+  </app-error-boundary>
+</main>
+
+@if (!isAdminRoute() && !isSellerRoute()) {
+  <app-newsletter-signup></app-newsletter-signup>
+  <app-footer></app-footer>
+}
+
+<!-- Back to Top -->
+@if (showBackToTop()) {
+  <button class="back-to-top" (click)="scrollToTop()" aria-label="Back to top">
+    <i class="bi bi-chevron-up"></i>
+  </button>
+}

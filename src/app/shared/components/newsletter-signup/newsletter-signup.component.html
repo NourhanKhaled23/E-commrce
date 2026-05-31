@@ -1,0 +1,28 @@
+@if (isVisible()) {
+  <div class="newsletter-floating-banner animate-slide-up">
+    <button class="close-btn" (click)="dismiss()" aria-label="Close">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    
+    <div class="banner-content">
+      <div class="banner-icon">
+        <i class="bi bi-envelope-paper"></i>
+      </div>
+      <div class="banner-text">
+        <h3>Exclusive Offers</h3>
+        <p>Subscribe to our newsletter for 10% off your first order!</p>
+      </div>
+      <form class="banner-form" (ngSubmit)="subscribe()">
+        <input 
+          type="email" 
+          class="form-input-of" 
+          placeholder="Enter your email" 
+          [(ngModel)]="email" 
+          name="email" 
+          required 
+        />
+        <button type="submit" class="btn-accent" [disabled]="!email()">Subscribe</button>
+      </form>
+    </div>
+  </div>
+}

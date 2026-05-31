@@ -1,0 +1,48 @@
+<div class="seller-shell">
+  <aside class="seller-sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-label">SELLER</span>
+      <span class="brand-sub">Open Fashion</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a routerLink="/seller/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+        <i class="bi bi-speedometer2"></i>
+        <span>Dashboard</span>
+      </a>
+      <a routerLink="/seller/products" routerLinkActive="active" class="nav-item">
+        <i class="bi bi-box-seam"></i>
+        <span>Products</span>
+      </a>
+      <a routerLink="/seller/orders" routerLinkActive="active" class="nav-item">
+        <i class="bi bi-receipt"></i>
+        <span>Orders</span>
+      </a>
+      <a routerLink="/seller/earnings" routerLinkActive="active" class="nav-item">
+        <i class="bi bi-wallet2"></i>
+        <span>Earnings</span>
+      </a>
+      <a routerLink="/seller/setup" routerLinkActive="active" class="nav-item">
+        <i class="bi bi-gear"></i>
+        <span>Shop Settings</span>
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <a routerLink="/" class="nav-item">
+        <i class="bi bi-arrow-left"></i>
+        <span>Back to Store</span>
+      </a>
+      <button class="nav-item nav-logout" (click)="logout()">
+        <i class="bi bi-box-arrow-right"></i>
+        <span>Logout</span>
+      </button>
+    </div>
+  </aside>
+  <div class="seller-main">
+    <header class="seller-topbar">
+      <h1 class="topbar-title">{{ pageTitle }}</h1>
+    </header>
+    <div class="seller-content">
+      <router-outlet />
+    </div>
+  </div>
+</div>

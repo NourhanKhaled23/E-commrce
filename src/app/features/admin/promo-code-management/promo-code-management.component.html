@@ -1,0 +1,140 @@
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Promo Codes</h1>
+    <p class="admin-page-meta">{{ promoCodes().length }} codes</p>
+  </div>
+  <button class="admin-btn-primary" (click)="openAdd()">
+    <i class="bi bi-plus-lg"></i> Add Promo Code
+  </button>
+</div>
+
+@if (loading()) {
+  <div style="text-align:center;padding:48px 16px;color:#6B5C3E"><i class="bi bi-hourglass-split"></i> Loading...</div>
+} @else {
+  <div class="admin-table-wrapper">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th class="sortable-header" (click)="sort('code')">
+            Code <i class="bi" [class.bi-caret-up-fill]="sortField()==='code' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='code' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='code'"></i>
+          </th>
+          <th class="sortable-header" (click)="sort('type')">
+            Type <i class="bi" [class.bi-caret-up-fill]="sortField()==='type' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='type' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='type'"></i>
+          </th>
+          <th class="sortable-header" (click)="sort('value')">
+            Value <i class="bi" [class.bi-caret-up-fill]="sortField()==='value' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='value' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='value'"></i>
+          </th>
+          <th>Min. Order</th>
+          <th>Expiry</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (code of paginatedCodes; track code.id) {
+          <tr [class.inactive-row]="!code.active">
+            <td><span class="code-chip">{{ code.code }}</span></td>
+            <td>
+              <span class="badge" [class.badge-pct]="code.type === 'percentage'" [class.badge-fixed]="code.type === 'fixed'">
+                {{ code.type === 'percentage' ? '% Percent' : '$ Fixed' }}
+              </span>
+            </td>
+            <td class="td-price">{{ code.type === 'percentage' ? code.value + '%' : '$' + code.value }}</td>
+            <td class="td-muted">{{ code.minAmount > 0 ? '$' + code.minAmount : '—' }}</td>
+            <td class="td-muted">{{ code.expiry ? (code.expiry | date:'mediumDate') : '—' }}</td>
+            <td>
+              <button class="toggle-btn" [class.toggle-active]="code.active" (click)="toggleActive(code)">
+                <i class="bi" [class.bi-toggle-on]="code.active" [class.bi-toggle-off]="!code.active"></i>
+                {{ code.active ? 'Active' : 'Inactive' }}
+              </button>
+            </td>
+            <td>
+              <div class="row-actions">
+                <button class="action-icon-btn" title="Edit" (click)="openEdit(code)"><i class="bi bi-pencil"></i></button>
+                <button class="action-icon-btn danger" title="Delete" (click)="confirmDelete(code)"><i class="bi bi-trash"></i></button>
+              </div>
+            </td>
+          </tr>
+        } @empty {
+          <tr><td colspan="7" style="text-align:center;padding:48px 16px;color:#6B5C3E">No promo codes yet</td></tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}
+
+@if (showModal()) {
+  <div class="admin-modal-backdrop" (click)="closeModal()">
+    <div class="admin-modal-dialog" (click)="$event.stopPropagation()">
+      <div class="admin-modal-content">
+        <div class="admin-modal-header">
+          <h5 class="admin-modal-title">{{ editingCode() ? 'Edit Promo Code' : 'New Promo Code' }}</h5>
+          <button type="button" class="admin-modal-close" (click)="closeModal()"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <form [formGroup]="promoForm" (ngSubmit)="savePromo()">
+          <div class="admin-modal-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Code <span class="req">*</span></label>
+                <input type="text" formControlName="code" placeholder="e.g. SUMMER20"
+                  [class.invalid]="f['code'].touched && f['code'].invalid"
+                  style="text-transform:uppercase" />
+                @if (f['code'].touched && f['code'].errors?.['required']) {
+                  <span class="err">Code is required</span>
+                }
+                @if (f['code'].touched && f['code'].errors?.['pattern']) {
+                  <span class="err">2-20 uppercase letters, numbers, - or _</span>
+                }
+              </div>
+              <div class="form-group">
+                <label>Type <span class="req">*</span></label>
+                <select formControlName="type">
+                  <option value="percentage">Percentage (%)</option>
+                  <option value="fixed">Fixed Amount ($)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Value <span class="req">*</span></label>
+                <input type="number" formControlName="value" min="0.01" step="0.01"
+                  [placeholder]="f['type'].value === 'percentage' ? 'e.g. 10 for 10%' : 'e.g. 5 for $5'"
+                  [class.invalid]="f['value'].touched && f['value'].invalid" />
+                @if (f['value'].touched && f['value'].errors?.['required']) {
+                  <span class="err">Value is required</span>
+                }
+              </div>
+              <div class="form-group">
+                <label>Min. Order Amount ($)</label>
+                <input type="number" formControlName="minAmount" min="0" step="0.01" placeholder="0 = no minimum" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Description <span class="req">*</span></label>
+              <input type="text" formControlName="description" placeholder="Short description shown to customers"
+                [class.invalid]="f['description'].touched && f['description'].invalid" />
+              @if (f['description'].touched && f['description'].errors?.['required']) {
+                <span class="err">Description is required</span>
+              }
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Expiry Date</label>
+                <input type="date" formControlName="expiry" />
+              </div>
+              <div class="form-group">
+                <label class="toggle-label"><input type="checkbox" formControlName="active"> Active (visible to customers)</label>
+              </div>
+            </div>
+          </div>
+          <div class="admin-modal-footer">
+            <button type="button" class="admin-btn-close-modal" (click)="closeModal()">Cancel</button>
+            <button type="submit" class="admin-btn-save" [disabled]="saving()">
+              @if (saving()) { Saving... } @else { {{ editingCode() ? 'Update' : 'Create' }} }
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+}

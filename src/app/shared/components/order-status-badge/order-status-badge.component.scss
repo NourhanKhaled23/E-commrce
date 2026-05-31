@@ -1,0 +1,86 @@
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid;
+  white-space: nowrap;
+
+  i {
+    font-size: 0.75rem;
+  }
+}
+.os-placed {
+  background: #E3F2FD;
+  color: var(--color-info);
+  border-color: #90CAF9;
+}
+html.dark .os-placed {
+  background: rgba(37, 99, 235, 0.2);
+  color: #90caf9;
+  border-color: #42a5f5;
+}
+.os-confirmed {
+  background: #E0F2F1;
+  color: #00695C;
+  border-color: #80CBC4;
+}
+html.dark .os-confirmed {
+  background: rgba(0, 105, 92, 0.25);
+  color: #80cbc4;
+  border-color: #26a69a;
+}
+.os-processing {
+  background: #FFF8E1;
+  color: #F57F17;
+  border-color: #FFE082;
+}
+html.dark .os-processing {
+  background: rgba(230, 81, 0, 0.2);
+  color: #ffab91;
+  border-color: #ff7043;
+}
+.os-shipped {
+  background: #F3E5F5;
+  color: #7B1FA2;
+  border-color: #CE93D8;
+}
+html.dark .os-shipped {
+  background: rgba(123, 31, 162, 0.2);
+  color: #ce93d8;
+  border-color: #ab47bc;
+}
+.os-out_for_delivery {
+  background: #FFF3E0;
+  color: #E65100;
+  border-color: #FFCC80;
+}
+html.dark .os-out_for_delivery {
+  background: rgba(230, 81, 0, 0.2);
+  color: #ffab91;
+  border-color: #ff7043;
+}
+.os-delivered {
+  background: #E8F5E9;
+  color: var(--color-success);
+  border-color: #A5D6A7;
+}
+html.dark .os-delivered {
+  background: rgba(22, 163, 74, 0.2);
+  color: #66bb6a;
+  border-color: #4caf50;
+}
+.os-cancelled {
+  background: #FFEBEE;
+  color: var(--color-error);
+  border-color: #EF9A9A;
+}
+html.dark .os-cancelled {
+  background: rgba(220, 38, 38, 0.2);
+  color: #ef9a9a;
+  border-color: #ef5350;
+}

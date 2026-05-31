@@ -1,0 +1,17 @@
+<div class="star-rating-container" [class.interactive]="!readonly()">
+  @for (star of [1, 2, 3, 4, 5]; track star) {
+    <button
+      type="button"
+      class="star-btn"
+      [disabled]="readonly()"
+      (click)="onStarClick(star)"
+      [title]="readonly() ? '' : 'Rate ' + star + ' stars'"
+    >
+      <i class="bi"
+         [class.bi-star-fill]="star <= rating()"
+         [class.bi-star-half]="star - 0.5 <= rating() && star > rating()"
+         [class.bi-star]="star > rating() && star - 0.5 > rating()">
+      </i>
+    </button>
+  }
+</div>

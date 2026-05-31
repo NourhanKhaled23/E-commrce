@@ -1,0 +1,110 @@
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Orders</h1>
+    <p class="admin-page-meta">{{ totalOrders() }} orders</p>
+  </div>
+  <button class="admin-btn-primary" (click)="exportCsv()"><i class="bi bi-download"></i> Export CSV</button>
+</div>
+
+<div class="admin-filters">
+  <select class="admin-filter-select" [value]="statusFilter()" (change)="statusFilter.set($any($event.target).value)">
+    <option value="">All Status</option>
+    @for (s of STATUSES; track s) {
+      <option [value]="s">{{ getStatusLabel(s) }}</option>
+    }
+  </select>
+  <input class="admin-filter-select" type="date" [value]="dateFrom()" (change)="dateFrom.set($any($event.target).value)" title="From date">
+  <input class="admin-filter-select" type="date" [value]="dateTo()" (change)="dateTo.set($any($event.target).value)" title="To date">
+  <input class="admin-search-input" type="text" placeholder="Search by Order #..." [value]="searchQuery()" (input)="searchQuery.set($any($event.target).value)">
+</div>
+
+<div class="admin-table-wrapper">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th class="sortable-header" (click)="sort('id')">
+          Order ID <i class="bi" [class.bi-caret-up-fill]="sortField()==='id' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='id' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='id'"></i>
+        </th>
+        <th>Customer</th>
+        <th class="sortable-header" (click)="sort('createdAt')">
+          Date <i class="bi" [class.bi-caret-up-fill]="sortField()==='createdAt' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='createdAt' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='createdAt'"></i>
+        </th>
+        <th class="sortable-header" (click)="sort('status')">
+          Status <i class="bi" [class.bi-caret-up-fill]="sortField()==='status' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='status' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='status'"></i>
+        </th>
+        <th class="sortable-header" (click)="sort('totalAmount')" style="text-align:right">
+          Total <i class="bi" [class.bi-caret-up-fill]="sortField()==='totalAmount' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='totalAmount' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='totalAmount'"></i>
+        </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (order of paginatedOrders(); track order.id) {
+        <tr (click)="toggleExpand(order.id)">
+          <td class="td-mono">#{{ order.id }}</td>
+          <td>
+            <div class="user-cell">
+              <div class="user-avatar-sm">{{ order.userId ? order.userId.toString().charAt(0).toUpperCase() : 'G' }}</div>
+              {{ order.userId ? 'User #' + order.userId : 'Guest' }}
+            </div>
+          </td>
+          <td class="td-muted">{{ order.createdAt | date:'MMM d, y' }}</td>
+          <td><span class="badge" [class]="'badge-' + order.status">{{ getStatusLabel(order.status) }}</span></td>
+          <td style="text-align:right" class="td-price">{{ order.totalAmount | currency:'USD':'symbol':'1.2-2' }}</td>
+          <td>
+            <div class="row-actions" (click)="$event.stopPropagation()">
+              <button class="action-icon-btn" [title]="expandedOrder() === order.id ? 'Collapse' : 'View'" (click)="toggleExpand(order.id)">
+                <i class="bi" [class.bi-chevron-up]="expandedOrder() === order.id" [class.bi-chevron-down]="expandedOrder() !== order.id"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+        @if (expandedOrder() === order.id) {
+          <tr class="expanded-row">
+            <td colspan="6">
+              <div class="order-details">
+                <div class="order-section">
+                  <strong>Items</strong>
+                  @for (item of order.items; track $index) {
+                    <div class="order-item">
+                      <img [src]="item.product.thumbnail" class="order-thumb" alt="">
+                      <span class="order-item-name">{{ item.product.name }} x{{ item.quantity }}</span>
+                      <span class="order-item-price">{{ item.product.price * item.quantity | currency:'USD':'symbol':'1.2-2' }}</span>
+                    </div>
+                  }
+                </div>
+                <div class="order-row"><span>Subtotal</span><span>{{ order.subtotal | currency:'USD':'symbol':'1.2-2' }}</span></div>
+                @if (order.discount) { <div class="order-row"><span>Discount</span><span class="discount">-{{ order.discount | currency:'USD':'symbol':'1.2-2' }}</span></div> }
+                @if (order.promoCode) { <div class="order-row"><span>Promo</span><span class="promo-badge">{{ order.promoCode }}</span></div> }
+                <div class="order-row"><span>Payment</span><span>{{ order.paymentMethod }}</span></div>
+                <div class="order-row"><span>Shipping</span><span>{{ order.shippingAddress.city }}, {{ order.shippingAddress.country }}</span></div>
+                @if (order.userId) { <div class="order-row"><span>User ID</span><span>#{{ order.userId }}</span></div> }
+                <div class="order-actions">
+                  <label>Update Status:</label>
+                  <select class="status-select" [value]="order.status" #statusSel (change)="updateStatus(order.id, statusSel.value)">
+                    @for (s of getAvailableStatuses(order.status); track s) {
+                      <option [value]="s">{{ getStatusLabel(s) }}</option>
+                    }
+                  </select>
+                </div>
+              </div>
+            </td>
+          </tr>
+        }
+      } @empty {
+        <tr><td colspan="6" style="text-align:center;padding:48px 16px;color:#6B5C3E">No orders found</td></tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<div class="admin-pagination">
+  <span class="pagination-info">Showing {{ paginationStart() }}–{{ paginationEnd() }} of {{ totalOrders() }}</span>
+  <div class="pagination-controls">
+    <button class="page-btn" [disabled]="page() <= 1" (click)="page.set(page() - 1)"><i class="bi bi-chevron-left"></i></button>
+    @for (p of pageNumbers(); track $index) {
+      <button class="page-btn" [class.active]="p === page()" (click)="page.set(p)">{{ p === 0 ? '...' : p }}</button>
+    }
+    <button class="page-btn" [disabled]="page() * pageSize >= totalOrders()" (click)="page.set(page() + 1)"><i class="bi bi-chevron-right"></i></button>
+  </div>
+</div>

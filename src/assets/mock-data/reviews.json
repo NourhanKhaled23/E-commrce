@@ -1,0 +1,15 @@
+[
+  { "id": 1, "productId": 1, "userId": 3, "userName": "Customer One", "rating": 5, "title": "Best mascara ever!", "comment": "This mascara gives amazing volume without clumping. Highly recommend!", "createdAt": "2026-05-10T14:30:00Z" },
+  { "id": 2, "productId": 1, "userId": 4, "userName": "Jane Miller", "rating": 4, "title": "Great for daily use", "comment": "Good quality for the price. Lasts all day without smudging.", "createdAt": "2026-05-12T09:15:00Z" },
+  { "id": 3, "productId": 1, "userId": 1, "userName": "Admin User", "rating": 5, "title": "Perfect lashes", "comment": "I've tried many mascaras and this is by far the best. My lashes look so long!", "createdAt": "2026-05-08T16:45:00Z" },
+  { "id": 4, "productId": 2, "userId": 3, "userName": "Customer One", "rating": 4, "title": "Nice palette", "comment": "Great color selection. The mirror is a nice touch. Some fallout but overall good.", "createdAt": "2026-05-15T11:00:00Z" },
+  { "id": 5, "productId": 2, "userId": 4, "userName": "Jane Miller", "rating": 3, "title": "Decent but not great", "comment": "Colors are nice but not very pigmented. Works for subtle looks.", "createdAt": "2026-05-13T08:30:00Z" },
+  { "id": 6, "productId": 3, "userId": 1, "userName": "Admin User", "rating": 5, "title": "Silky smooth powder", "comment": "This setting powder is amazing. Controls shine all day without looking cakey.", "createdAt": "2026-05-09T13:20:00Z" },
+  { "id": 7, "productId": 4, "userId": 3, "userName": "Customer One", "rating": 4, "title": "Classic red", "comment": "Beautiful shade of red. Stays on well. A bit drying but manageable with lip balm.", "createdAt": "2026-05-11T10:45:00Z" },
+  { "id": 8, "productId": 4, "userId": 4, "userName": "Jane Miller", "rating": 5, "title": "My go-to lipstick", "comment": "I buy this over and over. The perfect red for any occasion.", "createdAt": "2026-05-07T15:30:00Z" },
+  { "id": 9, "productId": 5, "userId": 1, "userName": "Admin User", "rating": 4, "title": "Great everyday fragrance", "comment": "Light, fresh, and lasts about 6 hours. Great for office wear.", "createdAt": "2026-05-14T09:00:00Z" },
+  { "id": 10, "productId": 6, "userId": 3, "userName": "Customer One", "rating": 5, "title": "Incredible scent", "comment": "This perfume gets compliments everywhere I go. Worth every penny!", "createdAt": "2026-05-16T17:00:00Z" },
+  { "id": 11, "productId": 6, "userId": 4, "userName": "Jane Miller", "rating": 4, "title": "Beautiful but pricey", "comment": "Love the scent but wish it lasted longer on my skin. About 5 hours.", "createdAt": "2026-05-10T12:15:00Z" },
+  { "id": 12, "productId": 10, "userId": 1, "userName": "Admin User", "rating": 5, "title": "Best phone on the market", "comment": "Incredible camera, amazing battery life, and the screen is gorgeous.", "createdAt": "2026-05-08T08:00:00Z" },
+  { "id": 13, "productId": 10, "userId": 3, "userName": "Customer One", "rating": 4, "title": "Great upgrade", "comment": "Came from an older model and the difference is night and day. Fast and smooth.", "createdAt": "2026-05-12T14:30:00Z" }
+]

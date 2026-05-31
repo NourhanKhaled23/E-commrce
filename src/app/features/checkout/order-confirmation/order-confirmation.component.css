@@ -1,0 +1,15 @@
+.confirmation-page { max-width:500px;margin:0 auto;padding:2rem 0;text-align:center; }
+.confirmation-icon i { font-size:3.5rem;color:var(--color-accent-secondary);margin-bottom:1rem; }
+.confirmation-page h2 { font-family:var(--font-heading);margin-bottom:0.5rem; }
+.confirmation-subtitle { color:var(--color-text-muted);margin-bottom:0.25rem; }
+.confirmation-order-id { font-size:0.9rem;margin-bottom:1rem; }
+.confirmation-details { max-width:360px;padding:1.5rem;background:var(--color-bg-secondary);border-radius:0.75rem;margin:1.5rem auto;text-align:left; }
+.confirmation-details h5 { font-family:var(--font-heading);margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--color-divider); }
+.conf-summary-row { display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.9rem;color:var(--color-text-secondary); }
+.conf-success { color:var(--color-success); }
+.conf-free { color:var(--color-success);font-weight:500; }
+.conf-total-row { font-weight:700;font-size:1.1rem;color:var(--color-text); }
+.conf-promo-note { color:var(--color-text-muted);margin-top:0.5rem;margin-bottom:0;font-size:0.8rem; }
+.conf-email-note { color:var(--color-text-muted);font-size:0.85rem;margin-top:1rem; }
+.conf-email-note i { margin-right:0.35rem; }
+.conf-actions { display:flex;gap:0.75rem;justify-content:center;margin-top:1.5rem; }

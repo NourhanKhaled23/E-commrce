@@ -1,0 +1,121 @@
+<div class="dashboard">
+  <div class="page-header">
+    <h1><i class="bi bi-speedometer2"></i> Seller Dashboard</h1>
+    <p class="page-subtitle">Overview of your shop performance</p>
+  </div>
+
+  <!-- KPI Row -->
+  <div class="kpi-row">
+    <div class="kpi-card kpi-products">
+      <div class="kpi-icon"><i class="bi bi-box-seam"></i></div>
+      <div class="kpi-body">
+        <span class="kpi-value">{{ seller.myProducts().length }}</span>
+        <span class="kpi-label">Total Products</span>
+      </div>
+    </div>
+
+    <div class="kpi-card kpi-orders">
+      <div class="kpi-icon"><i class="bi bi-clock-history"></i></div>
+      <div class="kpi-body">
+        <span class="kpi-value">{{ seller.pendingOrdersCount() }}</span>
+        <span class="kpi-label">Pending Orders</span>
+      </div>
+    </div>
+
+    <div class="kpi-card kpi-earnings">
+      <div class="kpi-icon"><i class="bi bi-currency-dollar"></i></div>
+      <div class="kpi-body">
+        <span class="kpi-value">{{ seller.earnings() | currency }}</span>
+        <span class="kpi-label">Total Earnings</span>
+      </div>
+    </div>
+
+    <div class="kpi-card kpi-rating">
+      <div class="kpi-icon"><i class="bi bi-star-fill"></i></div>
+      <div class="kpi-body">
+        <span class="kpi-value">{{ seller.monthlyRating() | number:'1.1-1' }}</span>
+        <span class="kpi-label">Rating</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-grid">
+    <!-- Recent Orders -->
+    <div class="dash-card orders-card">
+      <div class="card-header">
+        <h3><i class="bi bi-receipt-cutoff"></i> Recent Orders</h3>
+        <a routerLink="/seller/orders" class="view-all">View All <i class="bi bi-arrow-right"></i></a>
+      </div>
+
+      @if (seller.recentOrders().length === 0) {
+        <div class="empty-state">
+          <i class="bi bi-inbox"></i>
+          <p>No orders yet</p>
+        </div>
+      } @else {
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Order #</th>
+                <th>Date</th>
+                <th>Items</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (order of seller.recentOrders(); track order.id) {
+                <tr>
+                  <td class="order-id">#{{ order.id }}</td>
+                  <td>{{ order.createdAt | date:'mediumDate' }}</td>
+                  <td>{{ order.items.length }} item{{ order.items.length > 1 ? 's' : '' }}</td>
+                  <td class="amount">{{ order.totalAmount | currency }}</td>
+                  <td>
+                    <span class="status-badge" [attr.data-status]="order.status">
+                      {{ order.status | titlecase }}
+                    </span>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+    </div>
+
+    <!-- Low Stock Alerts -->
+    <div class="dash-card alerts-card">
+      <div class="card-header">
+        <h3><i class="bi bi-exclamation-triangle"></i> Low Stock Alerts</h3>
+        <a routerLink="/seller/products" class="view-all">Manage <i class="bi bi-arrow-right"></i></a>
+      </div>
+
+      @if (seller.lowStockProducts().length === 0) {
+        <div class="empty-state success">
+          <i class="bi bi-check-circle"></i>
+          <p>All products are well stocked!</p>
+        </div>
+      } @else {
+        <div class="alert-list">
+          @for (product of seller.lowStockProducts(); track product.id) {
+            <div class="alert-item">
+              <div class="alert-product">
+                <img [src]="product.thumbnail" [alt]="product.name"
+                     class="alert-thumb" />
+                <div class="alert-info">
+                  <span class="alert-name">{{ product.name }}</span>
+                  <span class="alert-price">{{ product.price | currency:'USD':'symbol':'1.2-2' }}</span>
+                </div>
+              </div>
+              <div class="stock-badge" [class.critical]="product.stock <= 2">
+                <i class="bi bi-box"></i> {{ product.stock }} left
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</div>
+

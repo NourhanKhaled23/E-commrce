@@ -1,0 +1,102 @@
+.form-row { display: flex; gap: 1rem; margin-bottom: 0.75rem; }
+.form-row-3 > .form-group { flex: 1; }
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+.profile-section-subtitle { margin-top:1.5rem; }
+.card-brand-name { font-weight:600;font-size:0.85rem; }
+.card-last4 { font-size:0.8rem;color:var(--color-text-muted,#6B5C3E); }
+.card-expiry { font-size:0.75rem;color:var(--color-text-muted,#6B5C3E); }
+.card-default-badge { font-size:0.7rem;color:var(--color-accent,#C8A96E);font-weight:600; }
+.alert-of { padding: 0.75rem 1rem; border-radius: 0.5rem; margin-bottom: 1rem; font-size: 0.9rem; }
+.alert-success { background: var(--color-accent-light,#E8D5B0); color: var(--color-accent,#C8A96E); }
+.alert-error { background: color-mix(in srgb, var(--color-error,#8B2929) 10%, transparent); color: var(--color-error,#8B2929); }
+
+.pm-section-header { display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem; }
+.pm-section-header h3 { margin:0; }
+.pm-add-btn { display:inline-flex;align-items:center;gap:0.35rem;padding:0.45rem 1rem;background:var(--color-accent,#C8A96E);color:var(--color-text-inverse,#F5F0E8);border:none;border-radius:0.5rem;font-size:0.8rem;font-weight:600;cursor:pointer;transition:opacity 0.2s; }
+.pm-add-btn:hover { opacity:0.88; }
+.pm-card-list { display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1rem; }
+.pm-card { display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;border:1px solid var(--color-border,#E8E0D4);border-radius:0.75rem;background:var(--color-bg-card,#FFFFFF);transition:border-color 0.2s; }
+.pm-card-default { border-color:var(--color-accent,#C8A96E);background:color-mix(in srgb,var(--color-accent) 4%,transparent); }
+.pm-card-icon { font-size:1.75rem;color:var(--color-accent,#C8A96E);flex-shrink:0; }
+.pm-card-info { flex:1; }
+.pm-card-brand { font-weight:700;font-size:0.85rem; }
+.pm-card-number { font-size:0.875rem;color:var(--color-text-muted,#6B5C3E);letter-spacing:0.05em; }
+.pm-card-expiry { font-size:0.75rem;color:var(--color-text-muted,#6B5C3E); }
+.pm-card-actions { display:flex;align-items:center;gap:0.5rem;flex-shrink:0; }
+.pm-default-badge { font-size:0.7rem;font-weight:700;color:var(--color-accent,#C8A96E);background:color-mix(in srgb,var(--color-accent) 12%,transparent);padding:0.2rem 0.6rem;border-radius:2rem; }
+.pm-btn-ghost { background:none;border:1px solid var(--color-border,#E8E0D4);border-radius:0.4rem;padding:0.25rem 0.6rem;font-size:0.75rem;cursor:pointer;color:var(--color-text-muted,#6B5C3E);transition:all 0.15s; }
+.pm-btn-ghost:hover { border-color:var(--color-accent,#C8A96E);color:var(--color-accent,#C8A96E); }
+.pm-btn-remove { background:none;border:1px solid var(--color-border,#E8E0D4);border-radius:0.4rem;padding:0.25rem 0.5rem;font-size:0.85rem;cursor:pointer;color:var(--color-text-muted,#6B5C3E);transition:all 0.15s; }
+.pm-btn-remove:hover { border-color:var(--color-danger,#8B2929);color:var(--color-danger,#8B2929); }
+.pm-empty { text-align:center;padding:1.5rem;color:var(--color-text-muted,#6B5C3E);border:1px dashed var(--color-border,#E8E0D4);border-radius:0.75rem; }
+.pm-empty i { font-size:1.75rem;display:block;margin-bottom:0.5rem; }
+.pm-empty p { margin:0;font-size:0.875rem; }
+.pm-add-form { border:1px solid var(--color-border,#E8E0D4);border-radius:0.75rem;padding:1.25rem;background:var(--color-bg-surface,#FAF7F2); }
+.pm-add-title { font-size:0.9rem;font-weight:700;margin:0 0 1rem; }
+.pm-form-row { display:flex;gap:0.75rem;margin-bottom:0.75rem;flex-wrap:wrap; }
+.pm-form-group { display:flex;flex-direction:column;gap:0.3rem; }
+.pm-flex-1 { flex:1;min-width:80px; }
+.pm-flex-2 { flex:2;min-width:160px; }
+.pm-form-group label { font-size:0.78rem;font-weight:600;color:var(--color-text-muted,#6B5C3E); }
+.pm-form-group input,.pm-form-group select { padding:0.55rem 0.75rem;border:1px solid var(--color-border,#E8E0D4);border-radius:0.5rem;font-size:0.875rem;background:var(--color-bg-card,#FFFFFF);color:var(--color-text-body,#1A1512);transition:border-color 0.2s; }
+.pm-form-group input:focus,.pm-form-group select:focus { outline:none;border-color:var(--color-accent,#C8A96E); }
+.pm-invalid { border-color:var(--color-danger,#8B2929) !important; }
+.pm-err { font-size:0.72rem;color:var(--color-danger,#8B2929); }
+.pm-hint { font-size:0.72rem;color:var(--color-text-muted,#6B5C3E); }
+.pm-req { color:var(--color-danger,#8B2929); }
+.pm-form-actions { display:flex;justify-content:flex-end;gap:0.75rem;margin-top:0.5rem; }
+.pm-btn-cancel { padding:0.5rem 1rem;background:var(--color-bg-surface,#FAF7F2);color:var(--color-text-body,#1A1512);border:1px solid var(--color-border,#E8E0D4);border-radius:0.5rem;font-size:0.875rem;font-weight:600;cursor:pointer; }
+.pm-btn-save { display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1.25rem;background:var(--color-accent,#C8A96E);color:var(--color-text-inverse,#F5F0E8);border:none;border-radius:0.5rem;font-size:0.875rem;font-weight:600;cursor:pointer;transition:opacity 0.2s; }
+.pm-btn-save:disabled { opacity:0.6;cursor:not-allowed; }
+.pm-btn-save:not(:disabled):hover { opacity:0.88; }
+/* ── Avatar Upload ── */
+.avatar-upload-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.avatar-display {
+  position: relative;
+  display: inline-block;
+}
+.avatar-change-btn {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-accent, #C8A96E);
+  color: #0D0D0D;
+  border: 2px solid #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: background 150ms ease;
+}
+.avatar-change-btn:hover { background: var(--color-accent-dark, #8B6914); }
+.avatar-error {
+  font-size: 11px;
+  color: var(--color-danger, #8B2929);
+  text-align: center;
+  max-width: 180px;
+}
+.avatar-remove-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted, #6B5C3E);
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color 150ms ease;
+}
+.avatar-remove-btn:hover { color: var(--color-danger, #8B2929); }

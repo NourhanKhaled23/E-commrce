@@ -1,0 +1,1454 @@
+[
+  {
+    "id": 1,
+    "title": "Essence Mascara Lash Princess",
+    "description": "The Essence Mascara Lash Princess is a popular mascara known for its volume and lengthening effects. Achieve dramatic lashes with this budget-friendly mascara.",
+    "price": 9.99,
+    "discountPercentage": 15,
+    "rating": 4.82,
+    "stock": 120,
+    "brand": "Essence",
+    "category": "beauty",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+      "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/2.png"
+    ],
+    "tags": [
+      "mascara",
+      "beauty",
+      "makeup",
+      "eyes",
+      "volume"
+    ],
+    "categoryId": 1,
+    "categorySlug": "beauty",
+    "sellerId": 2,
+    "reviewCount": 12,
+    "originalPrice": 11.75,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 2,
+    "title": "Eyeshadow Palette with Mirror",
+    "description": "The Eyeshadow Palette with Mirror offers a versatile range of colors for various eye makeup looks. Perfect for both everyday and dramatic styles.",
+    "price": 19.99,
+    "discountPercentage": 10,
+    "rating": 4.45,
+    "stock": 65,
+    "brand": "Glamour",
+    "category": "makeup",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
+    ],
+    "tags": [
+      "eyeshadow",
+      "palette",
+      "makeup",
+      "beauty",
+      "eyes"
+    ],
+    "categoryId": 2,
+    "categorySlug": "makeup",
+    "sellerId": 2,
+    "reviewCount": 8,
+    "originalPrice": 22.21,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 3,
+    "title": "Powder Canister",
+    "description": "The Powder Canister is a finely milled setting powder designed to control shine and set makeup. Provides a flawless matte finish.",
+    "price": 14.99,
+    "discountPercentage": 8,
+    "rating": 4.18,
+    "stock": 90,
+    "brand": "SilkFinish",
+    "category": "makeup",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"
+    ],
+    "tags": [
+      "powder",
+      "makeup",
+      "setting",
+      "matte",
+      "beauty"
+    ],
+    "categoryId": 2,
+    "categorySlug": "makeup",
+    "sellerId": 2,
+    "reviewCount": 15,
+    "originalPrice": 16.29,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 4,
+    "title": "Red Lipstick",
+    "description": "The Red Lipstick is a classic red lipstick with a smooth and creamy texture. Long-lasting color with a satin finish.",
+    "price": 12.99,
+    "discountPercentage": 12,
+    "rating": 4.62,
+    "stock": 85,
+    "brand": "Glamour",
+    "category": "makeup",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/1.png"
+    ],
+    "tags": [
+      "lipstick",
+      "red",
+      "makeup",
+      "beauty",
+      "classic"
+    ],
+    "categoryId": 2,
+    "categorySlug": "makeup",
+    "sellerId": 2,
+    "reviewCount": 22,
+    "originalPrice": 14.76,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 5,
+    "title": "Calvin Klein CK One",
+    "description": "CK One is a unisex fragrance known for its fresh and clean scent. A timeless classic with citrus and green tea notes.",
+    "price": 49.99,
+    "discountPercentage": 5,
+    "rating": 4.71,
+    "stock": 45,
+    "brand": "Calvin Klein",
+    "category": "fragrances",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/1.png",
+      "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/2.png"
+    ],
+    "tags": [
+      "fragrance",
+      "perfume",
+      "unisex",
+      "citrus",
+      "fresh"
+    ],
+    "categoryId": 4,
+    "categorySlug": "fragrances",
+    "sellerId": 2,
+    "reviewCount": 9,
+    "originalPrice": 52.62,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 6,
+    "title": "Chanel Coco Noir Eau De",
+    "description": "Coco Noir by Chanel is a sophisticated and mysterious fragrance. Woody and floral notes with a touch of spice.",
+    "price": 129.99,
+    "discountPercentage": 0,
+    "rating": 4.89,
+    "stock": 25,
+    "brand": "Chanel",
+    "category": "fragrances",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/1.png"
+    ],
+    "tags": [
+      "fragrance",
+      "perfume",
+      "chanel",
+      "floral",
+      "woody"
+    ],
+    "categoryId": 4,
+    "categorySlug": "fragrances",
+    "sellerId": 2,
+    "reviewCount": 5,
+    "originalPrice": null,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 7,
+    "title": "Dior J'adore",
+    "description": "J'adore by Dior is a luminous floral fragrance inspired by the beauty of flowers. A blend of ylang-ylang, rose, and jasmine.",
+    "price": 89.99,
+    "discountPercentage": 10,
+    "rating": 4.81,
+    "stock": 35,
+    "brand": "Dior",
+    "category": "fragrances",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/1.png"
+    ],
+    "tags": [
+      "fragrance",
+      "perfume",
+      "dior",
+      "floral",
+      "luxury"
+    ],
+    "categoryId": 4,
+    "categorySlug": "fragrances",
+    "sellerId": 2,
+    "reviewCount": 18,
+    "originalPrice": 99.99,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 8,
+    "title": "Annibale Colombo Bed",
+    "description": "The Annibale Colombo Bed is a luxurious queen-size bed frame with intricate wood carvings. A masterpiece of Italian craftsmanship.",
+    "price": 1899.99,
+    "discountPercentage": 15,
+    "rating": 4.56,
+    "stock": 8,
+    "brand": "Annibale Colombo",
+    "category": "furniture",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/1.png"
+    ],
+    "tags": [
+      "bed",
+      "furniture",
+      "bedroom",
+      "luxury",
+      "queen"
+    ],
+    "categoryId": 5,
+    "categorySlug": "furniture",
+    "sellerId": 2,
+    "reviewCount": 3,
+    "originalPrice": 2235.28,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 9,
+    "title": "Knoll Saarinen Executive Chair",
+    "description": "The Knoll Saarinen Executive Chair is a modern ergonomic chair with a sleek design. Perfect for home office or executive spaces.",
+    "price": 899.99,
+    "discountPercentage": 8,
+    "rating": 4.42,
+    "stock": 12,
+    "brand": "Knoll",
+    "category": "furniture",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Chair/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Chair/1.png"
+    ],
+    "tags": [
+      "chair",
+      "furniture",
+      "office",
+      "ergonomic",
+      "designer"
+    ],
+    "categoryId": 5,
+    "categorySlug": "furniture",
+    "sellerId": 2,
+    "reviewCount": 7,
+    "originalPrice": 978.25,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 10,
+    "title": "Oak Coffee Table",
+    "description": "Solid oak coffee table with a natural wood finish. Features a lower shelf for magazines and a spacious tabletop.",
+    "price": 349.99,
+    "discountPercentage": 5,
+    "rating": 4.65,
+    "stock": 20,
+    "brand": "WoodCraft",
+    "category": "furniture",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Oak%20Coffee%20Table/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/furniture/Oak%20Coffee%20Table/1.png"
+    ],
+    "tags": [
+      "table",
+      "furniture",
+      "living-room",
+      "oak",
+      "wood"
+    ],
+    "categoryId": 5,
+    "categorySlug": "furniture",
+    "sellerId": 2,
+    "reviewCount": 14,
+    "originalPrice": 368.41,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 11,
+    "title": "Fresh Orange Juice",
+    "description": "100% pure squeezed orange juice with no added sugar. Rich in vitamin C and naturally refreshing.",
+    "price": 3.99,
+    "discountPercentage": 0,
+    "rating": 4.72,
+    "stock": 200,
+    "brand": "FreshFarm",
+    "category": "groceries",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Fresh%20Orange%20Juice/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/groceries/Fresh%20Orange%20Juice/1.png"
+    ],
+    "tags": [
+      "juice",
+      "orange",
+      "drink",
+      "fresh",
+      "organic"
+    ],
+    "categoryId": 24,
+    "categorySlug": "groceries",
+    "sellerId": 2,
+    "reviewCount": 25,
+    "originalPrice": null,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 12,
+    "title": "Organic Almonds",
+    "description": "Premium organic almonds sourced from California. Rich in protein, fiber, and healthy fats.",
+    "price": 8.99,
+    "discountPercentage": 5,
+    "rating": 4.58,
+    "stock": 150,
+    "brand": "NatureBest",
+    "category": "groceries",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Organic%20Almonds/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/groceries/Organic%20Almonds/1.png"
+    ],
+    "tags": [
+      "almonds",
+      "nuts",
+      "snacks",
+      "organic",
+      "healthy"
+    ],
+    "categoryId": 24,
+    "categorySlug": "groceries",
+    "sellerId": 2,
+    "reviewCount": 11,
+    "originalPrice": 9.46,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 13,
+    "title": "Minimalist Wall Clock",
+    "description": "A sleek minimalist wall clock with a silent quartz movement. Clean white face with black hands.",
+    "price": 29.99,
+    "discountPercentage": 10,
+    "rating": 4.38,
+    "stock": 55,
+    "brand": "ModernHome",
+    "category": "home-decoration",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Minimalist%20Wall%20Clock/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/home-decoration/Minimalist%20Wall%20Clock/1.png"
+    ],
+    "tags": [
+      "clock",
+      "wall",
+      "home-decor",
+      "minimalist",
+      "modern"
+    ],
+    "categoryId": 6,
+    "categorySlug": "home-decoration",
+    "sellerId": 2,
+    "reviewCount": 6,
+    "originalPrice": 33.32,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 14,
+    "title": "Ceramic Vase Set",
+    "description": "Set of 3 ceramic vases in varying heights. Minimalist design with a matte cream glaze finish.",
+    "price": 45.99,
+    "discountPercentage": 0,
+    "rating": 4.71,
+    "stock": 40,
+    "brand": "ArtisanCraft",
+    "category": "home-decoration",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Ceramic%20Vase%20Set/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/home-decoration/Ceramic%20Vase%20Set/1.png"
+    ],
+    "tags": [
+      "vase",
+      "ceramic",
+      "home-decor",
+      "minimalist",
+      "set"
+    ],
+    "categoryId": 6,
+    "categorySlug": "home-decoration",
+    "sellerId": 2,
+    "reviewCount": 20,
+    "originalPrice": null,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 15,
+    "title": "Stainless Steel Pan Set",
+    "description": "Premium 5-piece stainless steel pan set with tempered glass lids. Suitable for all cooktops including induction.",
+    "price": 159.99,
+    "discountPercentage": 12,
+    "rating": 4.52,
+    "stock": 30,
+    "brand": "ChefMaster",
+    "category": "kitchen-accessories",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Stainless%20Steel%20Pan%20Set/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Stainless%20Steel%20Pan%20Set/1.png"
+    ],
+    "tags": [
+      "pans",
+      "cookware",
+      "kitchen",
+      "stainless-steel",
+      "induction"
+    ],
+    "categoryId": 7,
+    "categorySlug": "kitchen-accessories",
+    "sellerId": 2,
+    "reviewCount": 16,
+    "originalPrice": 181.81,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 16,
+    "title": "Wooden Cutting Board",
+    "description": "Large acacia wood cutting board with juice groove. Naturally antimicrobial and durable.",
+    "price": 34.99,
+    "discountPercentage": 5,
+    "rating": 4.88,
+    "stock": 65,
+    "brand": "KitchenCraft",
+    "category": "kitchen-accessories",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Wooden%20Cutting%20Board/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Wooden%20Cutting%20Board/1.png"
+    ],
+    "tags": [
+      "cutting-board",
+      "kitchen",
+      "wooden",
+      "acacia",
+      "cooking"
+    ],
+    "categoryId": 7,
+    "categorySlug": "kitchen-accessories",
+    "sellerId": 2,
+    "reviewCount": 10,
+    "originalPrice": 36.83,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 17,
+    "title": "MacBook Pro 14",
+    "description": "Apple MacBook Pro 14 with M3 chip, 16GB RAM, 512GB SSD. Stunning Liquid Retina XDR display.",
+    "price": 1999.99,
+    "discountPercentage": 0,
+    "rating": 4.95,
+    "stock": 15,
+    "brand": "Apple",
+    "category": "laptops",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/MacBook%20Pro%2014/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/laptops/MacBook%20Pro%2014/1.png"
+    ],
+    "tags": [
+      "laptop",
+      "apple",
+      "macbook",
+      "m3",
+      "pro"
+    ],
+    "categoryId": 9,
+    "categorySlug": "laptops",
+    "sellerId": 2,
+    "reviewCount": 4,
+    "originalPrice": null,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 18,
+    "title": "Classic Oxford Shirt",
+    "description": "A timeless white Oxford shirt crafted from premium cotton. Features a button-down collar and chest pocket.",
+    "price": 59.99,
+    "discountPercentage": 10,
+    "rating": 4.32,
+    "stock": 80,
+    "brand": "PoloClassic",
+    "category": "mens-shirts",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Classic%20Oxford%20Shirt/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/mens-shirts/Classic%20Oxford%20Shirt/1.png"
+    ],
+    "tags": [
+      "shirt",
+      "oxford",
+      "cotton",
+      "formal",
+      "classic"
+    ],
+    "categoryId": 14,
+    "categorySlug": "mens-shirts",
+    "sellerId": 2,
+    "reviewCount": 13,
+    "originalPrice": 66.66,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 19,
+    "title": "Slim Fit Chinos",
+    "description": "Slim fit chino pants in khaki. Stretch cotton fabric with a modern tapered leg.",
+    "price": 44.99,
+    "discountPercentage": 8,
+    "rating": 4.18,
+    "stock": 95,
+    "brand": "UrbanStyle",
+    "category": "mens-shirts",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Slim%20Fit%20Chinos/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/mens-shirts/Slim%20Fit%20Chinos/1.png"
+    ],
+    "tags": [
+      "chinos",
+      "pants",
+      "slim-fit",
+      "cotton",
+      "casual"
+    ],
+    "categoryId": 14,
+    "categorySlug": "mens-shirts",
+    "sellerId": 2,
+    "reviewCount": 21,
+    "originalPrice": 48.9,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 20,
+    "title": "Leather Derby Shoes",
+    "description": "Handcrafted leather derby shoes in dark brown. Goodyear welted with a durable rubber sole.",
+    "price": 189.99,
+    "discountPercentage": 15,
+    "rating": 4.72,
+    "stock": 25,
+    "brand": "HeritageLeather",
+    "category": "mens-shoes",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Leather%20Derby%20Shoes/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/mens-shoes/Leather%20Derby%20Shoes/1.png"
+    ],
+    "tags": [
+      "shoes",
+      "derby",
+      "leather",
+      "formal",
+      "brown"
+    ],
+    "categoryId": 15,
+    "categorySlug": "mens-shoes",
+    "sellerId": 2,
+    "reviewCount": 8,
+    "originalPrice": 223.52,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 21,
+    "title": "Classic Aviator Sunglasses",
+    "description": "Timeless aviator sunglasses with gold-tone frame and polarized green lenses. UV400 protection.",
+    "price": 129.99,
+    "discountPercentage": 5,
+    "rating": 4.65,
+    "stock": 40,
+    "brand": "RayBan",
+    "category": "sunglasses",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/sunglasses/Classic%20Aviator%20Sunglasses/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/sunglasses/Classic%20Aviator%20Sunglasses/1.png"
+    ],
+    "tags": [
+      "sunglasses",
+      "aviator",
+      "rayban",
+      "polarized",
+      "accessories"
+    ],
+    "categoryId": 25,
+    "categorySlug": "sunglasses",
+    "sellerId": 2,
+    "reviewCount": 17,
+    "originalPrice": 136.83,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 22,
+    "title": "iPhone 15 Pro",
+    "description": "Apple iPhone 15 Pro with A17 Pro chip, 256GB storage, and a 48MP camera system. Titanium design.",
+    "price": 1099.99,
+    "discountPercentage": 0,
+    "rating": 4.92,
+    "stock": 30,
+    "brand": "Apple",
+    "category": "smartphones",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2015%20Pro/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2015%20Pro/1.png"
+    ],
+    "tags": [
+      "iphone",
+      "apple",
+      "smartphone",
+      "pro",
+      "mobile"
+    ],
+    "categoryId": 10,
+    "categorySlug": "smartphones",
+    "sellerId": 2,
+    "reviewCount": 19,
+    "originalPrice": null,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 23,
+    "title": "Cashmere Scarf",
+    "description": "Luxurious cashmere scarf in charcoal. Soft, warm, and lightweight — perfect for layering.",
+    "price": 89.99,
+    "discountPercentage": 10,
+    "rating": 4.58,
+    "stock": 35,
+    "brand": "PureLuxury",
+    "category": "tops",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/tops/Cashmere%20Scarf/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/tops/Cashmere%20Scarf/1.png"
+    ],
+    "tags": [
+      "scarf",
+      "cashmere",
+      "winter",
+      "luxury",
+      "accessories"
+    ],
+    "categoryId": 26,
+    "categorySlug": "tops",
+    "sellerId": 2,
+    "reviewCount": 7,
+    "originalPrice": 99.99,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 24,
+    "title": "Leather Tote Bag",
+    "description": "Spacious leather tote bag in cognac brown. Features interior zip pocket and magnetic closure.",
+    "price": 249.99,
+    "discountPercentage": 8,
+    "rating": 4.76,
+    "stock": 18,
+    "brand": "HeritageLeather",
+    "category": "womens-bags",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-bags/Leather%20Tote%20Bag/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/womens-bags/Leather%20Tote%20Bag/1.png"
+    ],
+    "tags": [
+      "bag",
+      "tote",
+      "leather",
+      "women",
+      "brown"
+    ],
+    "categoryId": 21,
+    "categorySlug": "womens-bags",
+    "sellerId": 2,
+    "reviewCount": 15,
+    "originalPrice": 271.73,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 25,
+    "title": "Floral Maxi Dress",
+    "description": "A flowing maxi dress with an all-over floral print. Features a V-neckline and adjustable waist tie.",
+    "price": 79.99,
+    "discountPercentage": 12,
+    "rating": 4.43,
+    "stock": 50,
+    "brand": "BohoChic",
+    "category": "womens-dresses",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-dresses/Floral%20Maxi%20Dress/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/womens-dresses/Floral%20Maxi%20Dress/1.png"
+    ],
+    "tags": [
+      "dress",
+      "maxi",
+      "floral",
+      "women",
+      "boho"
+    ],
+    "categoryId": 18,
+    "categorySlug": "womens-dresses",
+    "sellerId": 2,
+    "reviewCount": 9,
+    "originalPrice": 90.9,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 26,
+    "title": "Small Diamond Earrings",
+    "description": "14k gold stud earrings with 0.5ct round brilliant diamonds. Classic elegance for any occasion.",
+    "price": 399.99,
+    "discountPercentage": 0,
+    "rating": 4.91,
+    "stock": 12,
+    "brand": "LuxuryGems",
+    "category": "womens-jewellery",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-jewellery/Small%20Diamond%20Earrings/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/womens-jewellery/Small%20Diamond%20Earrings/1.png"
+    ],
+    "tags": [
+      "earrings",
+      "diamond",
+      "gold",
+      "jewellery",
+      "luxury"
+    ],
+    "categoryId": 22,
+    "categorySlug": "womens-jewellery",
+    "sellerId": 5,
+    "reviewCount": 12,
+    "originalPrice": null,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 27,
+    "title": "Nike Air Max 90",
+    "description": "Iconic Nike Air Max 90 sneakers in triple white. Classic style with visible Air cushioning.",
+    "price": 129.99,
+    "discountPercentage": 8,
+    "rating": 4.72,
+    "stock": 55,
+    "brand": "Nike",
+    "category": "mens-shoes",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Max%2090/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Max%2090/1.png"
+    ],
+    "tags": [
+      "sneakers",
+      "nike",
+      "air-max",
+      "shoes",
+      "white"
+    ],
+    "categoryId": 15,
+    "categorySlug": "mens-shoes",
+    "sellerId": 5,
+    "reviewCount": 6,
+    "originalPrice": 141.29,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 28,
+    "title": "Adidas Ultraboost",
+    "description": "Ultraboost running shoes with Primeknit upper and Boost midsole. Maximum comfort for daily wear.",
+    "price": 179.99,
+    "discountPercentage": 5,
+    "rating": 4.58,
+    "stock": 42,
+    "brand": "Adidas",
+    "category": "sports-accessories",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/sports-accessories/Adidas%20Ultraboost/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/sports-accessories/Adidas%20Ultraboost/1.png"
+    ],
+    "tags": [
+      "shoes",
+      "running",
+      "adidas",
+      "ultraboost",
+      "sports"
+    ],
+    "categoryId": 23,
+    "categorySlug": "sports-accessories",
+    "sellerId": 5,
+    "reviewCount": 24,
+    "originalPrice": 189.46,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 29,
+    "title": "iPad Air 11",
+    "description": "Apple iPad Air 11 with M2 chip, 256GB storage. Liquid Retina display with True Tone.",
+    "price": 749.99,
+    "discountPercentage": 5,
+    "rating": 4.88,
+    "stock": 20,
+    "brand": "Apple",
+    "category": "tablets",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/tablets/iPad%20Air%2011/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/tablets/iPad%20Air%2011/1.png"
+    ],
+    "tags": [
+      "ipad",
+      "apple",
+      "tablet",
+      "m2",
+      "air"
+    ],
+    "categoryId": 11,
+    "categorySlug": "tablets",
+    "sellerId": 5,
+    "reviewCount": 11,
+    "originalPrice": 789.46,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 30,
+    "title": "Silk Blouse",
+    "description": "Elegant cream silk blouse with a relaxed fit and pearl button closures. Perfect for office or evening.",
+    "price": 98.99,
+    "discountPercentage": 10,
+    "rating": 4.67,
+    "stock": 38,
+    "brand": "SilkElegance",
+    "category": "womens-dresses",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-dresses/Silk%20Blouse/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/womens-dresses/Silk%20Blouse/1.png"
+    ],
+    "tags": [
+      "blouse",
+      "silk",
+      "cream",
+      "women",
+      "elegant"
+    ],
+    "categoryId": 18,
+    "categorySlug": "womens-dresses",
+    "sellerId": 5,
+    "reviewCount": 8,
+    "originalPrice": 109.99,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 31,
+    "title": "Stainless Steel Watch",
+    "description": "Minimalist stainless steel watch with blue sunburst dial and mesh bracelet. Water resistant to 50m.",
+    "price": 149.99,
+    "discountPercentage": 5,
+    "rating": 4.34,
+    "stock": 60,
+    "brand": "Nord",
+    "category": "mens-watches",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-watches/Stainless%20Steel%20Watch/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/mens-watches/Stainless%20Steel%20Watch/1.png"
+    ],
+    "tags": [
+      "watch",
+      "stainless-steel",
+      "blue",
+      "minimalist",
+      "men"
+    ],
+    "categoryId": 16,
+    "categorySlug": "mens-watches",
+    "sellerId": 5,
+    "reviewCount": 14,
+    "originalPrice": 157.88,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 32,
+    "title": "Yoga Mat Premium",
+    "description": "Thick 6mm premium yoga mat with alignment lines. Non-slip surface with eco-friendly materials.",
+    "price": 39.99,
+    "discountPercentage": 10,
+    "rating": 4.55,
+    "stock": 75,
+    "brand": "ZenFit",
+    "category": "sports-accessories",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/sports-accessories/Yoga%20Mat%20Premium/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/sports-accessories/Yoga%20Mat%20Premium/1.png"
+    ],
+    "tags": [
+      "yoga",
+      "mat",
+      "fitness",
+      "eco-friendly",
+      "sports"
+    ],
+    "categoryId": 23,
+    "categorySlug": "sports-accessories",
+    "sellerId": 5,
+    "reviewCount": 10,
+    "originalPrice": 44.43,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 33,
+    "title": "Electric Kettle",
+    "description": "Temperature-controlled electric kettle with 1.7L capacity. Keep warm function and rapid boil.",
+    "price": 49.99,
+    "discountPercentage": 0,
+    "rating": 4.73,
+    "stock": 45,
+    "brand": "KitchenPro",
+    "category": "kitchen-accessories",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Electric%20Kettle/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Electric%20Kettle/1.png"
+    ],
+    "tags": [
+      "kettle",
+      "electric",
+      "kitchen",
+      "temperature-control",
+      "appliance"
+    ],
+    "categoryId": 7,
+    "categorySlug": "kitchen-accessories",
+    "sellerId": 5,
+    "reviewCount": 5,
+    "originalPrice": null,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 34,
+    "title": "Facial Moisturizer",
+    "description": "Lightweight daily facial moisturizer with hyaluronic acid and vitamin C. Suitable for all skin types.",
+    "price": 24.99,
+    "discountPercentage": 8,
+    "rating": 4.61,
+    "stock": 100,
+    "brand": "GlowSkin",
+    "category": "skin-care",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/skin-care/Facial%20Moisturizer/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/skin-care/Facial%20Moisturizer/1.png"
+    ],
+    "tags": [
+      "moisturizer",
+      "facial",
+      "skincare",
+      "vitamin-c",
+      "hyaluronic"
+    ],
+    "categoryId": 3,
+    "categorySlug": "skin-care",
+    "sellerId": 5,
+    "reviewCount": 18,
+    "originalPrice": 27.16,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 35,
+    "title": "Denim Jacket",
+    "description": "Classic denim jacket in medium wash. Button front with chest pockets and adjustable waist tabs.",
+    "price": 89.99,
+    "discountPercentage": 15,
+    "rating": 4.41,
+    "stock": 48,
+    "brand": "DenimCo",
+    "category": "tops",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/tops/Denim%20Jacket/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/tops/Denim%20Jacket/1.png"
+    ],
+    "tags": [
+      "jacket",
+      "denim",
+      "jean",
+      "casual",
+      "classic"
+    ],
+    "categoryId": 26,
+    "categorySlug": "tops",
+    "sellerId": 5,
+    "reviewCount": 22,
+    "originalPrice": 105.87,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 36,
+    "title": "Rose Gold Hoop Earrings",
+    "description": "Medium-sized hoop earrings in rose gold finish. Lightweight with secure click-top closure.",
+    "price": 34.99,
+    "discountPercentage": 0,
+    "rating": 4.78,
+    "stock": 90,
+    "brand": "TrendyGems",
+    "category": "womens-jewellery",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-jewellery/Rose%20Gold%20Hoop%20Earrings/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/womens-jewellery/Rose%20Gold%20Hoop%20Earrings/1.png"
+    ],
+    "tags": [
+      "earrings",
+      "hoop",
+      "rose-gold",
+      "jewellery",
+      "women"
+    ],
+    "categoryId": 22,
+    "categorySlug": "womens-jewellery",
+    "sellerId": 5,
+    "reviewCount": 7,
+    "originalPrice": null,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 37,
+    "title": "Cotton T-Shirt Pack",
+    "description": "Pack of 3 premium cotton crew neck t-shirts in black, white, and gray. Pre-shrunk fabric.",
+    "price": 39.99,
+    "discountPercentage": 20,
+    "rating": 4.39,
+    "stock": 120,
+    "brand": "BasicWear",
+    "category": "mens-shirts",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Cotton%20T-Shirt%20Pack/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/mens-shirts/Cotton%20T-Shirt%20Pack/1.png"
+    ],
+    "tags": [
+      "t-shirt",
+      "cotton",
+      "pack",
+      "casual",
+      "basics"
+    ],
+    "categoryId": 14,
+    "categorySlug": "mens-shirts",
+    "sellerId": 5,
+    "reviewCount": 13,
+    "originalPrice": 49.99,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 38,
+    "title": "Crossbody Phone Bag",
+    "description": "Compact crossbody bag designed to fit your phone, cards, and keys. Adjustable strap in black pebbled leather.",
+    "price": 49.99,
+    "discountPercentage": 0,
+    "rating": 4.45,
+    "stock": 65,
+    "brand": "MiniCarry",
+    "category": "womens-bags",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-bags/Crossbody%20Phone%20Bag/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/womens-bags/Crossbody%20Phone%20Bag/1.png"
+    ],
+    "tags": [
+      "bag",
+      "crossbody",
+      "phone",
+      "leather",
+      "black"
+    ],
+    "categoryId": 21,
+    "categorySlug": "womens-bags",
+    "sellerId": 5,
+    "reviewCount": 16,
+    "originalPrice": null,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 39,
+    "title": "Samsung Galaxy Tab S9",
+    "description": "Samsung Galaxy Tab S9 with Dynamic AMOLED 2X display, 256GB storage, and S Pen included.",
+    "price": 799.99,
+    "discountPercentage": 10,
+    "rating": 4.71,
+    "stock": 18,
+    "brand": "Samsung",
+    "category": "tablets",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/tablets/Samsung%20Galaxy%20Tab%20S9/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/tablets/Samsung%20Galaxy%20Tab%20S9/1.png"
+    ],
+    "tags": [
+      "tablet",
+      "samsung",
+      "galaxy",
+      "amoled",
+      "android"
+    ],
+    "categoryId": 11,
+    "categorySlug": "tablets",
+    "sellerId": 5,
+    "reviewCount": 9,
+    "originalPrice": 888.88,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 40,
+    "title": "Vitamin C Serum",
+    "description": "High-potency vitamin C serum with ferulic acid. Brightens skin and reduces fine lines.",
+    "price": 34.99,
+    "discountPercentage": 5,
+    "rating": 4.82,
+    "stock": 70,
+    "brand": "GlowSkin",
+    "category": "skin-care",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/skin-care/Vitamin%20C%20Serum/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/skin-care/Vitamin%20C%20Serum/1.png"
+    ],
+    "tags": [
+      "serum",
+      "vitamin-c",
+      "skincare",
+      "anti-aging",
+      "brightening"
+    ],
+    "categoryId": 3,
+    "categorySlug": "skin-care",
+    "sellerId": 5,
+    "reviewCount": 21,
+    "originalPrice": 36.83,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 41,
+    "title": "Wool Blend Coat",
+    "description": "Long wool blend coat in camel with notched lapels. Double-breasted front with side pockets.",
+    "price": 299.99,
+    "discountPercentage": 18,
+    "rating": 4.77,
+    "stock": 15,
+    "brand": "PureLuxury",
+    "category": "womens-dresses",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-dresses/Wool%20Blend%20Coat/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/womens-dresses/Wool%20Blend%20Coat/1.png"
+    ],
+    "tags": [
+      "coat",
+      "wool",
+      "camel",
+      "women",
+      "winter"
+    ],
+    "categoryId": 18,
+    "categorySlug": "womens-dresses",
+    "sellerId": 5,
+    "reviewCount": 6,
+    "originalPrice": 365.84,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 42,
+    "title": "Wireless Bluetooth Earbuds",
+    "description": "Premium wireless earbuds with active noise cancellation. 8 hours battery life with wireless charging case.",
+    "price": 79.99,
+    "discountPercentage": 10,
+    "rating": 4.53,
+    "stock": 85,
+    "brand": "SoundPro",
+    "category": "mobile-accessories",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Wireless%20Bluetooth%20Earbuds/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/mobile-accessories/Wireless%20Bluetooth%20Earbuds/1.png"
+    ],
+    "tags": [
+      "earbuds",
+      "wireless",
+      "bluetooth",
+      "noise-cancelling",
+      "audio"
+    ],
+    "categoryId": 12,
+    "categorySlug": "mobile-accessories",
+    "sellerId": 5,
+    "reviewCount": 19,
+    "originalPrice": 88.88,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 43,
+    "title": "Linen Blazer",
+    "description": "Lightweight linen blazer in beige. Unstructured design with patch pockets and a relaxed fit.",
+    "price": 139.99,
+    "discountPercentage": 8,
+    "rating": 4.35,
+    "stock": 22,
+    "brand": "BohoChic",
+    "category": "womens-dresses",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-dresses/Linen%20Blazer/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/womens-dresses/Linen%20Blazer/1.png"
+    ],
+    "tags": [
+      "blazer",
+      "linen",
+      "beige",
+      "women",
+      "summer"
+    ],
+    "categoryId": 18,
+    "categorySlug": "womens-dresses",
+    "sellerId": 5,
+    "reviewCount": 12,
+    "originalPrice": 152.16,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 44,
+    "title": "Motorcycle Helmet",
+    "description": "Full-face motorcycle helmet with DOT certification. Aerodynamic shell with anti-fog visor.",
+    "price": 199.99,
+    "discountPercentage": 0,
+    "rating": 4.68,
+    "stock": 12,
+    "brand": "RideSafe",
+    "category": "motorcycle",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/motorcycle/Motorcycle%20Helmet/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/motorcycle/Motorcycle%20Helmet/1.png"
+    ],
+    "tags": [
+      "helmet",
+      "motorcycle",
+      "safety",
+      "dot",
+      "full-face"
+    ],
+    "categoryId": 1,
+    "categorySlug": "motorcycle",
+    "sellerId": 5,
+    "reviewCount": 8,
+    "originalPrice": null,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 45,
+    "title": "Leather Driving Gloves",
+    "description": "Classic leather driving gloves in tan. Unlined with perforated back and snap closure.",
+    "price": 59.99,
+    "discountPercentage": 5,
+    "rating": 4.41,
+    "stock": 30,
+    "brand": "HeritageLeather",
+    "category": "vehicle",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/vehicle/Leather%20Driving%20Gloves/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/vehicle/Leather%20Driving%20Gloves/1.png"
+    ],
+    "tags": [
+      "gloves",
+      "leather",
+      "driving",
+      "tan",
+      "accessories"
+    ],
+    "categoryId": 1,
+    "categorySlug": "vehicle",
+    "sellerId": 5,
+    "reviewCount": 15,
+    "originalPrice": 63.15,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 46,
+    "title": "Silk Pillowcase Set",
+    "description": "Set of 2 mulberry silk pillowcases in champagne. 22 momme with hidden zipper closure.",
+    "price": 69.99,
+    "discountPercentage": 10,
+    "rating": 4.89,
+    "stock": 55,
+    "brand": "SilkElegance",
+    "category": "home-decoration",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Silk%20Pillowcase%20Set/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/home-decoration/Silk%20Pillowcase%20Set/1.png"
+    ],
+    "tags": [
+      "pillowcase",
+      "silk",
+      "bedroom",
+      "home-decor",
+      "luxury"
+    ],
+    "categoryId": 6,
+    "categorySlug": "home-decoration",
+    "sellerId": 5,
+    "reviewCount": 10,
+    "originalPrice": 77.77,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 47,
+    "title": "Espresso Machine",
+    "description": "Semi-automatic espresso machine with 15-bar pressure pump. Includes milk frother and tamper.",
+    "price": 449.99,
+    "discountPercentage": 12,
+    "rating": 4.76,
+    "stock": 10,
+    "brand": "BrewMaster",
+    "category": "kitchen-accessories",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Espresso%20Machine/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Espresso%20Machine/1.png"
+    ],
+    "tags": [
+      "espresso",
+      "coffee",
+      "machine",
+      "kitchen",
+      "appliance"
+    ],
+    "categoryId": 7,
+    "categorySlug": "kitchen-accessories",
+    "sellerId": 5,
+    "reviewCount": 20,
+    "originalPrice": 511.35,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 48,
+    "title": "Scented Candle Collection",
+    "description": "Set of 3 hand-poured soy wax candles in vanilla, lavender, and sandalwood. 40-hour burn time each.",
+    "price": 38.99,
+    "discountPercentage": 0,
+    "rating": 4.85,
+    "stock": 95,
+    "brand": "CozyHome",
+    "category": "home-decoration",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Scented%20Candle%20Collection/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/home-decoration/Scented%20Candle%20Collection/1.png"
+    ],
+    "tags": [
+      "candles",
+      "scented",
+      "soy-wax",
+      "home-decor",
+      "gift"
+    ],
+    "categoryId": 6,
+    "categorySlug": "home-decoration",
+    "sellerId": 5,
+    "reviewCount": 14,
+    "originalPrice": null,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 49,
+    "title": "Men's Leather Belt",
+    "description": "Full grain leather belt with brushed nickel buckle. 35mm width, fits all standard belt loops.",
+    "price": 49.99,
+    "discountPercentage": 8,
+    "rating": 4.33,
+    "stock": 78,
+    "brand": "HeritageLeather",
+    "category": "mens-shirts",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Men's%20Leather%20Belt/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/mens-shirts/Men's%20Leather%20Belt/1.png"
+    ],
+    "tags": [
+      "belt",
+      "leather",
+      "men",
+      "accessories",
+      "brown"
+    ],
+    "categoryId": 14,
+    "categorySlug": "mens-shirts",
+    "sellerId": 5,
+    "reviewCount": 11,
+    "originalPrice": 54.34,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": 50,
+    "title": "Cashmere Beanie",
+    "description": "Ribbed cashmere beanie in heather gray. One size fits most with a folded brim.",
+    "price": 49.99,
+    "discountPercentage": 0,
+    "rating": 4.44,
+    "stock": 60,
+    "brand": "PureLuxury",
+    "category": "tops",
+    "thumbnail": "https://cdn.dummyjson.com/products/images/tops/Cashmere%20Beanie/thumbnail.png",
+    "images": [
+      "https://cdn.dummyjson.com/products/images/tops/Cashmere%20Beanie/1.png"
+    ],
+    "tags": [
+      "beanie",
+      "cashmere",
+      "hat",
+      "winter",
+      "gray"
+    ],
+    "categoryId": 26,
+    "categorySlug": "tops",
+    "sellerId": 5,
+    "reviewCount": 7,
+    "originalPrice": null,
+    "active": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  }
+]

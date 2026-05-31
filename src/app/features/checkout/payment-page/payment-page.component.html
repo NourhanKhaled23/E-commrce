@@ -1,0 +1,194 @@
+<div class="payment-page">
+  <h3 class="payment-heading">Payment Method</h3>
+
+  <div class="payment-tabs">
+    <button class="payment-tab" [class.active]="activeTab() === 'card'" (click)="switchToCard()">
+      <i class="bi bi-credit-card"></i> Card
+    </button>
+    <button class="payment-tab" [class.active]="activeTab() === 'paypal'" (click)="activeTab.set('paypal')">
+      <i class="bi bi-paypal"></i> PayPal
+    </button>
+    <button class="payment-tab" [class.active]="activeTab() === 'cod'" (click)="activeTab.set('cod')">
+      <i class="bi bi-cash"></i> Cash on Delivery
+    </button>
+    <button class="payment-tab" [class.active]="activeTab() === 'wallet'" (click)="activeTab.set('wallet')">
+      <i class="bi bi-wallet2"></i> Wallet
+    </button>
+  </div>
+
+  <!-- ── Card Tab ────────────────────────────────────────────────────────── -->
+  @if (activeTab() === 'card') {
+    <div class="stripe-card-section">
+
+      @if (stripeLoading()) {
+        <div class="stripe-loading">
+          <div class="spinner-of"></div>
+          <span>Loading secure payment form...</span>
+        </div>
+
+      } @else if (stripeError()) {
+        <div class="stripe-init-error">
+          <i class="bi bi-exclamation-triangle-fill"></i>
+          <div>
+            <strong>Payment unavailable</strong>
+            <p>{{ stripeError() }}</p>
+          </div>
+        </div>
+
+      } @else if (stripeService.isMockMode()) {
+        <!-- ── Mock mode: plain HTML card fields ─────────────────────── -->
+        <div class="mock-card-notice">
+          <i class="bi bi-info-circle-fill"></i>
+          <span>
+            Demo mode — no real Stripe key set. Add <code>stripePublishableKey: 'pk_test_...'</code>
+            to <code>environment.ts</code> to use real Stripe Elements.
+          </span>
+        </div>
+
+        <div class="mock-card-form">
+          <div class="stripe-label">
+            <i class="bi bi-lock-fill"></i> Card Details
+            <span class="stripe-secure-badge">Simulated</span>
+          </div>
+
+          <div class="mock-field-group">
+            <label class="mock-label">Card Number</label>
+            <input class="mock-input" type="text" inputmode="numeric"
+              [value]="mockCard().number"
+              (input)="formatMockNumber($event)"
+              placeholder="4242 4242 4242 4242" maxlength="19"
+              [class.mock-invalid]="mockSubmitted() && mockCard().number.replace(' ','').length < 13" />
+          </div>
+
+          <div class="mock-field-row">
+            <div class="mock-field-group">
+              <label class="mock-label">Expiry</label>
+              <input class="mock-input" type="text" inputmode="numeric"
+                [value]="mockCard().expiry"
+                (input)="formatMockExpiry($event)"
+                placeholder="MM/YY" maxlength="5"
+                [class.mock-invalid]="mockSubmitted() && mockCard().expiry.length < 5" />
+            </div>
+            <div class="mock-field-group">
+              <label class="mock-label">CVC</label>
+              <input class="mock-input" type="text" inputmode="numeric"
+                [value]="mockCard().cvc"
+                (input)="formatMockCvc($event)"
+                placeholder="123" maxlength="4"
+                [class.mock-invalid]="mockSubmitted() && mockCard().cvc.length < 3" />
+            </div>
+          </div>
+
+          <div class="mock-field-group">
+            <label class="mock-label">Name on Card</label>
+            <input class="mock-input" type="text"
+              [ngModel]="mockCard().name"
+              (ngModelChange)="mockCard.update(c => ({...c, name: $event})); onMockCardInput()"
+              placeholder="John Doe"
+              [class.mock-invalid]="mockSubmitted() && !mockCard().name.trim()" />
+          </div>
+        </div>
+
+        <div class="stripe-test-hint">
+          <i class="bi bi-info-circle"></i>
+          <span>
+            Test cards: <code>4242 4242 4242 4242</code> (success) &nbsp;|&nbsp;
+            <code>4000 0000 0000 0002</code> (decline) — any future expiry, any CVC
+          </span>
+        </div>
+
+      } @else {
+        <!-- ── Real Stripe Elements ───────────────────────────────────── -->
+        <div class="stripe-card-wrapper">
+          <label class="stripe-label">
+            <i class="bi bi-lock-fill"></i> Card Details
+            <span class="stripe-secure-badge">Secured by Stripe</span>
+          </label>
+          <!-- Stripe mounts its iframe into this div -->
+          <div id="card-element" class="stripe-card-element"></div>
+        </div>
+
+        <div class="stripe-test-hint">
+          <i class="bi bi-info-circle"></i>
+          <span>
+            Test cards: <code>4242 4242 4242 4242</code> (success) &nbsp;|&nbsp;
+            <code>4000 0000 0000 0002</code> (decline) — any future expiry, any CVV
+          </span>
+        </div>
+
+        <div class="stripe-card-logos">
+          <i class="bi bi-credit-card-2-front" title="Visa / Mastercard"></i>
+          <i class="bi bi-shield-lock-fill stripe-pci-badge" title="PCI DSS Compliant"></i>
+        </div>
+      }
+
+      <!-- Stripe / mock validation error -->
+      @if (cardErrorMessage()) {
+        <div id="card-errors" class="stripe-card-errors" role="alert">
+          <i class="bi bi-exclamation-circle-fill"></i> {{ cardErrorMessage() }}
+        </div>
+      }
+
+    </div>
+  }
+
+  <!-- ── PayPal Tab ──────────────────────────────────────────────────────── -->
+  @if (activeTab() === 'paypal') {
+    <div class="payment-method-content">
+      @if (paypalLoading()) {
+        <div class="paypal-loading"><div class="spinner-of"></div><p>Redirecting to PayPal...</p></div>
+      } @else {
+        <i class="bi bi-paypal paypal-icon"></i>
+        <p class="paypal-desc">You will be redirected to PayPal to complete your payment.</p>
+        <button class="btn-primary-of" (click)="onPayPal()"><i class="bi bi-box-arrow-up-right"></i> Continue to PayPal</button>
+      }
+    </div>
+  }
+
+  <!-- ── Cash on Delivery Tab ───────────────────────────────────────────── -->
+  @if (activeTab() === 'cod') {
+    <div class="payment-method-content">
+      <i class="bi bi-cash-stack payment-method-icon cod-icon"></i>
+      <p class="payment-method-title">Pay when you receive your order.</p>
+      <p class="payment-method-desc">No additional fees for cash on delivery.</p>
+      <button class="btn-primary-of" (click)="onCod()">Confirm Cash on Delivery</button>
+    </div>
+  }
+
+  <!-- ── Wallet Tab ─────────────────────────────────────────────────────── -->
+  @if (activeTab() === 'wallet') {
+    @let u = authService.user();
+    <div class="payment-method-content">
+      <i class="bi bi-wallet2 payment-method-icon wallet-icon"></i>
+      @if (u) {
+        <p class="wallet-balance">Wallet Balance: <strong>${{ u.walletBalance.toFixed(2) }}</strong></p>
+        <p class="payment-method-desc">Loyalty Points: {{ u.loyaltyPoints }}</p>
+        @if (walletInsufficient()) {
+          <p class="wallet-error">Insufficient balance (${{ u.walletBalance.toFixed(2) }}) for this order (${{ cartService.finalTotal().toFixed(2) }}).</p>
+        }
+        <button class="btn-primary-of" (click)="onWallet()">Pay with Wallet</button>
+      } @else {
+        <p class="payment-method-desc">Sign in to use wallet payment.</p>
+      }
+    </div>
+  }
+
+  <!-- ── Action Buttons ─────────────────────────────────────────────────── -->
+  <div class="payment-actions">
+    <button class="btn-outline-of" (click)="goBack.emit()">
+      <i class="bi bi-arrow-left"></i> Back
+    </button>
+
+    @if (activeTab() === 'card' && !stripeLoading() && !stripeError()) {
+      <button class="btn-primary-of stripe-pay-btn"
+        (click)="onCardProceed()"
+        [disabled]="cardProcessing()">
+        @if (cardProcessing()) {
+          <div class="spinner-of spinner-sm"></div> Processing...
+        } @else {
+          <i class="bi bi-lock-fill"></i> Pay ${{ cartService.finalTotal() | number:'1.2-2' }}
+        }
+      </button>
+    }
+  </div>
+</div>

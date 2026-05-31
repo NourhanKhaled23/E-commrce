@@ -1,0 +1,50 @@
+<div class="notification-dropdown-wrapper">
+  <button class="nav-icon-btn" (click)="toggle()" aria-label="Notifications">
+    <i class="bi bi-bell"></i>
+    @if (unreadCount() > 0) {
+      <span class="notification-badge">{{ unreadCount() > 99 ? '99+' : unreadCount() }}</span>
+    }
+  </button>
+
+  @if (isOpen()) {
+    <div class="notification-dropdown animate-fade-in">
+      <div class="dropdown-header">
+        <h5>Notifications</h5>
+        @if (unreadCount() > 0) {
+          <button class="btn-link-of text-muted" (click)="markAllAsRead()">Mark all as read</button>
+        }
+      </div>
+
+      <div class="notification-list">
+        @if (notifications().length === 0) {
+          <div class="empty-state-sm">
+            <i class="bi bi-bell-slash"></i>
+            <p>No notifications yet</p>
+          </div>
+        } @else {
+          @for (notif of notifications(); track notif.id) {
+            <a 
+              [routerLink]="notif.link || null" 
+              class="notification-item" 
+              [class.unread]="!notif.isRead"
+              (click)="isOpen.set(false)"
+            >
+              <div class="notif-icon">
+                <i class="bi" [ngClass]="getIconClass(notif.type, notif.icon)"></i>
+              </div>
+              <div class="notif-content">
+                <p class="notif-message">{{ notif.message }}</p>
+                <span class="notif-time">{{ notif.timestamp | timeAgo }}</span>
+              </div>
+              @if (!notif.isRead) {
+                <button class="mark-read-btn" (click)="markAsRead(notif, $event)" title="Mark as read">
+                  <i class="bi bi-circle-fill"></i>
+                </button>
+              }
+            </a>
+          }
+        }
+      </div>
+    </div>
+  }
+</div>

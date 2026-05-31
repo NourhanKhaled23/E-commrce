@@ -1,0 +1,125 @@
+<nav class="navbar" [class.scrolled]="scrolled()">
+  <div class="navbar-inner">
+
+    <!-- Logo -->
+    <a routerLink="/" class="navbar-logo">OPEN FASHION</a>
+
+    <!-- Desktop Navigation Links -->
+    <div class="navbar-links">
+      <a routerLink="/products" class="nav-link" routerLinkActive="active">Products</a>
+      <div class="nav-dropdown" (mouseenter)="categoriesOpen.set(true)" (mouseleave)="categoriesOpen.set(false)">
+        <button class="nav-link nav-dropdown-toggle">
+          Categories <i class="bi bi-chevron-down"></i>
+        </button>
+        @if (categoriesOpen()) {
+          <div class="nav-dropdown-menu">
+            @for (cat of categoryService.categories(); track cat.id) {
+              <a class="nav-dropdown-item" routerLink="/products" [queryParams]="{category: cat.slug}" (click)="categoriesOpen.set(false)">
+                {{ cat.name }}
+              </a>
+            }
+          </div>
+        }
+      </div>
+      @if (authService.isLoggedIn()) {
+        <a routerLink="/orders" class="nav-link" routerLinkActive="active">Orders</a>
+      }
+    </div>
+
+    <!-- Search -->
+    <div class="navbar-search" [class.open]="searchOpen()">
+      <i class="bi bi-search search-icon"></i>
+      <input type="text" class="search-input" placeholder="Search products..." (input)="onSearchChange($event)" (focus)="searchOpen.set(true)" (blur)="closeSearch()">
+    </div>
+
+    <!-- Actions -->
+    <div class="navbar-actions">
+
+      <!-- Mobile menu toggle -->
+      <button class="action-btn mobile-menu-toggle" (click)="toggleMobileMenu()" aria-label="Menu">
+        <i class="bi" [class.bi-list]="!mobileMenuOpen()" [class.bi-x]="mobileMenuOpen()"></i>
+      </button>
+
+      <!-- Wishlist -->
+      <button class="action-btn" routerLink="/wishlist">
+        <i class="bi bi-heart"></i>
+        @if (wishlistService.count() > 0) {
+          <span class="badge-count">{{ wishlistService.count() }}</span>
+        }
+      </button>
+
+      <!-- Cart -->
+      <button class="action-btn" routerLink="/cart">
+        <i class="bi bi-handbag"></i>
+        @if (cartService.cartCount() > 0) {
+          <span class="badge-count">{{ cartService.cartCount() }}</span>
+        }
+      </button>
+
+      <!-- Notifications -->
+      <button class="action-btn" (click)="notificationService.markAllAsRead()">
+        <i class="bi bi-bell"></i>
+        @if (unreadCount() > 0) {
+          <span class="badge-count badge-red">{{ unreadCount() }}</span>
+        }
+      </button>
+
+      <!-- Language -->
+      <button class="action-btn lang-btn" (click)="toggleLanguage()">
+        <i class="bi bi-globe"></i>
+        <span class="lang-label">{{ currentLang() === 'ar' ? 'EN' : 'AR' }}</span>
+      </button>
+
+      <!-- User -->
+      @if (authService.user(); as user) {
+        <div class="user-menu-wrapper">
+          <img [src]="user.avatar || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23C8A96E%22 width=%22100%22 height=%22100%22/%3E%3Ctext fill=%22%230D0D0D%22 font-size=%2240%22 x=%2250%22 y=%2255%22 text-anchor=%22middle%22 dominant-baseline=%22central%22 font-family=%22sans-serif%22%3E{{ user.name.charAt(0) }}%3C/text%3E%3C/svg%3E'" class="user-avatar" alt="User" (click)="toggleUserMenu()">
+          @if (userMenuOpen()) {
+            <div class="user-dropdown" (click)="closeUserMenu()">
+              <div class="user-dropdown-header">
+                <strong>{{ user.name }}</strong>
+                <small>{{ user.email }}</small>
+                <span class="user-role-badge">{{ user.role }}</span>
+              </div>
+              <div class="user-dropdown-divider"></div>
+              <a class="user-dropdown-item" routerLink="/auth/profile"><i class="bi bi-person"></i> My Profile</a>
+              <a class="user-dropdown-item" routerLink="/orders"><i class="bi bi-box"></i> My Orders</a>
+              <a class="user-dropdown-item" routerLink="/wishlist"><i class="bi bi-heart"></i> Wishlist</a>
+              @if (user.role === 'seller') {
+                <a class="user-dropdown-item" routerLink="/seller"><i class="bi bi-shop"></i> Seller Dashboard</a>
+              }
+              @if (user.role === 'admin') {
+                <a class="user-dropdown-item" routerLink="/admin"><i class="bi bi-gear"></i> Admin Panel</a>
+              }
+              <div class="user-dropdown-divider"></div>
+              <button class="user-dropdown-item user-dropdown-item-danger" (click)="logout()">
+                <i class="bi bi-box-arrow-right"></i> Sign Out
+              </button>
+            </div>
+          }
+        </div>
+      } @else {
+        <a routerLink="/auth/login" class="btn-signin">Sign In</a>
+      }
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  @if (mobileMenuOpen()) {
+    <div class="navbar-mobile">
+      <a routerLink="/products" class="mobile-link" (click)="closeMobileMenu()">Products</a>
+      @for (cat of categoryService.categories(); track cat.id) {
+        <a class="mobile-link mobile-link-sub" routerLink="/products" [queryParams]="{category: cat.slug}" (click)="closeMobileMenu()">
+          {{ cat.name }}
+        </a>
+      }
+      <a routerLink="/orders" class="mobile-link" (click)="closeMobileMenu()">Orders</a>
+      <a routerLink="/wishlist" class="mobile-link" (click)="closeMobileMenu()">Wishlist</a>
+      <a routerLink="/cart" class="mobile-link" (click)="closeMobileMenu()">Cart</a>
+      @if (!authService.isLoggedIn()) {
+        <a routerLink="/auth/login" class="mobile-link mobile-link-cta" (click)="closeMobileMenu()">Sign In</a>
+        <a routerLink="/auth/register" class="mobile-link" (click)="closeMobileMenu()">Create Account</a>
+      }
+    </div>
+  }
+</nav>

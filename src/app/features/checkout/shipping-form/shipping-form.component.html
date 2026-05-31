@@ -1,0 +1,51 @@
+<div class="shipping-form">
+  <h3 class="shipping-heading">Shipping Address</h3>
+
+  @if (authService.user(); as user) {
+    @if (!useSaved()) {
+      <button class="btn-outline-of shipping-saved-btn" (click)="useSavedAddress()">
+        <i class="bi bi-person-fill"></i> Use saved address
+      </button>
+    }
+  }
+
+  @let f = form();
+  <div class="shipping-grid">
+    <div class="sf-street">
+      <label class="form-label-of">Street Address</label>
+      <input class="form-input-of" [class.is-invalid]="submitted() && !f.street" [(ngModel)]="form().street" placeholder="123 Main St" />
+      @if (submitted() && !f.street) { <small class="form-error">Required</small> }
+    </div>
+    <div class="sf-city">
+      <label class="form-label-of">City</label>
+      <input class="form-input-of" [class.is-invalid]="submitted() && !f.city" [(ngModel)]="form().city" placeholder="New York" />
+      @if (submitted() && !f.city) { <small class="form-error">Required</small> }
+    </div>
+    <div class="sf-state">
+      <label class="form-label-of">State</label>
+      <input class="form-input-of" [(ngModel)]="form().state" placeholder="NY" />
+    </div>
+    <div class="sf-zip">
+      <label class="form-label-of">ZIP Code</label>
+      <input class="form-input-of" [class.is-invalid]="submitted() && !f.zipCode" [(ngModel)]="form().zipCode" placeholder="10001" />
+      @if (submitted() && !f.zipCode) { <small class="form-error">Required</small> }
+    </div>
+    <div class="sf-country">
+      <label class="form-label-of">Country</label>
+      <input class="form-input-of" [(ngModel)]="form().country" placeholder="United States" />
+    </div>
+    @if (authService.user(); as user) {
+      @if (user.phone) {
+        <div class="sf-phone">
+          <label class="form-label-of">Phone</label>
+          <p class="shipping-phone">{{ user.phone }}</p>
+        </div>
+      }
+    }
+  </div>
+
+  <div class="shipping-actions">
+    <button class="btn-outline-of" (click)="goBack.emit()"><i class="bi bi-arrow-left"></i> Back</button>
+    <button class="btn-primary-of" (click)="onProceed()">Continue to Payment</button>
+  </div>
+</div>

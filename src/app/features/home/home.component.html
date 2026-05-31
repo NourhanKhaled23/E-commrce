@@ -1,0 +1,206 @@
+﻿<!-- ════════════════════════════════
+     SECTION 1 — HERO
+     ════════════════════════════════ -->
+<section class="hero-section">
+  <div class="hero-content">
+    <p class="hero-eyebrow">NEW COLLECTION � 2025</p>
+    <div class="hero-divider"></div>
+    <h1 class="hero-headline">
+      Where Style Meets<br>
+      <span class="hero-accent">Elegance</span>
+    </h1>
+    <p class="hero-subtext">
+      Discover handpicked pieces from the world's most coveted designers.
+    </p>
+    <div class="hero-ctas">
+      <a routerLink="/products" class="btn-hero-primary">
+        {{ 'HOME.SHOP_NOW' | translate }}
+      </a>
+      <a routerLink="/products" class="btn-hero-outline">
+        {{ 'HOME.EXPLORE' | translate }}
+        <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     SECTION 2 — ANNOUNCEMENT BAR
+     ════════════════════════════════ -->
+<section class="announcement-bar">
+  <div class="announcement-content">
+    <i class="bi bi-truck"></i>
+    <span>Free shipping on orders over $100 · Use code LUXE10 for 10% off</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     SECTION 3 — CATEGORY GRID
+     ════════════════════════════════ -->
+<section class="home-section home-section--light" appScrollReveal>
+  <div class="home-container">
+    <div class="section-header">
+      <span class="eyebrow">SHOP BY CATEGORY</span>
+      <h2>Find Your Style</h2>
+    </div>
+    <div class="category-grid">
+      @for (cat of categoryService.categories(); track cat.id) {
+        <a [routerLink]="['/products']" [queryParams]="{category: cat.slug}" class="category-card">
+          <div class="category-icon">
+            @if (cat.image) {
+              <img [src]="cat.image" [alt]="cat.name" class="category-img" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+            } @else {
+              <i class="bi bi-grid"></i>
+            }
+          </div>
+          <span class="category-name">{{ cat.name }}</span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     SECTION 4 — FEATURED PRODUCTS
+     ════════════════════════════════ -->
+<section class="home-section home-section--white" appScrollReveal>
+  <div class="home-container">
+    <div class="section-header">
+      <span class="eyebrow">CURATED FOR YOU</span>
+      <h2>Featured Pieces</h2>
+    </div>
+    @if (loading()) {
+      <div class="product-grid">
+        @for (_ of [1,2,3,4,5,6,7,8]; track _) {
+          <div class="skeleton-card will-transform">
+            <div class="sk-image"></div>
+            <div class="sk-body">
+              <div class="sk-line sk-line-lg"></div>
+              <div class="sk-line sk-line-sm"></div>
+              <div class="sk-line" style="width:40%"></div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="product-grid">
+        @for (product of featuredProducts(); track product.id) {
+          <app-product-card [product]="product" />
+        }
+      </div>
+    }
+    <div class="section-cta">
+      <a routerLink="/products" class="btn btn-outline-light">View All Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     SECTION 5 — PROMOTIONAL BANNER
+     ════════════════════════════════ -->
+<section class="promo-banner" appScrollReveal>
+  <div class="promo-grid">
+    <div class="promo-content">
+      @if (activeBanner(); as banner) {
+        <span class="eyebrow promo-eyebrow">PROMOTION</span>
+        <h2 class="promo-title">{{ banner.title }}</h2>
+        <p class="promo-desc">{{ banner.subtitle }}</p>
+        <a [routerLink]="banner.link" class="btn btn-primary">Shop Sale</a>
+      } @else {
+        <span class="eyebrow promo-eyebrow">LIMITED EDITION</span>
+        <h2 class="promo-title">The Summer Collection</h2>
+        <p class="promo-desc">Embrace the season with our exclusive new arrivals — crafted for those who appreciate the finer things.</p>
+        <a routerLink="/products" class="btn btn-primary">Shop Sale</a>
+      }
+    </div>
+    <div class="promo-visual">
+      <div class="promo-badge">
+        <span class="promo-badge-number">Up to</span>
+        <span class="promo-badge-percent">40%</span>
+        <span class="promo-badge-label">OFF</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     SECTION 6 — BEST SELLERS
+     ════════════════════════════════ -->
+<section class="home-section home-section--light" appScrollReveal>
+  <div class="home-container">
+    <div class="section-header">
+      <span class="eyebrow">MOST LOVED</span>
+      <h2>Best Sellers</h2>
+    </div>
+    @if (loading()) {
+      <div class="product-grid">
+        @for (_ of [1,2,3,4,5,6,7,8]; track _) {
+          <div class="skeleton-card will-transform">
+            <div class="sk-image"></div>
+            <div class="sk-body">
+              <div class="sk-line sk-line-lg"></div>
+              <div class="sk-line sk-line-sm"></div>
+              <div class="sk-line" style="width:40%"></div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="product-grid">
+        @for (product of bestSellers(); track product.id) {
+          <app-product-card [product]="product" />
+        }
+      </div>
+    }
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     SECTION 7 — TRUST SIGNALS
+     ════════════════════════════════ -->
+<section class="home-section home-section--white" appScrollReveal>
+  <div class="home-container">
+    <div class="trust-grid">
+      @for (signal of trustSignals; track signal.title) {
+        <div class="trust-card">
+          <div class="trust-icon">
+            <i class="bi {{ signal.icon }}"></i>
+          </div>
+          <h3 class="trust-title">{{ signal.title }}</h3>
+          <p class="trust-desc">{{ signal.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     SECTION 8 — NEWSLETTER
+     ════════════════════════════════ -->
+<section class="newsletter-section-home" appScrollReveal>
+  <div class="home-container newsletter-container-home">
+    @if (subscribed()) {
+      <div class="newsletter-success">
+        <i class="bi bi-check-circle-fill"></i>
+        <h2>You're In!</h2>
+        <p>Thank you for subscribing. Welcome to the Inner Circle.</p>
+      </div>
+    } @else {
+      <h2 class="newsletter-title-home">Join the Inner Circle</h2>
+      <p class="newsletter-desc">Be the first to know about exclusive drops, early access to collections, and members-only offers.</p>
+      <form class="newsletter-form-home" (ngSubmit)="subscribeNewsletter()">
+        <input
+          type="email"
+          class="newsletter-input-home"
+          placeholder="Enter your email address"
+          [(ngModel)]="newsletterEmail"
+          name="newsletter-email"
+          required
+        />
+        <button type="submit" class="btn btn-primary newsletter-btn-home">Subscribe</button>
+      </form>
+    }
+  </div>
+</section>
+
+

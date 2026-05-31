@@ -1,0 +1,151 @@
+<section class="hero-banner">
+  <div class="hero-content">
+    <p class="hero-subtitle">New Season</p>
+    <div class="decorative-line"><span class="diamond"></span></div>
+    <h1 class="hero-title display-heading">Luxury Fashion</h1>
+    <p class="hero-description">Discover handpicked pieces from the world's most coveted designers.</p>
+    <a routerLink="/products" fragment="products" class="hero-cta">Explore Collection</a>
+  </div>
+</section>
+
+@if (banners().length > 0) {
+  <section class="banner-carousel">
+    <div class="banner-track" [style.transform]="'translateX(-' + activeBannerIndex() * 100 + '%)'">
+      @for (banner of banners(); track banner.id) {
+        <div class="banner-slide">
+          <img [src]="banner.image" [alt]="banner.title" loading="lazy">
+          <div class="banner-overlay"></div>
+          <div class="banner-content">
+            <p class="banner-eyebrow">FEATURED</p>
+            <h2 class="banner-title">{{ banner.title }}</h2>
+            <p class="banner-subtitle">{{ banner.subtitle }}</p>
+            <a [routerLink]="banner.link" class="btn-hero-primary">Shop Now</a>
+          </div>
+        </div>
+      }
+    </div>
+    @if (banners().length > 1) {
+      <button class="slider-arrow prev" (click)="prevBanner()"><i class="bi bi-chevron-left"></i></button>
+      <button class="slider-arrow next" (click)="nextBanner()"><i class="bi bi-chevron-right"></i></button>
+      <div class="slider-dots">
+        @for (banner of banners(); track banner.id; let i = $index) {
+          <button class="slider-dot" [class.active]="i === activeBannerIndex()" (click)="activeBannerIndex.set(i)"></button>
+        }
+      </div>
+    }
+  </section>
+}
+
+@if (categoryService.categories().length > 0) {
+  <section class="category-grid-section">
+    <div class="section-title">
+      <h2>Shop by Category</h2>
+      <div class="decorative-line"><span class="diamond"></span></div>
+    </div>
+    <div class="category-grid">
+      @for (cat of categoryService.categories(); track cat.id) {
+        <button class="category-card" (click)="filterByCategory(cat.id)">
+          <div class="category-icon">
+            @if (cat.image) {
+              <img [src]="cat.image" [alt]="cat.name" class="category-img" loading="lazy">
+            } @else {
+              <i class="bi bi-grid"></i>
+            }
+          </div>
+          <span class="category-name">{{ cat.name }}</span>
+        </button>
+      }
+    </div>
+  </section>
+}
+
+<section class="page-container" id="products">
+  <div class="section-title">
+    <h2>Products</h2>
+    <div class="decorative-line"><span class="diamond"></span></div>
+  </div>
+
+  <app-search-bar></app-search-bar>
+
+  <!-- Top bar: filter toggle + results count + view toggle -->
+  <div class="products-toolbar">
+    <button class="filter-toggle-btn" (click)="toggleFilter()">
+      <i class="bi bi-sliders"></i> Filters
+    </button>
+    <span class="results-count">{{ productService.totalFiltered() }} product{{ productService.totalFiltered() === 1 ? '' : 's' }} found</span>
+    <div class="view-toggle">
+      <button class="view-btn" [class.active]="viewMode() === 'grid'" (click)="setViewMode('grid')" title="Grid view">
+        <i class="bi bi-grid-3x3-gap-fill"></i>
+      </button>
+      <button class="view-btn" [class.active]="viewMode() === 'list'" (click)="setViewMode('list')" title="List view">
+        <i class="bi bi-list-ul"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="products-layout">
+    <!-- Sidebar Filters -->
+    <aside class="products-sidebar" [class.open]="filterOpen()">
+      <app-filter-panel></app-filter-panel>
+    </aside>
+    @if (filterOpen()) {
+      <div class="filter-overlay" (click)="filterOpen.set(false)"></div>
+    }
+
+    <!-- Main Content -->
+    <main class="products-main">
+      @if (productService.loading()) {
+        <app-skeleton-loader [count]="8"></app-skeleton-loader>
+      } @else {
+        @if (productService.pagedProducts().length === 0) {
+          <div class="empty-state enhanced-empty">
+            <div class="empty-icon-wrapper"><i class="bi bi-search"></i></div>
+            <h3>Nothing matches your filters</h3>
+            <p>Try adjusting your search or filter criteria.</p>
+            <button class="btn-primary-of" (click)="productService.resetFilters()"><i class="bi bi-grid-fill"></i> View All Products</button>
+          </div>
+        } @else {
+          @if (viewMode() === 'grid') {
+            <div class="product-grid-of">
+              @for (product of productService.pagedProducts(); track product.id) {
+                <app-product-card
+                  [product]="product"
+                  (cartAdded)="onAddToCart($event)"
+                  (wishlistToggled)="onToggleWishlist($event)"
+                />
+              }
+            </div>
+          } @else {
+            <div class="product-list-of">
+              @for (product of productService.pagedProducts(); track product.id) {
+                <div class="list-card">
+                  <a [routerLink]="'/products/' + product.id" class="list-card-img-link">
+                    <img [src]="product.thumbnail" [alt]="product.name" class="list-card-img" loading="lazy">
+                  </a>
+                  <div class="list-card-body">
+                    <span class="list-card-category">{{ product.category }}</span>
+                    <a [routerLink]="'/products/' + product.id" class="list-card-name">{{ product.name }}</a>
+                    <p class="list-card-desc">{{ product.description }}</p>
+                    <div class="list-card-footer">
+                      <span class="list-card-price">{{ product.price | currency:'USD':'symbol':'1.2-2' }}</span>
+                      <div class="list-card-actions">
+                        <button class="list-card-cart-btn" (click)="onAddToCart(product)">
+                          <i class="bi bi-cart-plus"></i> Add to Cart
+                        </button>
+                        <button class="list-card-wishlist-btn" (click)="onToggleWishlist(product.id)"
+                          [class.wishlisted]="wishlistService.isInWishlist(product.id)">
+                          <i class="bi" [class.bi-heart-fill]="wishlistService.isInWishlist(product.id)" [class.bi-heart]="!wishlistService.isInWishlist(product.id)"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          }
+          <app-pagination />
+        }
+      }
+    </main>
+  </div>
+</section>

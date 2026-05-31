@@ -1,0 +1,7 @@
+[
+  { "code": "SAVE10", "type": "percentage", "value": 10, "minAmount": 20, "description": "10% off orders over $20" },
+  { "code": "SAVE20", "type": "percentage", "value": 20, "minAmount": 50, "description": "20% off orders over $50" },
+  { "code": "FLAT5", "type": "fixed", "value": 5, "minAmount": 15, "description": "$5 off orders over $15" },
+  { "code": "FLAT15", "type": "fixed", "value": 15, "minAmount": 75, "description": "$15 off orders over $75" },
+  { "code": "WELCOME", "type": "percentage", "value": 15, "minAmount": 0, "description": "15% off your first order" }
+]

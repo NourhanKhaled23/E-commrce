@@ -1,0 +1,34 @@
+.star-rating-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+
+  &.interactive .star-btn {
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+.star-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: var(--color-accent);
+  cursor: default;
+  transition: transform var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+
+  i {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  &:disabled {
+    color: var(--color-accent);
+    opacity: 1;
+  }
+}

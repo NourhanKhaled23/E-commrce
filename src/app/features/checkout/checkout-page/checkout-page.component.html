@@ -1,0 +1,76 @@
+<div class="page-container checkout-page">
+  <div class="page-title">
+    <h1>Checkout</h1>
+  </div>
+
+  @if (guestMode()) {
+    <div class="guest-checkout">
+      <i class="bi bi-person guest-checkout-icon"></i>
+      <h3>Guest Checkout</h3>
+      <p class="guest-checkout-desc">Enter your email to continue without signing in.</p>
+      <input class="form-input-of guest-checkout-input" [(ngModel)]="guestEmail" placeholder="your@email.com" type="email" />
+      <button class="btn-primary-of btn-block" (click)="startGuestCheckout()" [disabled]="!guestEmail()">
+        Continue as Guest
+      </button>
+      <p class="guest-checkout-login">
+        <a routerLink="/auth/login">Sign in</a> to use saved addresses & wallet
+      </p>
+    </div>
+  } @else {
+    <app-checkout-stepper [currentStep]="checkoutService.step()" />
+
+    @if (checkoutService.step() === 1) {
+      <app-shipping-form (proceed)="onShippingProceed($event)" (goBack)="goBack()" />
+    }
+
+    @if (checkoutService.step() === 2) {
+      @let items = cartService.cartItems();
+      <div class="checkout-layout">
+        <div class="checkout-main">
+          <app-payment-page (proceed)="onPaymentProceed($event)" (goBack)="goBack()" />
+        </div>
+        <div class="checkout-sidebar">
+          <div class="order-summary-card">
+            <h5>Order Summary</h5>
+            @for (item of items; track item.product.id) {
+              <div class="os-item">
+                <img [src]="item.product.thumbnail" [alt]="item.product.name" />
+                <div class="os-item-info">
+                  <p class="os-item-name">{{ item.product.name }}</p>
+                  <p class="os-item-qty">Qty: {{ item.quantity }}</p>
+                </div>
+                <span class="os-item-price">{{ (item.product.price * item.quantity) | currency:'USD':'symbol':'1.2-2' }}</span>
+              </div>
+            }
+            <hr />
+            <div class="os-row"><span>Subtotal</span><span>{{ cartService.cartTotal() | currency:'USD':'symbol':'1.2-2' }}</span></div>
+            @if (cartService.discount() > 0) {
+              <div class="os-row os-discount"><span>Discount</span><span>-{{ cartService.discount() | currency:'USD':'symbol':'1.2-2' }}</span></div>
+            }
+            <div class="os-row"><span>Shipping</span><span class="os-free">Free</span></div>
+            <hr />
+            <div class="checkout-total-row"><span>Total</span><span>{{ cartService.finalTotal() | currency:'USD':'symbol':'1.2-2' }}</span></div>
+            @if (checkoutService.processing()) {
+              <div class="os-processing"><div class="spinner-of"></div><p>Processing...</p></div>
+            }
+          </div>
+        </div>
+      </div>
+    }
+
+    @if (checkoutService.step() === 3) {
+      <app-order-confirmation
+        [orderId]="checkoutService.orderId()!"
+        [items]="confirmedItems()"
+        [subtotal]="confirmedSubtotal()"
+        [discount]="confirmedDiscount()"
+        [total]="confirmedTotal()"
+        [promoCode]="confirmedPromoCode()"
+      />
+    }
+  }
+
+  @if (error()) {
+    <div class="checkout-error">{{ error() }}</div>
+  }
+</div>

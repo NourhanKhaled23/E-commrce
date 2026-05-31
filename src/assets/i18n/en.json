@@ -1,0 +1,83 @@
+{
+    "NAVBAR": {
+        "PRODUCTS": "Products",
+        "ORDERS": "Orders",
+        "ADMIN": "Admin",
+        "PROFILE": "Profile",
+        "LOGOUT": "Logout",
+        "SIGN_IN": "Sign In",
+        "SEARCH_PLACEHOLDER": "Search products...",
+        "WISHLIST": "Wishlist",
+        "CART": "Cart"
+    },
+    "PRODUCT_CARD": {
+        "ADD_TO_CART": "Add to Cart",
+        "ADDED": "Added!",
+        "ADD_TO_WISHLIST": "Add to Wishlist",
+        "REVIEW": "Write a Review",
+        "OUT_OF_STOCK": "Out of Stock",
+        "IN_STOCK": "In Stock",
+        "LOW_STOCK": "Low Stock"
+    },
+    "CONFIRM_DIALOG": {
+        "YES": "Yes",
+        "NO": "No",
+        "CONFIRM": "Confirm"
+    },
+    "LANGUAGE": {
+        "SWITCH_LANG": "العربية"
+    },
+    "HOME": {
+        "SHOP_NOW": "Shop Now",
+        "EXPLORE": "Explore Collection"
+    },
+    "NEWSLETTER": {
+        "JOIN_COMMUNITY": "Join the Community",
+        "SUBSCRIBE_DESC": "Subscribe to receive exclusive offers, early access to new arrivals, and style inspiration straight to your inbox.",
+        "SUBSCRIBE_PLACEHOLDER": "Enter your email address",
+        "SUBSCRIBE_BTN": "Subscribe"
+    },
+    "AUTH": {
+        "LOGIN": "Login",
+        "REGISTER": "Register",
+        "EMAIL": "Email address",
+        "PASSWORD": "Password",
+        "CONFIRM_PASSWORD": "Confirm password",
+        "FORGOT_PASSWORD": "Forgot password?",
+        "NO_ACCOUNT": "Don't have an account?",
+        "HAVE_ACCOUNT": "Already have an account?",
+        "RESTRICTED_MSG": "Your account has been restricted. Please contact support."
+    },
+    "ORDER": {
+        "STATUS_PLACED": "Order Placed",
+        "STATUS_CONFIRMED": "Confirmed",
+        "STATUS_PROCESSING": "Processing",
+        "STATUS_SHIPPED": "Shipped",
+        "STATUS_OUT_FOR_DELIVERY": "Out for Delivery",
+        "STATUS_DELIVERED": "Delivered",
+        "STATUS_CANCELLED": "Cancelled",
+        "TRACK": "Track Order",
+        "CANCEL": "Cancel Order",
+        "REORDER": "Reorder"
+    },
+    "CHECKOUT": {
+        "SHIPPING": "Shipping Address",
+        "PAYMENT": "Payment Method",
+        "REVIEW": "Order Review",
+        "PLACE_ORDER": "Place Order",
+        "GUEST_EMAIL": "Continue as Guest",
+        "PROMO_PLACEHOLDER": "Promo code",
+        "APPLY": "Apply",
+        "REMOVE": "Remove",
+        "FREE_SHIPPING": "Free Shipping",
+        "ORDER_TOTAL": "Order Total",
+        "DISCOUNT": "Discount"
+    },
+    "ERRORS": {
+        "ACCOUNT_RESTRICTED": "Your account is restricted and cannot place orders.",
+        "INSUFFICIENT_WALLET": "Insufficient wallet balance.",
+        "CARD_DECLINED": "Your card was declined. Please try another payment method.",
+        "NETWORK_ERROR": "Network error. Please check your connection.",
+        "SESSION_EXPIRED": "Your session has expired. Please log in again."
+    }
+}

@@ -1,0 +1,20 @@
+.unauthorized-page {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.unauthorized-page i {
+  font-size: 4rem;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.unauthorized-page h1 {
+  font-family: var(--font-heading);
+  margin-bottom: 0.5rem;
+}
+
+.unauthorized-page p {
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+}

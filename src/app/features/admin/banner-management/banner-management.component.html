@@ -1,0 +1,60 @@
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Banners</h1>
+    <p class="admin-page-meta">{{ admin.banners().length }} banners</p>
+  </div>
+  <button class="admin-btn-primary" (click)="openCreate()">
+    <i class="bi bi-plus-lg"></i> Add Banner
+  </button>
+</div>
+
+<div class="banner-grid">
+  @for (banner of admin.banners(); track banner.id) {
+    <div class="banner-card">
+      <div class="banner-image-wrapper">
+        <img [src]="banner.image" class="banner-image" alt="" loading="lazy">
+        <span class="banner-badge" [class.badge-active]="banner.active" [class.badge-restricted]="!banner.active">
+          {{ banner.active ? 'Active' : 'Inactive' }}
+        </span>
+        <span class="banner-order">Order: {{ banner.sortOrder }}</span>
+      </div>
+      <div class="banner-body">
+        <h3 class="banner-title">{{ banner.title }}</h3>
+        <p class="banner-subtitle">{{ banner.subtitle }}</p>
+      </div>
+      <div class="banner-actions">
+        <button class="action-icon-btn" [class.success]="!banner.active" [class.danger]="banner.active" [title]="banner.active ? 'Deactivate' : 'Activate'" (click)="toggleActive(banner)">
+          <i class="bi" [class.bi-toggle-on]="banner.active" [class.bi-toggle-off]="!banner.active"></i>
+        </button>
+        <button class="action-icon-btn" title="Edit" (click)="openEdit(banner)"><i class="bi bi-pencil"></i></button>
+        <button class="action-icon-btn danger" title="Delete" (click)="deleteBanner(banner.id)"><i class="bi bi-trash"></i></button>
+      </div>
+    </div>
+  } @empty {
+    <div class="empty-state">No banners yet</div>
+  }
+</div>
+
+@if (showModal()) {
+  <div class="admin-modal-backdrop" (click)="closeModal()"></div>
+  <div class="admin-modal-dialog" role="dialog">
+    <div class="admin-modal-content">
+      <div class="admin-modal-header">
+        <h5 class="admin-modal-title">{{ editingBanner() ? 'Edit Banner' : 'Add Banner' }}</h5>
+        <button type="button" class="admin-modal-close" (click)="closeModal()"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="admin-modal-body">
+        <div class="form-group"><label>Title</label><input class="admin-input" [(ngModel)]="form.title" placeholder="Banner title"></div>
+        <div class="form-group"><label>Subtitle</label><input class="admin-input" [(ngModel)]="form.subtitle" placeholder="Banner subtitle"></div>
+        <div class="form-group"><label>Image URL</label><input class="admin-input" [(ngModel)]="form.image" placeholder="https://..."></div>
+        <div class="form-group"><label>Link URL</label><input class="admin-input" [(ngModel)]="form.link" placeholder="/products"></div>
+        <div class="form-group"><label>Sort Order</label><input class="admin-input" type="number" [(ngModel)]="form.sortOrder" placeholder="1"></div>
+        <div class="form-group"><label class="toggle-label"><input type="checkbox" [(ngModel)]="form.active"> Active</label></div>
+      </div>
+      <div class="admin-modal-footer">
+        <button class="admin-btn-close-modal" (click)="closeModal()">Cancel</button>
+        <button class="admin-btn-save" (click)="saveBanner()">{{ editingBanner() ? 'Update' : 'Create' }}</button>
+      </div>
+    </div>
+  </div>
+}

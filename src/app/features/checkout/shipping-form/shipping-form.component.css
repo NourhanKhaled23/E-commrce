@@ -1,0 +1,18 @@
+.shipping-form { max-width:600px; }
+.shipping-heading { font-family:var(--font-heading);margin-bottom:1rem; }
+.shipping-saved-btn { padding:0.4rem 1rem !important;font-size:0.8rem !important;margin-bottom:1rem;min-width:unset; }
+.shipping-grid { display:grid;grid-template-columns:1fr;gap:0.75rem; }
+.sf-street { grid-column:1 / -1; }
+.sf-country { grid-column:1 / -1; }
+.sf-phone { grid-column:1 / -1; }
+@media (min-width:768px) {
+  .shipping-grid { grid-template-columns:1fr 1fr 1fr; }
+  .sf-street { grid-column:1 / -1; }
+  .sf-country { grid-column:1 / -1; }
+  .sf-phone { grid-column:1 / -1; }
+  .sf-city { grid-column:span 1; }
+  .sf-state { grid-column:span 1; }
+  .sf-zip { grid-column:span 1; }
+}
+.shipping-phone { font-size:0.85rem;margin:0;color:var(--color-text-muted); }
+.shipping-actions { display:flex;gap:0.75rem;margin-top:1.5rem; }

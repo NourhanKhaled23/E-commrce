@@ -1,0 +1,132 @@
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">User Management</h1>
+    <p class="admin-page-meta">{{ totalUsers() }} total users</p>
+  </div>
+  <button class="admin-btn-primary" (click)="exportCsv()">
+    <i class="bi bi-download"></i> Export CSV
+  </button>
+</div>
+
+<div class="admin-filters">
+  <select class="admin-filter-select" [value]="roleFilter()" (change)="roleFilter.set($any($event.target).value)">
+    <option value="">All Roles</option>
+    <option value="admin">Admin</option>
+    <option value="seller">Seller</option>
+    <option value="customer">Customer</option>
+  </select>
+  <select class="admin-filter-select" [value]="statusFilter()" (change)="statusFilter.set($any($event.target).value)">
+    <option value="">All Status</option>
+    <option value="active">Active</option>
+    <option value="restricted">Restricted</option>
+  </select>
+  <input class="admin-search-input" type="text" placeholder="Search by name or email..." [value]="searchQuery()" (input)="searchQuery.set($any($event.target).value)">
+</div>
+
+<div class="admin-table-wrapper">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th class="sortable-header" (click)="sort('id')">
+          ID <i class="bi" [class.bi-caret-up-fill]="sortField()==='id' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='id' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='id'"></i>
+        </th>
+        <th class="sortable-header" (click)="sort('name')">
+          Name <i class="bi" [class.bi-caret-up-fill]="sortField()==='name' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='name' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='name'"></i>
+        </th>
+        <th class="sortable-header" (click)="sort('email')">
+          Email <i class="bi" [class.bi-caret-up-fill]="sortField()==='email' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='email' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='email'"></i>
+        </th>
+        <th class="sortable-header" (click)="sort('role')">
+          Role <i class="bi" [class.bi-caret-up-fill]="sortField()==='role' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='role' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='role'"></i>
+        </th>
+        <th class="sortable-header" (click)="sort('status')">
+          Status <i class="bi" [class.bi-caret-up-fill]="sortField()==='status' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='status' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='status'"></i>
+        </th>
+        <th class="sortable-header" (click)="sort('createdAt')">
+          Joined <i class="bi" [class.bi-caret-up-fill]="sortField()==='createdAt' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='createdAt' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='createdAt'"></i>
+        </th>
+        <th class="sortable-header" (click)="sort('walletBalance')" style="text-align:right">
+          Wallet <i class="bi" [class.bi-caret-up-fill]="sortField()==='walletBalance' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='walletBalance' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='walletBalance'"></i>
+        </th>
+        <th class="sortable-header" (click)="sort('loyaltyPoints')" style="text-align:right">
+          Points <i class="bi" [class.bi-caret-up-fill]="sortField()==='loyaltyPoints' && sortDir()==='asc'" [class.bi-caret-down-fill]="sortField()==='loyaltyPoints' && sortDir()==='desc'" [class.bi-caret-down]="sortField()!=='loyaltyPoints'"></i>
+        </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of paginatedUsers(); track user.id) {
+        <tr>
+          <td class="td-muted">#{{ user.id }}</td>
+          <td>
+            <div class="user-cell">
+              <div class="user-avatar-sm">{{ user.name.charAt(0).toUpperCase() }}</div>
+              {{ user.name }}
+            </div>
+          </td>
+          <td class="td-muted">{{ user.email }}</td>
+          <td><span class="badge" [class]="'badge-' + user.role">{{ user.role }}</span></td>
+          <td><span class="badge" [class]="'badge-' + (user.status || 'active')">{{ user.status || 'active' }}</span></td>
+          <td class="td-muted">{{ user.createdAt | date:'MMM d, y' }}</td>
+          <td style="text-align:right">{{ user.walletBalance | currency:'USD':'symbol':'1.2-2' }}</td>
+          <td style="text-align:right">{{ user.loyaltyPoints | number }}</td>
+          <td>
+            <div class="row-actions">
+              <button class="action-icon-btn" title="View" (click)="openUser(user)"><i class="bi bi-eye"></i></button>
+              @if (user.status === 'active') {
+                <button class="action-icon-btn danger" title="Restrict" (click)="restrictUser(user)"><i class="bi bi-slash-circle"></i></button>
+              } @else {
+                <button class="action-icon-btn success" title="Approve" (click)="approveUser(user.id)"><i class="bi bi-check-circle"></i></button>
+              }
+            </div>
+          </td>
+        </tr>
+      } @empty {
+        <tr><td colspan="9" style="text-align:center;padding:48px 16px;color:#6B5C3E">
+          No users match your filters
+        </td></tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<div class="admin-pagination">
+  <span class="pagination-info">Showing {{ paginationStart() }}–{{ paginationEnd() }} of {{ totalUsers() }}</span>
+  <div class="pagination-controls">
+    <button class="page-btn" [disabled]="page() <= 1" (click)="page.set(page() - 1)"><i class="bi bi-chevron-left"></i></button>
+    @for (p of pageNumbers(); track $index) {
+      <button class="page-btn" [class.active]="p === page()" (click)="page.set(p)">{{ p === 0 ? '...' : p }}</button>
+    }
+    <button class="page-btn" [disabled]="page() * pageSize >= totalUsers()" (click)="page.set(page() + 1)"><i class="bi bi-chevron-right"></i></button>
+  </div>
+</div>
+
+@if (selectedUser(); as u) {
+  <div class="admin-modal-backdrop" (click)="closeUserModal()"></div>
+  <div class="admin-modal-dialog" role="dialog">
+    <div class="admin-modal-content">
+      <div class="admin-modal-header">
+        <h5 class="admin-modal-title">{{ u.name }}</h5>
+        <button type="button" class="admin-modal-close" (click)="closeUserModal()"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="admin-modal-body">
+        <div class="user-detail"><label>Email</label><span>{{ u.email }}</span></div>
+        <div class="user-detail"><label>Phone</label><span>{{ u.phone || '—' }}</span></div>
+        <div class="user-detail"><label>Role</label><span class="badge" [class]="'badge-' + u.role">{{ u.role }}</span></div>
+        <div class="user-detail"><label>Status</label><span class="badge" [class]="'badge-' + (u.status || 'active')">{{ u.status || 'active' }}</span></div>
+        <div class="user-detail"><label>Wallet</label><span>{{ u.walletBalance | currency:'USD':'symbol':'1.2-2' }}</span></div>
+        <div class="user-detail"><label>Loyalty</label><span>{{ u.loyaltyPoints | number }} pts</span></div>
+        <div class="user-detail"><label>Address</label><span>{{ u.address?.street }}, {{ u.address?.city }}, {{ u.address?.country }}</span></div>
+      </div>
+      <div class="admin-modal-footer">
+        @if (u.status !== 'restricted') {
+          <button class="admin-btn-outline-danger" (click)="restrictUser(u)">Restrict</button>
+        } @else {
+          <button class="admin-btn-outline-success" (click)="approveUser(u.id)">Activate</button>
+        }
+        <button class="admin-btn-close-modal" (click)="closeUserModal()">Close</button>
+      </div>
+    </div>
+  </div>
+}
+

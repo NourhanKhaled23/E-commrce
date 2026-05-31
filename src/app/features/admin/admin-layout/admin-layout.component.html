@@ -1,0 +1,64 @@
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-label">ADMIN</span>
+      <span class="brand-sub">Open Fashion</span>
+    </div>
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Main</span>
+      <a routerLink="/admin/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+        <i class="bi bi-speedometer2"></i>
+        <span>Dashboard</span>
+      </a>
+      <a routerLink="/admin/users" routerLinkActive="active" class="nav-item">
+        <i class="bi bi-people"></i>
+        <span>Users</span>
+      </a>
+      <span class="nav-section-label">Catalog</span>
+      <a routerLink="/admin/products" routerLinkActive="active" class="nav-item">
+        <i class="bi bi-box"></i>
+        <span>Products</span>
+      </a>
+      <a routerLink="/admin/categories" routerLinkActive="active" class="nav-item">
+        <i class="bi bi-tags"></i>
+        <span>Categories</span>
+      </a>
+      <span class="nav-section-label">Operations</span>
+      <a routerLink="/admin/orders" routerLinkActive="active" class="nav-item">
+        <i class="bi bi-truck"></i>
+        <span>Orders</span>
+      </a>
+      <a routerLink="/admin/banners" routerLinkActive="active" class="nav-item">
+        <i class="bi bi-images"></i>
+        <span>Banners</span>
+      </a>
+      <a routerLink="/admin/promo-codes" routerLinkActive="active" class="nav-item">
+        <i class="bi bi-ticket-perforated"></i>
+        <span>Promo Codes</span>
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <a routerLink="/" class="nav-item">
+        <i class="bi bi-arrow-left"></i>
+        <span>Back to Store</span>
+      </a>
+      <button class="nav-item nav-logout" (click)="logout()">
+        <i class="bi bi-box-arrow-right"></i>
+        <span>Logout</span>
+      </button>
+    </div>
+  </aside>
+  <div class="admin-main">
+    <header class="admin-topbar">
+      <h1 class="topbar-title">{{ pageTitle }}</h1>
+      <div class="topbar-actions">
+        <a routerLink="/" class="topbar-store-link" title="View Store">
+          <i class="bi bi-eye"></i>
+        </a>
+      </div>
+    </header>
+    <div class="admin-content">
+      <router-outlet />
+    </div>
+  </div>
+</div>
