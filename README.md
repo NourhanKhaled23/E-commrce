@@ -324,13 +324,6 @@ src/app/
 
 ---
 
-## 📁 Additional Documentation
-
-- [`PHASE1_REPORT.md`](./PHASE1_REPORT.md) — Phase 1 implementation report
-- [`app_review.md`](./app_review.md) — App review notes
-- [`implementation_plan.md`](./implementation_plan.md) — Development roadmap
-
----
 
 ## 📄 License
 
