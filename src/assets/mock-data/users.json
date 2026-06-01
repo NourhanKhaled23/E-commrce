@@ -7,12 +7,31 @@
       "name": "Admin User",
       "role": "admin",
       "password": "admin123",
-      "address": { "street": "100 Admin Plaza", "city": "New York", "state": "NY", "zipCode": "10001", "country": "US" },
-      "savedCards": [{ "id": "card_1", "last4": "4242", "brand": "Visa", "expMonth": 12, "expYear": 2027, "isDefault": true }],
+      "address": {
+        "street": "100 Admin Plaza",
+        "city": "New York",
+        "state": "NY",
+        "zipCode": "10001",
+        "country": "US"
+      },
+      "savedCards": [
+        {
+          "id": "card_1",
+          "last4": "4242",
+          "brand": "Visa",
+          "expMonth": 12,
+          "expYear": 2027,
+          "isDefault": true
+        }
+      ],
       "walletBalance": 5000,
       "loyaltyPoints": 2500,
-      "wishlist": [1, 3, 5],
-      "avatar": "https://dummyjson.com/icon/admin/128",
+      "wishlist": [
+        1,
+        3,
+        5
+      ],
+      "avatar": "https://ui-avatars.com/api/?name=Admin%20User&background=C8A96E&color=0D0D0D&size=128",
       "status": "active",
       "createdAt": "2026-01-15T08:00:00Z"
     },
@@ -23,12 +42,30 @@
       "name": "Sarah Seller",
       "role": "seller",
       "password": "seller123",
-      "address": { "street": "200 Market St", "city": "Los Angeles", "state": "CA", "zipCode": "90001", "country": "US" },
-      "savedCards": [{ "id": "card_2", "last4": "1234", "brand": "Mastercard", "expMonth": 8, "expYear": 2026, "isDefault": true }],
+      "address": {
+        "street": "200 Market St",
+        "city": "Los Angeles",
+        "state": "CA",
+        "zipCode": "90001",
+        "country": "US"
+      },
+      "savedCards": [
+        {
+          "id": "card_2",
+          "last4": "1234",
+          "brand": "Mastercard",
+          "expMonth": 8,
+          "expYear": 2026,
+          "isDefault": true
+        }
+      ],
       "walletBalance": 12500,
       "loyaltyPoints": 4800,
-      "wishlist": [7, 10],
-      "avatar": "https://dummyjson.com/icon/sarah/128",
+      "wishlist": [
+        7,
+        10
+      ],
+      "avatar": "https://ui-avatars.com/api/?name=Sarah%20Seller&background=C8A96E&color=0D0D0D&size=128",
       "status": "active",
       "createdAt": "2026-02-20T10:30:00Z"
     },
@@ -39,15 +76,40 @@
       "name": "Customer One",
       "role": "customer",
       "password": "customer123",
-      "address": { "street": "300 Customer Ave", "city": "Chicago", "state": "IL", "zipCode": "60601", "country": "US" },
+      "address": {
+        "street": "300 Customer Ave",
+        "city": "Chicago",
+        "state": "IL",
+        "zipCode": "60601",
+        "country": "US"
+      },
       "savedCards": [
-        { "id": "card_3", "last4": "5678", "brand": "Visa", "expMonth": 3, "expYear": 2028, "isDefault": true },
-        { "id": "card_4", "last4": "9012", "brand": "Amex", "expMonth": 11, "expYear": 2025, "isDefault": false }
+        {
+          "id": "card_3",
+          "last4": "5678",
+          "brand": "Visa",
+          "expMonth": 3,
+          "expYear": 2028,
+          "isDefault": true
+        },
+        {
+          "id": "card_4",
+          "last4": "9012",
+          "brand": "Amex",
+          "expMonth": 11,
+          "expYear": 2025,
+          "isDefault": false
+        }
       ],
       "walletBalance": 250,
       "loyaltyPoints": 1200,
-      "wishlist": [2, 8, 15, 22],
-      "avatar": "https://dummyjson.com/icon/customer/128",
+      "wishlist": [
+        2,
+        8,
+        15,
+        22
+      ],
+      "avatar": "https://ui-avatars.com/api/?name=Customer%20One&background=C8A96E&color=0D0D0D&size=128",
       "status": "active",
       "createdAt": "2026-03-05T14:00:00Z"
     },
@@ -58,12 +120,20 @@
       "name": "Jane Miller",
       "role": "customer",
       "password": "jane123",
-      "address": { "street": "450 Oak Lane", "city": "Miami", "state": "FL", "zipCode": "33101", "country": "US" },
+      "address": {
+        "street": "450 Oak Lane",
+        "city": "Miami",
+        "state": "FL",
+        "zipCode": "33101",
+        "country": "US"
+      },
       "savedCards": [],
       "walletBalance": 100,
       "loyaltyPoints": 350,
-      "wishlist": [12],
-      "avatar": "https://dummyjson.com/icon/jane/128",
+      "wishlist": [
+        12
+      ],
+      "avatar": "https://ui-avatars.com/api/?name=Jane%20Miller&background=C8A96E&color=0D0D0D&size=128",
       "status": "restricted",
       "createdAt": "2026-03-10T09:15:00Z"
     },
@@ -74,12 +144,31 @@
       "name": "Bob Chen",
       "role": "seller",
       "password": "bob123",
-      "address": { "street": "55 Vendor Blvd", "city": "Seattle", "state": "WA", "zipCode": "98101", "country": "US" },
-      "savedCards": [{ "id": "card_5", "last4": "8888", "brand": "Discover", "expMonth": 6, "expYear": 2027, "isDefault": true }],
+      "address": {
+        "street": "55 Vendor Blvd",
+        "city": "Seattle",
+        "state": "WA",
+        "zipCode": "98101",
+        "country": "US"
+      },
+      "savedCards": [
+        {
+          "id": "card_5",
+          "last4": "8888",
+          "brand": "Discover",
+          "expMonth": 6,
+          "expYear": 2027,
+          "isDefault": true
+        }
+      ],
       "walletBalance": 32000,
       "loyaltyPoints": 9200,
-      "wishlist": [4, 9, 14],
-      "avatar": "https://dummyjson.com/icon/bob/128",
+      "wishlist": [
+        4,
+        9,
+        14
+      ],
+      "avatar": "https://ui-avatars.com/api/?name=Bob%20Chen&background=C8A96E&color=0D0D0D&size=128",
       "status": "active",
       "createdAt": "2026-04-01T11:00:00Z"
     }
