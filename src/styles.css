@@ -236,8 +236,8 @@ img { max-width: 100%; height: auto; }
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
-  background-color: var(--color-accent);
-  color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
   border: none;
   padding: 14px 40px;
   font-family: var(--font-body);
@@ -250,10 +250,10 @@ img { max-width: 100%; height: auto; }
   min-width: 200px;
 }
 .btn-primary-of:hover {
-  background-color: var(--color-accent-dark);
+  background-color: #1A1512;
   transform: translateY(-1px);
   box-shadow: var(--shadow-hover);
-  color: var(--color-primary);
+  color: var(--color-text-inverse);
 }
 .btn-accent {
   display: inline-flex;
@@ -569,10 +569,10 @@ html.dark .skeleton-shimmer::after {
   min-width: 200px;
 }
 .hero-cta:hover {
-  background-color: var(--color-accent-dark);
+  background-color: #1A1512;
   transform: translateY(-1px);
   box-shadow: var(--shadow-hover);
-  color: var(--color-primary);
+  color: var(--color-text-inverse);
 }
 @media (max-width: 768px) {
   .hero-banner { padding: 48px 16px 40px; }
@@ -627,11 +627,6 @@ a:focus:not(:focus-visible) { outline: none; }
   text-decoration: none;
 }
 .skip-link:focus { top: 0; }
-
-/* ---- Warm Section Backgrounds ---- */
-.section-warm { background: #F5F0E8; }
-.section-light { background: #FDFAF5; }
-.section-dark-warm { background: #1C1714; }
 
 /* ---- Section Title ---- */
 .section-title { text-align: center; margin-bottom: var(--spacing-2xl); }
@@ -1339,7 +1334,7 @@ textarea:focus-visible {
 .product-card-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(26,21,18,0.35);
+  background: rgba(0,0,0,0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1387,10 +1382,9 @@ textarea:focus-visible {
 }
 
 .category-card:hover {
-  background: linear-gradient(160deg, #1C1714 0%, #2A1F14 100%);
-  border-color: rgba(200,169,110,0.4);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(42,31,20,0.25);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
 .category-card:hover .category-icon i {
@@ -1422,7 +1416,7 @@ textarea:focus-visible {
 
 /* ── 6. Newsletter Improvements ── */
 .newsletter-section {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #1C1714 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1a1a1a 100%);
   position: relative;
   overflow: hidden;
 }
@@ -1553,10 +1547,9 @@ html.dark {
 }
 
 .category-card:hover {
-  background: linear-gradient(160deg, #1C1714 0%, #2A1F14 100%);
-  border-color: rgba(200,169,110,0.4);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(42,31,20,0.25);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
 .btn-primary:hover {
@@ -1895,74 +1888,3 @@ p {
 :focus:not(:focus-visible) {
   outline: none;
 }
-
-/* ══════════════════════════════════════════
-   26. RTL (Arabic) Layout Support
-   html[dir=rtl] overrides for all LTR defaults
-   ══════════════════════════════════════════ */
-
-/* Base direction */
-html[dir=rtl],
-html[dir=rtl] body {
-  direction: rtl;
-  text-align: right;
-}
-
-/* Navbar / Header */
-html[dir=rtl] .navbar-left   { margin-left: 0; margin-right: auto; }
-html[dir=rtl] .navbar-right  { margin-right: 0; margin-left: auto; }
-html[dir=rtl] .navbar-actions { flex-direction: row-reverse; }
-html[dir=rtl] .nav-logo { margin-right: 0; margin-left: var(--space-4); }
-
-/* Product cards */
-html[dir=rtl] .product-card-badges     { left: auto; right: var(--space-3, 12px); }
-html[dir=rtl] .product-card-actions-top { right: auto; left: var(--space-3, 12px); }
-html[dir=rtl] .product-card-actions-bottom { right: auto; left: var(--space-3, 12px); }
-html[dir=rtl] .badge-sale              { left: auto; right: 12px; }
-html[dir=rtl] .stock-badge             { margin-left: 0; margin-right: auto; }
-
-/* Filters & sidebar */
-html[dir=rtl] .filter-panel            { left: auto; right: 0; }
-html[dir=rtl] .filter-panel-close      { right: auto; left: var(--space-4); }
-
-/* Product detail */
-html[dir=rtl] .product-gallery         { order: 2; }
-html[dir=rtl] .product-detail-info     { order: 1; }
-html[dir=rtl] .breadcrumb-of .sep      { transform: scaleX(-1); }
-
-/* Cart / Checkout */
-html[dir=rtl] .cart-item-img           { margin-right: 0; margin-left: var(--space-4); }
-html[dir=rtl] .cart-item-actions       { left: 0; right: auto; }
-
-/* Modals & dialogs */
-html[dir=rtl] .cd-footer               { flex-direction: row-reverse; }
-html[dir=rtl] .of-toast__body          { flex-direction: row-reverse; }
-
-/* Icons in buttons (directional) */
-html[dir=rtl] .bi-chevron-left::before  { content: "\f285"; } /* flip to right */
-html[dir=rtl] .bi-chevron-right::before { content: "\f284"; } /* flip to left */
-html[dir=rtl] .bi-arrow-left::before    { content: "\f138"; }
-html[dir=rtl] .bi-arrow-right::before   { content: "\f12f"; }
-
-/* Admin / Seller layout */
-html[dir=rtl] .admin-sidebar           { left: auto; right: 0; border-right: none; border-left: 1px solid var(--color-border); }
-html[dir=rtl] .admin-main              { margin-left: 0; margin-right: 260px; }
-html[dir=rtl] .seller-sidebar          { left: auto; right: 0; border-right: none; border-left: 1px solid var(--color-border); }
-html[dir=rtl] .seller-main             { margin-left: 0; margin-right: 260px; }
-
-/* Notification / back-to-top */
-html[dir=rtl] .back-to-top             { right: auto; left: 24px; }
-html[dir=rtl] .toast-container-custom  { right: auto; left: 1.5rem; }
-
-/* Form inputs */
-html[dir=rtl] input,
-html[dir=rtl] textarea,
-html[dir=rtl] select {
-  text-align: right;
-}
-
-/* Language switcher */
-html[dir=rtl] .lang-switcher           { left: 0; right: auto; }
-
-/* Skip link */
-html[dir=rtl] .skip-link               { left: auto; right: var(--space-4); }

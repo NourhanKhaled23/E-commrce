@@ -7,12 +7,11 @@ import { AuthService } from '../../../core/services/auth.service';
 import { OrderService } from '../../../core/services/order.service';
 import { ToastService } from '../../../core/services/toast.service';
 import { SanitizeService } from '../../../core/services/sanitize.service';
-import { UserAvatarComponent } from '../user-avatar/user-avatar.component';
 
 @Component({
   selector: 'app-reviews',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, UserAvatarComponent],
+  imports: [CommonModule, ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './reviews.component.html',
   styleUrl: './reviews.component.css',
