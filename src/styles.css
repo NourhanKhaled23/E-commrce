@@ -236,8 +236,8 @@ img { max-width: 100%; height: auto; }
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
-  background-color: var(--color-primary);
-  color: var(--color-text-inverse);
+  background-color: var(--color-accent);
+  color: #0D0D0D;
   border: none;
   padding: 14px 40px;
   font-family: var(--font-body);
@@ -250,7 +250,7 @@ img { max-width: 100%; height: auto; }
   min-width: 200px;
 }
 .btn-primary-of:hover {
-  background-color: #1A1512;
+  background-color: var(--color-accent-dark);
   transform: translateY(-1px);
   box-shadow: var(--shadow-hover);
   color: var(--color-text-inverse);
