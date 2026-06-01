@@ -48,7 +48,7 @@ interface ProductFilters {
  */
 function fixImageUrl(url: string | undefined, seed: number): string {
   if (!url) return `https://picsum.photos/seed/${seed}/200/200`;
-  if (url.includes('cdn.dummyjson.com')) {
+  if (url.includes('dummyjson.com') || url.includes('dummyjson')) {
     return `https://picsum.photos/seed/${seed}/200/200`;
   }
   return url;

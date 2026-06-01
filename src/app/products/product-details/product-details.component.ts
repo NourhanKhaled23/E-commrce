@@ -14,11 +14,12 @@ import { RecentlyViewedService } from '../../core/services/recently-viewed.servi
 import { ComparisonService } from '../../core/services/comparison.service';
 import { ReviewsComponent } from '../../shared/components/reviews/reviews.component';
 import { ProductCardComponent } from '../../shared/components/product-card/product-card.component';
+import { UserAvatarComponent } from '../../shared/components/user-avatar/user-avatar.component';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [RouterModule, CommonModule, ReviewsComponent, ProductCardComponent],
+  imports: [RouterModule, CommonModule, ReviewsComponent, ProductCardComponent, UserAvatarComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css',

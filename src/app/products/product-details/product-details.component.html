@@ -167,7 +167,7 @@
 
           @if (seller(); as s) {
             <div class="seller-info">
-              <div class="seller-avatar">{{ s.name.charAt(0) }}</div>
+              <app-user-avatar [userId]="s.id" [name]="s.name" [role]="s.role || 'seller'" [size]="36"></app-user-avatar>
               <div class="seller-details">
                 <span>Sold by <strong>{{ s.name }}</strong></span>
                 <span class="seller-rating"><i class="bi bi-star-fill"></i> {{ sellerRating() }}</span>

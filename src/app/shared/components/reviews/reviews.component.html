@@ -86,7 +86,7 @@
         @for (review of paged(); track review.id) {
           <div class="review-card">
             <div class="review-header">
-              <div class="review-avatar">{{ review.userName.charAt(0).toUpperCase() }}</div>
+              <app-user-avatar [userId]="review.userId" [name]="review.userName" role="customer" [size]="36"></app-user-avatar>
               <div>
                 <div class="review-author">{{ review.userName }}</div>
                 <div class="review-date">{{ review.createdAt | date:'mediumDate' }}</div>

@@ -60,7 +60,7 @@
           <td class="td-muted">#{{ user.id }}</td>
           <td>
             <div class="user-cell">
-              <div class="user-avatar-sm">{{ user.name.charAt(0).toUpperCase() }}</div>
+              <app-user-avatar [userId]="user.id" [name]="user.name" [role]="user.role" [size]="28"></app-user-avatar>
               {{ user.name }}
             </div>
           </td>

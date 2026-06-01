@@ -10,6 +10,7 @@ import { NotificationService } from '../../../core/services/notification.service
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CategoryService } from '../../../core/services/category.service';
 import { Category } from '../../../core/models/category.model';
+import { UserAvatarComponent } from '../user-avatar/user-avatar.component';
 
 interface NavCategory {
   name: string;
@@ -21,7 +22,7 @@ interface NavCategory {
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
   standalone: true,
-  imports: [RouterModule, CommonModule, TranslateModule],
+  imports: [RouterModule, CommonModule, TranslateModule, UserAvatarComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
