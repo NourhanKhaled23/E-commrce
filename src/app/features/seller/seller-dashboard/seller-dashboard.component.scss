@@ -9,7 +9,7 @@
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 26px;
     font-weight: 700;
-    color: #0D0D0D;
+    color: #1A1512;
     margin-bottom: 4px;
 
     i {
@@ -68,7 +68,7 @@
 .kpi-value {
   font-size: 20px;
   font-weight: 700;
-  color: #0D0D0D;
+  color: #1A1512;
   line-height: 1.2;
 }
 
@@ -105,7 +105,7 @@
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 15px;
     font-weight: 700;
-    color: #0D0D0D;
+    color: #1A1512;
     margin: 0;
 
     i {
@@ -152,7 +152,7 @@
   tr:hover td { background: #FDFAF5; }
 }
 
-.order-id { font-weight: 600; color: #0D0D0D; }
+.order-id { font-weight: 600; color: #1A1512; }
 .amount { font-weight: 600; color: #C8A96E; }
 
 .status-badge {
@@ -208,7 +208,7 @@
 }
 
 .alert-info { display: flex; flex-direction: column; }
-.alert-name { font-size: 13px; font-weight: 600; color: #0D0D0D; }
+.alert-name { font-size: 13px; font-weight: 600; color: #1A1512; }
 .alert-price { font-size: 12px; color: #6B5C3E; }
 
 .stock-badge {
