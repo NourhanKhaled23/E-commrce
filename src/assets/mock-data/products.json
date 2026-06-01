@@ -9,10 +9,11 @@
     "stock": 120,
     "brand": "Essence",
     "category": "beauty",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-1/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
-      "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/2.png"
+      "https://picsum.photos/seed/product-1-1/600/600",
+      "https://picsum.photos/seed/product-1-2/600/600",
+      "https://picsum.photos/seed/product-1-3/600/600"
     ],
     "tags": [
       "mascara",
@@ -27,7 +28,9 @@
     "reviewCount": 12,
     "originalPrice": 11.75,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Essence Mascara Lash Princess",
+    "avgRating": 4.82
   },
   {
     "id": 2,
@@ -39,9 +42,11 @@
     "stock": 65,
     "brand": "Glamour",
     "category": "makeup",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-2/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
+      "https://picsum.photos/seed/product-2-1/600/600",
+      "https://picsum.photos/seed/product-2-2/600/600",
+      "https://picsum.photos/seed/product-2-3/600/600"
     ],
     "tags": [
       "eyeshadow",
@@ -56,7 +61,9 @@
     "reviewCount": 8,
     "originalPrice": 22.21,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Eyeshadow Palette with Mirror",
+    "avgRating": 4.45
   },
   {
     "id": 3,
@@ -68,9 +75,11 @@
     "stock": 90,
     "brand": "SilkFinish",
     "category": "makeup",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-3/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"
+      "https://picsum.photos/seed/product-3-1/600/600",
+      "https://picsum.photos/seed/product-3-2/600/600",
+      "https://picsum.photos/seed/product-3-3/600/600"
     ],
     "tags": [
       "powder",
@@ -85,7 +94,9 @@
     "reviewCount": 15,
     "originalPrice": 16.29,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Powder Canister",
+    "avgRating": 4.18
   },
   {
     "id": 4,
@@ -97,9 +108,11 @@
     "stock": 85,
     "brand": "Glamour",
     "category": "makeup",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-4/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/1.png"
+      "https://picsum.photos/seed/product-4-1/600/600",
+      "https://picsum.photos/seed/product-4-2/600/600",
+      "https://picsum.photos/seed/product-4-3/600/600"
     ],
     "tags": [
       "lipstick",
@@ -114,7 +127,9 @@
     "reviewCount": 22,
     "originalPrice": 14.76,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Red Lipstick",
+    "avgRating": 4.62
   },
   {
     "id": 5,
@@ -126,10 +141,11 @@
     "stock": 45,
     "brand": "Calvin Klein",
     "category": "fragrances",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-5/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/1.png",
-      "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/2.png"
+      "https://picsum.photos/seed/product-5-1/600/600",
+      "https://picsum.photos/seed/product-5-2/600/600",
+      "https://picsum.photos/seed/product-5-3/600/600"
     ],
     "tags": [
       "fragrance",
@@ -144,7 +160,9 @@
     "reviewCount": 9,
     "originalPrice": 52.62,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Calvin Klein CK One",
+    "avgRating": 4.71
   },
   {
     "id": 6,
@@ -156,9 +174,11 @@
     "stock": 25,
     "brand": "Chanel",
     "category": "fragrances",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-6/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/1.png"
+      "https://picsum.photos/seed/product-6-1/600/600",
+      "https://picsum.photos/seed/product-6-2/600/600",
+      "https://picsum.photos/seed/product-6-3/600/600"
     ],
     "tags": [
       "fragrance",
@@ -173,7 +193,9 @@
     "reviewCount": 5,
     "originalPrice": null,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Chanel Coco Noir Eau De",
+    "avgRating": 4.89
   },
   {
     "id": 7,
@@ -185,9 +207,11 @@
     "stock": 35,
     "brand": "Dior",
     "category": "fragrances",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-7/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/1.png"
+      "https://picsum.photos/seed/product-7-1/600/600",
+      "https://picsum.photos/seed/product-7-2/600/600",
+      "https://picsum.photos/seed/product-7-3/600/600"
     ],
     "tags": [
       "fragrance",
@@ -202,7 +226,9 @@
     "reviewCount": 18,
     "originalPrice": 99.99,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Dior J'adore",
+    "avgRating": 4.81
   },
   {
     "id": 8,
@@ -214,9 +240,11 @@
     "stock": 8,
     "brand": "Annibale Colombo",
     "category": "furniture",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-8/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/1.png"
+      "https://picsum.photos/seed/product-8-1/600/600",
+      "https://picsum.photos/seed/product-8-2/600/600",
+      "https://picsum.photos/seed/product-8-3/600/600"
     ],
     "tags": [
       "bed",
@@ -231,7 +259,9 @@
     "reviewCount": 3,
     "originalPrice": 2235.28,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Annibale Colombo Bed",
+    "avgRating": 4.56
   },
   {
     "id": 9,
@@ -243,9 +273,11 @@
     "stock": 12,
     "brand": "Knoll",
     "category": "furniture",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Chair/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-9/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Chair/1.png"
+      "https://picsum.photos/seed/product-9-1/600/600",
+      "https://picsum.photos/seed/product-9-2/600/600",
+      "https://picsum.photos/seed/product-9-3/600/600"
     ],
     "tags": [
       "chair",
@@ -260,7 +292,9 @@
     "reviewCount": 7,
     "originalPrice": 978.25,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Knoll Saarinen Executive Chair",
+    "avgRating": 4.42
   },
   {
     "id": 10,
@@ -272,9 +306,11 @@
     "stock": 20,
     "brand": "WoodCraft",
     "category": "furniture",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Oak%20Coffee%20Table/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-10/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/furniture/Oak%20Coffee%20Table/1.png"
+      "https://picsum.photos/seed/product-10-1/600/600",
+      "https://picsum.photos/seed/product-10-2/600/600",
+      "https://picsum.photos/seed/product-10-3/600/600"
     ],
     "tags": [
       "table",
@@ -289,7 +325,9 @@
     "reviewCount": 14,
     "originalPrice": 368.41,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Oak Coffee Table",
+    "avgRating": 4.65
   },
   {
     "id": 11,
@@ -301,9 +339,11 @@
     "stock": 200,
     "brand": "FreshFarm",
     "category": "groceries",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Fresh%20Orange%20Juice/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-11/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/groceries/Fresh%20Orange%20Juice/1.png"
+      "https://picsum.photos/seed/product-11-1/600/600",
+      "https://picsum.photos/seed/product-11-2/600/600",
+      "https://picsum.photos/seed/product-11-3/600/600"
     ],
     "tags": [
       "juice",
@@ -318,7 +358,9 @@
     "reviewCount": 25,
     "originalPrice": null,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Fresh Orange Juice",
+    "avgRating": 4.72
   },
   {
     "id": 12,
@@ -330,9 +372,11 @@
     "stock": 150,
     "brand": "NatureBest",
     "category": "groceries",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Organic%20Almonds/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-12/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/groceries/Organic%20Almonds/1.png"
+      "https://picsum.photos/seed/product-12-1/600/600",
+      "https://picsum.photos/seed/product-12-2/600/600",
+      "https://picsum.photos/seed/product-12-3/600/600"
     ],
     "tags": [
       "almonds",
@@ -347,7 +391,9 @@
     "reviewCount": 11,
     "originalPrice": 9.46,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Organic Almonds",
+    "avgRating": 4.58
   },
   {
     "id": 13,
@@ -359,9 +405,11 @@
     "stock": 55,
     "brand": "ModernHome",
     "category": "home-decoration",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Minimalist%20Wall%20Clock/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-13/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/home-decoration/Minimalist%20Wall%20Clock/1.png"
+      "https://picsum.photos/seed/product-13-1/600/600",
+      "https://picsum.photos/seed/product-13-2/600/600",
+      "https://picsum.photos/seed/product-13-3/600/600"
     ],
     "tags": [
       "clock",
@@ -376,7 +424,9 @@
     "reviewCount": 6,
     "originalPrice": 33.32,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Minimalist Wall Clock",
+    "avgRating": 4.38
   },
   {
     "id": 14,
@@ -388,9 +438,11 @@
     "stock": 40,
     "brand": "ArtisanCraft",
     "category": "home-decoration",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Ceramic%20Vase%20Set/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-14/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/home-decoration/Ceramic%20Vase%20Set/1.png"
+      "https://picsum.photos/seed/product-14-1/600/600",
+      "https://picsum.photos/seed/product-14-2/600/600",
+      "https://picsum.photos/seed/product-14-3/600/600"
     ],
     "tags": [
       "vase",
@@ -405,7 +457,9 @@
     "reviewCount": 20,
     "originalPrice": null,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Ceramic Vase Set",
+    "avgRating": 4.71
   },
   {
     "id": 15,
@@ -417,9 +471,11 @@
     "stock": 30,
     "brand": "ChefMaster",
     "category": "kitchen-accessories",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Stainless%20Steel%20Pan%20Set/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-15/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Stainless%20Steel%20Pan%20Set/1.png"
+      "https://picsum.photos/seed/product-15-1/600/600",
+      "https://picsum.photos/seed/product-15-2/600/600",
+      "https://picsum.photos/seed/product-15-3/600/600"
     ],
     "tags": [
       "pans",
@@ -434,7 +490,9 @@
     "reviewCount": 16,
     "originalPrice": 181.81,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Stainless Steel Pan Set",
+    "avgRating": 4.52
   },
   {
     "id": 16,
@@ -446,9 +504,11 @@
     "stock": 65,
     "brand": "KitchenCraft",
     "category": "kitchen-accessories",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Wooden%20Cutting%20Board/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-16/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Wooden%20Cutting%20Board/1.png"
+      "https://picsum.photos/seed/product-16-1/600/600",
+      "https://picsum.photos/seed/product-16-2/600/600",
+      "https://picsum.photos/seed/product-16-3/600/600"
     ],
     "tags": [
       "cutting-board",
@@ -463,7 +523,9 @@
     "reviewCount": 10,
     "originalPrice": 36.83,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Wooden Cutting Board",
+    "avgRating": 4.88
   },
   {
     "id": 17,
@@ -475,9 +537,11 @@
     "stock": 15,
     "brand": "Apple",
     "category": "laptops",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/MacBook%20Pro%2014/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-17/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/laptops/MacBook%20Pro%2014/1.png"
+      "https://picsum.photos/seed/product-17-1/600/600",
+      "https://picsum.photos/seed/product-17-2/600/600",
+      "https://picsum.photos/seed/product-17-3/600/600"
     ],
     "tags": [
       "laptop",
@@ -492,7 +556,9 @@
     "reviewCount": 4,
     "originalPrice": null,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "MacBook Pro 14",
+    "avgRating": 4.95
   },
   {
     "id": 18,
@@ -504,9 +570,11 @@
     "stock": 80,
     "brand": "PoloClassic",
     "category": "mens-shirts",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Classic%20Oxford%20Shirt/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-18/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mens-shirts/Classic%20Oxford%20Shirt/1.png"
+      "https://picsum.photos/seed/product-18-1/600/600",
+      "https://picsum.photos/seed/product-18-2/600/600",
+      "https://picsum.photos/seed/product-18-3/600/600"
     ],
     "tags": [
       "shirt",
@@ -521,7 +589,9 @@
     "reviewCount": 13,
     "originalPrice": 66.66,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Classic Oxford Shirt",
+    "avgRating": 4.32
   },
   {
     "id": 19,
@@ -533,9 +603,11 @@
     "stock": 95,
     "brand": "UrbanStyle",
     "category": "mens-shirts",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Slim%20Fit%20Chinos/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-19/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mens-shirts/Slim%20Fit%20Chinos/1.png"
+      "https://picsum.photos/seed/product-19-1/600/600",
+      "https://picsum.photos/seed/product-19-2/600/600",
+      "https://picsum.photos/seed/product-19-3/600/600"
     ],
     "tags": [
       "chinos",
@@ -550,7 +622,9 @@
     "reviewCount": 21,
     "originalPrice": 48.9,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Slim Fit Chinos",
+    "avgRating": 4.18
   },
   {
     "id": 20,
@@ -562,9 +636,11 @@
     "stock": 25,
     "brand": "HeritageLeather",
     "category": "mens-shoes",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Leather%20Derby%20Shoes/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-20/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mens-shoes/Leather%20Derby%20Shoes/1.png"
+      "https://picsum.photos/seed/product-20-1/600/600",
+      "https://picsum.photos/seed/product-20-2/600/600",
+      "https://picsum.photos/seed/product-20-3/600/600"
     ],
     "tags": [
       "shoes",
@@ -579,7 +655,9 @@
     "reviewCount": 8,
     "originalPrice": 223.52,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Leather Derby Shoes",
+    "avgRating": 4.72
   },
   {
     "id": 21,
@@ -591,9 +669,11 @@
     "stock": 40,
     "brand": "RayBan",
     "category": "sunglasses",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/sunglasses/Classic%20Aviator%20Sunglasses/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-21/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/sunglasses/Classic%20Aviator%20Sunglasses/1.png"
+      "https://picsum.photos/seed/product-21-1/600/600",
+      "https://picsum.photos/seed/product-21-2/600/600",
+      "https://picsum.photos/seed/product-21-3/600/600"
     ],
     "tags": [
       "sunglasses",
@@ -608,7 +688,9 @@
     "reviewCount": 17,
     "originalPrice": 136.83,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Classic Aviator Sunglasses",
+    "avgRating": 4.65
   },
   {
     "id": 22,
@@ -620,9 +702,11 @@
     "stock": 30,
     "brand": "Apple",
     "category": "smartphones",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2015%20Pro/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-22/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2015%20Pro/1.png"
+      "https://picsum.photos/seed/product-22-1/600/600",
+      "https://picsum.photos/seed/product-22-2/600/600",
+      "https://picsum.photos/seed/product-22-3/600/600"
     ],
     "tags": [
       "iphone",
@@ -637,7 +721,9 @@
     "reviewCount": 19,
     "originalPrice": null,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "iPhone 15 Pro",
+    "avgRating": 4.92
   },
   {
     "id": 23,
@@ -649,9 +735,11 @@
     "stock": 35,
     "brand": "PureLuxury",
     "category": "tops",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/tops/Cashmere%20Scarf/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-23/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/tops/Cashmere%20Scarf/1.png"
+      "https://picsum.photos/seed/product-23-1/600/600",
+      "https://picsum.photos/seed/product-23-2/600/600",
+      "https://picsum.photos/seed/product-23-3/600/600"
     ],
     "tags": [
       "scarf",
@@ -666,7 +754,9 @@
     "reviewCount": 7,
     "originalPrice": 99.99,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Cashmere Scarf",
+    "avgRating": 4.58
   },
   {
     "id": 24,
@@ -678,9 +768,11 @@
     "stock": 18,
     "brand": "HeritageLeather",
     "category": "womens-bags",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-bags/Leather%20Tote%20Bag/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-24/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-bags/Leather%20Tote%20Bag/1.png"
+      "https://picsum.photos/seed/product-24-1/600/600",
+      "https://picsum.photos/seed/product-24-2/600/600",
+      "https://picsum.photos/seed/product-24-3/600/600"
     ],
     "tags": [
       "bag",
@@ -695,7 +787,9 @@
     "reviewCount": 15,
     "originalPrice": 271.73,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Leather Tote Bag",
+    "avgRating": 4.76
   },
   {
     "id": 25,
@@ -707,9 +801,11 @@
     "stock": 50,
     "brand": "BohoChic",
     "category": "womens-dresses",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-dresses/Floral%20Maxi%20Dress/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-25/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-dresses/Floral%20Maxi%20Dress/1.png"
+      "https://picsum.photos/seed/product-25-1/600/600",
+      "https://picsum.photos/seed/product-25-2/600/600",
+      "https://picsum.photos/seed/product-25-3/600/600"
     ],
     "tags": [
       "dress",
@@ -724,7 +820,9 @@
     "reviewCount": 9,
     "originalPrice": 90.9,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Floral Maxi Dress",
+    "avgRating": 4.43
   },
   {
     "id": 26,
@@ -736,9 +834,11 @@
     "stock": 12,
     "brand": "LuxuryGems",
     "category": "womens-jewellery",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-jewellery/Small%20Diamond%20Earrings/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-26/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-jewellery/Small%20Diamond%20Earrings/1.png"
+      "https://picsum.photos/seed/product-26-1/600/600",
+      "https://picsum.photos/seed/product-26-2/600/600",
+      "https://picsum.photos/seed/product-26-3/600/600"
     ],
     "tags": [
       "earrings",
@@ -753,7 +853,9 @@
     "reviewCount": 12,
     "originalPrice": null,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Small Diamond Earrings",
+    "avgRating": 4.91
   },
   {
     "id": 27,
@@ -765,9 +867,11 @@
     "stock": 55,
     "brand": "Nike",
     "category": "mens-shoes",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Max%2090/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-27/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Max%2090/1.png"
+      "https://picsum.photos/seed/product-27-1/600/600",
+      "https://picsum.photos/seed/product-27-2/600/600",
+      "https://picsum.photos/seed/product-27-3/600/600"
     ],
     "tags": [
       "sneakers",
@@ -782,7 +886,9 @@
     "reviewCount": 6,
     "originalPrice": 141.29,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Nike Air Max 90",
+    "avgRating": 4.72
   },
   {
     "id": 28,
@@ -794,9 +900,11 @@
     "stock": 42,
     "brand": "Adidas",
     "category": "sports-accessories",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/sports-accessories/Adidas%20Ultraboost/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-28/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/sports-accessories/Adidas%20Ultraboost/1.png"
+      "https://picsum.photos/seed/product-28-1/600/600",
+      "https://picsum.photos/seed/product-28-2/600/600",
+      "https://picsum.photos/seed/product-28-3/600/600"
     ],
     "tags": [
       "shoes",
@@ -811,7 +919,9 @@
     "reviewCount": 24,
     "originalPrice": 189.46,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Adidas Ultraboost",
+    "avgRating": 4.58
   },
   {
     "id": 29,
@@ -823,9 +933,11 @@
     "stock": 20,
     "brand": "Apple",
     "category": "tablets",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/tablets/iPad%20Air%2011/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-29/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/tablets/iPad%20Air%2011/1.png"
+      "https://picsum.photos/seed/product-29-1/600/600",
+      "https://picsum.photos/seed/product-29-2/600/600",
+      "https://picsum.photos/seed/product-29-3/600/600"
     ],
     "tags": [
       "ipad",
@@ -840,7 +952,9 @@
     "reviewCount": 11,
     "originalPrice": 789.46,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "iPad Air 11",
+    "avgRating": 4.88
   },
   {
     "id": 30,
@@ -852,9 +966,11 @@
     "stock": 38,
     "brand": "SilkElegance",
     "category": "womens-dresses",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-dresses/Silk%20Blouse/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-30/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-dresses/Silk%20Blouse/1.png"
+      "https://picsum.photos/seed/product-30-1/600/600",
+      "https://picsum.photos/seed/product-30-2/600/600",
+      "https://picsum.photos/seed/product-30-3/600/600"
     ],
     "tags": [
       "blouse",
@@ -869,7 +985,9 @@
     "reviewCount": 8,
     "originalPrice": 109.99,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Silk Blouse",
+    "avgRating": 4.67
   },
   {
     "id": 31,
@@ -881,9 +999,11 @@
     "stock": 60,
     "brand": "Nord",
     "category": "mens-watches",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-watches/Stainless%20Steel%20Watch/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-31/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mens-watches/Stainless%20Steel%20Watch/1.png"
+      "https://picsum.photos/seed/product-31-1/600/600",
+      "https://picsum.photos/seed/product-31-2/600/600",
+      "https://picsum.photos/seed/product-31-3/600/600"
     ],
     "tags": [
       "watch",
@@ -898,7 +1018,9 @@
     "reviewCount": 14,
     "originalPrice": 157.88,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Stainless Steel Watch",
+    "avgRating": 4.34
   },
   {
     "id": 32,
@@ -910,9 +1032,11 @@
     "stock": 75,
     "brand": "ZenFit",
     "category": "sports-accessories",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/sports-accessories/Yoga%20Mat%20Premium/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-32/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/sports-accessories/Yoga%20Mat%20Premium/1.png"
+      "https://picsum.photos/seed/product-32-1/600/600",
+      "https://picsum.photos/seed/product-32-2/600/600",
+      "https://picsum.photos/seed/product-32-3/600/600"
     ],
     "tags": [
       "yoga",
@@ -927,7 +1051,9 @@
     "reviewCount": 10,
     "originalPrice": 44.43,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Yoga Mat Premium",
+    "avgRating": 4.55
   },
   {
     "id": 33,
@@ -939,9 +1065,11 @@
     "stock": 45,
     "brand": "KitchenPro",
     "category": "kitchen-accessories",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Electric%20Kettle/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-33/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Electric%20Kettle/1.png"
+      "https://picsum.photos/seed/product-33-1/600/600",
+      "https://picsum.photos/seed/product-33-2/600/600",
+      "https://picsum.photos/seed/product-33-3/600/600"
     ],
     "tags": [
       "kettle",
@@ -956,7 +1084,9 @@
     "reviewCount": 5,
     "originalPrice": null,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Electric Kettle",
+    "avgRating": 4.73
   },
   {
     "id": 34,
@@ -968,9 +1098,11 @@
     "stock": 100,
     "brand": "GlowSkin",
     "category": "skin-care",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/skin-care/Facial%20Moisturizer/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-34/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/skin-care/Facial%20Moisturizer/1.png"
+      "https://picsum.photos/seed/product-34-1/600/600",
+      "https://picsum.photos/seed/product-34-2/600/600",
+      "https://picsum.photos/seed/product-34-3/600/600"
     ],
     "tags": [
       "moisturizer",
@@ -985,7 +1117,9 @@
     "reviewCount": 18,
     "originalPrice": 27.16,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Facial Moisturizer",
+    "avgRating": 4.61
   },
   {
     "id": 35,
@@ -997,9 +1131,11 @@
     "stock": 48,
     "brand": "DenimCo",
     "category": "tops",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/tops/Denim%20Jacket/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-35/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/tops/Denim%20Jacket/1.png"
+      "https://picsum.photos/seed/product-35-1/600/600",
+      "https://picsum.photos/seed/product-35-2/600/600",
+      "https://picsum.photos/seed/product-35-3/600/600"
     ],
     "tags": [
       "jacket",
@@ -1014,7 +1150,9 @@
     "reviewCount": 22,
     "originalPrice": 105.87,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Denim Jacket",
+    "avgRating": 4.41
   },
   {
     "id": 36,
@@ -1026,9 +1164,11 @@
     "stock": 90,
     "brand": "TrendyGems",
     "category": "womens-jewellery",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-jewellery/Rose%20Gold%20Hoop%20Earrings/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-36/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-jewellery/Rose%20Gold%20Hoop%20Earrings/1.png"
+      "https://picsum.photos/seed/product-36-1/600/600",
+      "https://picsum.photos/seed/product-36-2/600/600",
+      "https://picsum.photos/seed/product-36-3/600/600"
     ],
     "tags": [
       "earrings",
@@ -1043,7 +1183,9 @@
     "reviewCount": 7,
     "originalPrice": null,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Rose Gold Hoop Earrings",
+    "avgRating": 4.78
   },
   {
     "id": 37,
@@ -1055,9 +1197,11 @@
     "stock": 120,
     "brand": "BasicWear",
     "category": "mens-shirts",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Cotton%20T-Shirt%20Pack/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-37/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mens-shirts/Cotton%20T-Shirt%20Pack/1.png"
+      "https://picsum.photos/seed/product-37-1/600/600",
+      "https://picsum.photos/seed/product-37-2/600/600",
+      "https://picsum.photos/seed/product-37-3/600/600"
     ],
     "tags": [
       "t-shirt",
@@ -1072,7 +1216,9 @@
     "reviewCount": 13,
     "originalPrice": 49.99,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Cotton T-Shirt Pack",
+    "avgRating": 4.39
   },
   {
     "id": 38,
@@ -1084,9 +1230,11 @@
     "stock": 65,
     "brand": "MiniCarry",
     "category": "womens-bags",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-bags/Crossbody%20Phone%20Bag/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-38/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-bags/Crossbody%20Phone%20Bag/1.png"
+      "https://picsum.photos/seed/product-38-1/600/600",
+      "https://picsum.photos/seed/product-38-2/600/600",
+      "https://picsum.photos/seed/product-38-3/600/600"
     ],
     "tags": [
       "bag",
@@ -1101,7 +1249,9 @@
     "reviewCount": 16,
     "originalPrice": null,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Crossbody Phone Bag",
+    "avgRating": 4.45
   },
   {
     "id": 39,
@@ -1113,9 +1263,11 @@
     "stock": 18,
     "brand": "Samsung",
     "category": "tablets",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/tablets/Samsung%20Galaxy%20Tab%20S9/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-39/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/tablets/Samsung%20Galaxy%20Tab%20S9/1.png"
+      "https://picsum.photos/seed/product-39-1/600/600",
+      "https://picsum.photos/seed/product-39-2/600/600",
+      "https://picsum.photos/seed/product-39-3/600/600"
     ],
     "tags": [
       "tablet",
@@ -1130,7 +1282,9 @@
     "reviewCount": 9,
     "originalPrice": 888.88,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Samsung Galaxy Tab S9",
+    "avgRating": 4.71
   },
   {
     "id": 40,
@@ -1142,9 +1296,11 @@
     "stock": 70,
     "brand": "GlowSkin",
     "category": "skin-care",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/skin-care/Vitamin%20C%20Serum/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-40/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/skin-care/Vitamin%20C%20Serum/1.png"
+      "https://picsum.photos/seed/product-40-1/600/600",
+      "https://picsum.photos/seed/product-40-2/600/600",
+      "https://picsum.photos/seed/product-40-3/600/600"
     ],
     "tags": [
       "serum",
@@ -1159,7 +1315,9 @@
     "reviewCount": 21,
     "originalPrice": 36.83,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Vitamin C Serum",
+    "avgRating": 4.82
   },
   {
     "id": 41,
@@ -1171,9 +1329,11 @@
     "stock": 15,
     "brand": "PureLuxury",
     "category": "womens-dresses",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-dresses/Wool%20Blend%20Coat/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-41/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-dresses/Wool%20Blend%20Coat/1.png"
+      "https://picsum.photos/seed/product-41-1/600/600",
+      "https://picsum.photos/seed/product-41-2/600/600",
+      "https://picsum.photos/seed/product-41-3/600/600"
     ],
     "tags": [
       "coat",
@@ -1188,7 +1348,9 @@
     "reviewCount": 6,
     "originalPrice": 365.84,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Wool Blend Coat",
+    "avgRating": 4.77
   },
   {
     "id": 42,
@@ -1200,9 +1362,11 @@
     "stock": 85,
     "brand": "SoundPro",
     "category": "mobile-accessories",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Wireless%20Bluetooth%20Earbuds/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-42/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mobile-accessories/Wireless%20Bluetooth%20Earbuds/1.png"
+      "https://picsum.photos/seed/product-42-1/600/600",
+      "https://picsum.photos/seed/product-42-2/600/600",
+      "https://picsum.photos/seed/product-42-3/600/600"
     ],
     "tags": [
       "earbuds",
@@ -1217,7 +1381,9 @@
     "reviewCount": 19,
     "originalPrice": 88.88,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Wireless Bluetooth Earbuds",
+    "avgRating": 4.53
   },
   {
     "id": 43,
@@ -1229,9 +1395,11 @@
     "stock": 22,
     "brand": "BohoChic",
     "category": "womens-dresses",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-dresses/Linen%20Blazer/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-43/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-dresses/Linen%20Blazer/1.png"
+      "https://picsum.photos/seed/product-43-1/600/600",
+      "https://picsum.photos/seed/product-43-2/600/600",
+      "https://picsum.photos/seed/product-43-3/600/600"
     ],
     "tags": [
       "blazer",
@@ -1246,7 +1414,9 @@
     "reviewCount": 12,
     "originalPrice": 152.16,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Linen Blazer",
+    "avgRating": 4.35
   },
   {
     "id": 44,
@@ -1258,9 +1428,11 @@
     "stock": 12,
     "brand": "RideSafe",
     "category": "motorcycle",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/motorcycle/Motorcycle%20Helmet/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-44/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/motorcycle/Motorcycle%20Helmet/1.png"
+      "https://picsum.photos/seed/product-44-1/600/600",
+      "https://picsum.photos/seed/product-44-2/600/600",
+      "https://picsum.photos/seed/product-44-3/600/600"
     ],
     "tags": [
       "helmet",
@@ -1275,7 +1447,9 @@
     "reviewCount": 8,
     "originalPrice": null,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Motorcycle Helmet",
+    "avgRating": 4.68
   },
   {
     "id": 45,
@@ -1287,9 +1461,11 @@
     "stock": 30,
     "brand": "HeritageLeather",
     "category": "vehicle",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/vehicle/Leather%20Driving%20Gloves/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-45/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/vehicle/Leather%20Driving%20Gloves/1.png"
+      "https://picsum.photos/seed/product-45-1/600/600",
+      "https://picsum.photos/seed/product-45-2/600/600",
+      "https://picsum.photos/seed/product-45-3/600/600"
     ],
     "tags": [
       "gloves",
@@ -1304,7 +1480,9 @@
     "reviewCount": 15,
     "originalPrice": 63.15,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Leather Driving Gloves",
+    "avgRating": 4.41
   },
   {
     "id": 46,
@@ -1316,9 +1494,11 @@
     "stock": 55,
     "brand": "SilkElegance",
     "category": "home-decoration",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Silk%20Pillowcase%20Set/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-46/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/home-decoration/Silk%20Pillowcase%20Set/1.png"
+      "https://picsum.photos/seed/product-46-1/600/600",
+      "https://picsum.photos/seed/product-46-2/600/600",
+      "https://picsum.photos/seed/product-46-3/600/600"
     ],
     "tags": [
       "pillowcase",
@@ -1333,7 +1513,9 @@
     "reviewCount": 10,
     "originalPrice": 77.77,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Silk Pillowcase Set",
+    "avgRating": 4.89
   },
   {
     "id": 47,
@@ -1345,9 +1527,11 @@
     "stock": 10,
     "brand": "BrewMaster",
     "category": "kitchen-accessories",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Espresso%20Machine/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-47/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Espresso%20Machine/1.png"
+      "https://picsum.photos/seed/product-47-1/600/600",
+      "https://picsum.photos/seed/product-47-2/600/600",
+      "https://picsum.photos/seed/product-47-3/600/600"
     ],
     "tags": [
       "espresso",
@@ -1362,7 +1546,9 @@
     "reviewCount": 20,
     "originalPrice": 511.35,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Espresso Machine",
+    "avgRating": 4.76
   },
   {
     "id": 48,
@@ -1374,9 +1560,11 @@
     "stock": 95,
     "brand": "CozyHome",
     "category": "home-decoration",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Scented%20Candle%20Collection/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-48/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/home-decoration/Scented%20Candle%20Collection/1.png"
+      "https://picsum.photos/seed/product-48-1/600/600",
+      "https://picsum.photos/seed/product-48-2/600/600",
+      "https://picsum.photos/seed/product-48-3/600/600"
     ],
     "tags": [
       "candles",
@@ -1391,7 +1579,9 @@
     "reviewCount": 14,
     "originalPrice": null,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Scented Candle Collection",
+    "avgRating": 4.85
   },
   {
     "id": 49,
@@ -1403,9 +1593,11 @@
     "stock": 78,
     "brand": "HeritageLeather",
     "category": "mens-shirts",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Men's%20Leather%20Belt/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-49/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mens-shirts/Men's%20Leather%20Belt/1.png"
+      "https://picsum.photos/seed/product-49-1/600/600",
+      "https://picsum.photos/seed/product-49-2/600/600",
+      "https://picsum.photos/seed/product-49-3/600/600"
     ],
     "tags": [
       "belt",
@@ -1420,7 +1612,9 @@
     "reviewCount": 11,
     "originalPrice": 54.34,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Men's Leather Belt",
+    "avgRating": 4.33
   },
   {
     "id": 50,
@@ -1432,9 +1626,11 @@
     "stock": 60,
     "brand": "PureLuxury",
     "category": "tops",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/tops/Cashmere%20Beanie/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/product-50/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/tops/Cashmere%20Beanie/1.png"
+      "https://picsum.photos/seed/product-50-1/600/600",
+      "https://picsum.photos/seed/product-50-2/600/600",
+      "https://picsum.photos/seed/product-50-3/600/600"
     ],
     "tags": [
       "beanie",
@@ -1449,6 +1645,8 @@
     "reviewCount": 7,
     "originalPrice": null,
     "active": true,
-    "createdAt": "2026-05-01T00:00:00Z"
+    "createdAt": "2026-05-01T00:00:00Z",
+    "name": "Cashmere Beanie",
+    "avgRating": 4.44
   }
 ]

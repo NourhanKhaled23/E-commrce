@@ -67,7 +67,11 @@
             "polyfills": [
               "zone.js"
             ],
-            "scripts": []
+            "scripts": [],
+            "outputPath": {
+              "base": "dist/e-commerce",
+              "browser": ""
+            }
           },
           "configurations": {
             "production": {
