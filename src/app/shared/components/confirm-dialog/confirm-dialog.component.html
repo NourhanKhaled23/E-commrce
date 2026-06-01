@@ -1,23 +1,23 @@
 @if (dialogService.activeRequest(); as req) {
-  <div class="modal-backdrop fade show" (click)="close(false)"></div>
-  <div class="modal fade show d-block" tabindex="-1" role="dialog" aria-modal="true" (click)="close(false)">
-    <div class="modal-dialog modal-dialog-centered" role="document" (click)="$event.stopPropagation()">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">{{ req.title }}</h5>
-          <button type="button" class="btn-close" aria-label="Close" (click)="close(false)"></button>
-        </div>
-        <div class="modal-body">
-          <p class="mb-0">{{ req.message }}</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" (click)="close(false)">
-            {{ req.cancelLabel || ('CONFIRM_DIALOG.NO' | translate) }}
-          </button>
-          <button type="button" class="btn" [class.btn-primary]="!req.danger" [class.btn-danger]="req.danger" (click)="close(true)">
-            {{ req.confirmLabel || ('CONFIRM_DIALOG.YES' | translate) }}
-          </button>
-        </div>
+  <div class="cd-backdrop" (click)="close(false)"></div>
+  <div class="cd-overlay" role="dialog" aria-modal="true" [attr.aria-labelledby]="'cd-title'" tabindex="-1" (click)="close(false)">
+    <div class="cd-dialog" role="document" (click)="$event.stopPropagation()">
+      <div class="cd-header">
+        <h5 class="cd-title" id="cd-title">{{ req.title }}</h5>
+        <button type="button" class="cd-close" aria-label="Close" (click)="close(false)">
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="cd-body">
+        <p>{{ req.message }}</p>
+      </div>
+      <div class="cd-footer">
+        <button type="button" class="cd-btn cd-btn--secondary" (click)="close(false)">
+          {{ req.cancelLabel || ('CONFIRM_DIALOG.NO' | translate) }}
+        </button>
+        <button type="button" class="cd-btn" [class.cd-btn--primary]="!req.danger" [class.cd-btn--danger]="req.danger" (click)="close(true)" cdkFocusInitial>
+          {{ req.confirmLabel || ('CONFIRM_DIALOG.YES' | translate) }}
+        </button>
       </div>
     </div>
   </div>

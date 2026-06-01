@@ -1,8 +1,77 @@
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton-wrapper { width: 100%; }
+
+/* Shared shimmer block */
+.sk-block {
+  background: linear-gradient(90deg, var(--color-border, #E8E0D4) 25%, var(--color-bg-surface, #FAF7F2) 50%, var(--color-border, #E8E0D4) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: var(--radius-sm, 4px);
+}
+
+/* Line variants */
+.sk-line { height: 14px; margin-bottom: 8px; display: block; }
+.sk-line--xshort { width: 25%; }
+.sk-line--short  { width: 40%; }
+.sk-line--med    { width: 65%; }
+.sk-line--long   { width: 85%; }
+.sk-line--full   { width: 100%; }
+
+/* Card skeleton */
 .skeleton-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.5rem;
+  gap: 24px;
 }
-.placeholder {
-  background-color: var(--color-bg-tertiary);
+.skeleton-card {
+  border: 1px solid var(--color-border, #E8E0D4);
+  border-radius: var(--radius-md, 8px);
+  overflow: hidden;
 }
+.sk-image { height: 260px; border-radius: 0; }
+.skeleton-body { padding: 12px 16px; }
+
+/* List skeleton */
+.skeleton-list { display: flex; flex-direction: column; gap: 12px; }
+.skeleton-list-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--color-border, #E8E0D4);
+  border-radius: var(--radius-md, 8px);
+}
+.sk-thumb { width: 80px; height: 80px; flex-shrink: 0; border-radius: var(--radius-sm, 4px); }
+.sk-list-body { flex: 1; }
+
+/* Table skeleton */
+.skeleton-table-wrap { overflow-x: auto; }
+.skeleton-table {
+  width: 100%;
+  border-collapse: collapse;
+  th, td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border, #E8E0D4);
+  }
+}
+
+/* Detail skeleton */
+.skeleton-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin: 16px 0;
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
+}
+.sk-detail-img { height: 450px; border-radius: var(--radius-md, 8px); }
+.sk-detail-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+.sk-detail-actions { display: flex; gap: 8px; margin-top: 12px; }

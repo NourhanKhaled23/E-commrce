@@ -1,7 +1,7 @@
 import 'zone.js';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { APP_INITIALIZER, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter, withPreloading, PreloadAllModules } from '@angular/router';
+import { provideRouter, withPreloading, NoPreloading } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { App } from './app/app.component';
 import { routes } from './app/app.routes';
@@ -36,7 +36,7 @@ function initializeTitle(title: Title): () => Promise<void> {
 bootstrapApplication(App, {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes, withPreloading(PreloadAllModules)),
+    provideRouter(routes, withPreloading(NoPreloading)),
     provideHttpClient(withInterceptors([authInterceptor, csrfInterceptor, httpCacheInterceptor, mockApiInterceptor, errorInterceptor])),
     provideTranslateService({ fallbackLang: 'en' }),
     provideTranslateHttpLoader({ prefix: './assets/i18n/', suffix: '.json' }),
