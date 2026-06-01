@@ -82,9 +82,9 @@
 }
 
 .step-circle.step-done {
-  background: #0D0D0D;
+  background: #1C1714;
   color: #C8A96E;
-  border-color: #0D0D0D;
+  border-color: #1C1714;
 }
 
 .step-label { font-size: 12px; color: #6B5C3E; letter-spacing: 0.03em; }
@@ -120,14 +120,7 @@
   margin-bottom: 20px;
 }
 
-.form-section-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: #0D0D0D;
+.form-section-title {color: #1A1512;
   margin-bottom: 24px;
   padding-bottom: 16px;
   border-bottom: 0.5px solid #E8E0D4;
@@ -181,8 +174,8 @@
   h5 {
     font-size: 14px;
     font-weight: 600;
-    color: #0D0D0D;
-    margin: 0 0 14px;
+    color: #1A1512;
+margin: 0 0 14px;
     i { color: #C8A96E; margin-right: 8px; }
   }
 }
