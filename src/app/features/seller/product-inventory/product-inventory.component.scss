@@ -9,7 +9,7 @@
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 26px;
     font-weight: 700;
-    color: #0D0D0D;
+    color: #1A1512;
     margin-bottom: 4px;
     i { color: #C8A96E; margin-right: 10px; }
   }
@@ -19,7 +19,7 @@
 
 .btn-seller {
   background: #C8A96E;
-  color: #0D0D0D;
+  color: #1A1512;
   border: none;
   padding: 9px 20px;
   border-radius: 2px;
@@ -47,7 +47,7 @@
 }
 
 .stat { display: flex; align-items: center; gap: 8px; }
-.stat-num { font-size: 1.2rem; font-weight: 700; color: #0D0D0D; }
+.stat-num { font-size: 1.2rem; font-weight: 700; color: #1A1512; }
 .stat-label { font-size: 12px; color: #6B5C3E; }
 .active-num { color: #27500A; }
 .inactive-num { color: #6B5C3E; }
@@ -124,7 +124,7 @@
 }
 
 .product-info { display: flex; flex-direction: column; }
-.product-name { font-weight: 600; color: #0D0D0D; font-size: 13px; }
+.product-name { font-weight: 600; color: #1A1512; font-size: 13px; }
 .product-id { font-size: 11px; color: #6B5C3E; }
 
 .category-tag {
@@ -135,7 +135,7 @@
   color: #6B5C3E;
 }
 
-.price-cell { font-weight: 600; color: #0D0D0D; }
+.price-cell { font-weight: 600; color: #1A1512; }
 
 .stock-display {
   display: inline-flex;
@@ -220,7 +220,7 @@
 .modal-header-custom {
   display: flex; justify-content: space-between; align-items: center;
   padding: 16px 20px; border-bottom: 0.5px solid #E8E0D4;
-  h3 { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 16px; font-weight: 700; color: #0D0D0D; }
+  h3 { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 16px; font-weight: 700; color: #1A1512; }
 }
 
 .modal-close {
