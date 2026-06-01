@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, isDevMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Category } from '../models/category.model';
 
@@ -12,7 +12,7 @@ export class CategoryService {
   loadCategories(): void {
     this.http.get<Category[]>('/api/categories').subscribe({
       next: (cats) => this.categoriesSignal.set(this.buildTree(cats)),
-      error: () => console.error('Failed to load categories')
+      error: () => { if (isDevMode()) console.error('Failed to load categories'); }
     });
   }
 

@@ -2,7 +2,7 @@ import { HttpInterceptorFn, HttpResponse } from '@angular/common/http';
 import { of, tap } from 'rxjs';
 
 const cache = new Map<string, { response: HttpResponse<any>; expiry: number }>();
-const DEFAULT_TTL = 5 * 60 * 1000; // 5 minutes
+const DEFAULT_TTL = 30 * 1000; // 30 seconds — prevents stale data after admin edits
 
 /**
  * HTTP Cache Interceptor — caches GET requests for static/mock data.

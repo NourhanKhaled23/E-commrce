@@ -1,4 +1,4 @@
-import { Injectable, inject, effect, signal } from '@angular/core';
+import { Injectable, inject, effect, signal, isDevMode } from '@angular/core';
 import { AuthService } from './auth.service';
 import { OrderService } from './order.service';
 import { SellerService } from './seller.service';
@@ -120,10 +120,10 @@ export class PushNotificationService {
           };
         }
       } catch (err) {
-        console.error('Failed to create browser push notification:', err);
+        if (isDevMode()) console.error('Failed to create browser push notification:', err);
       }
     } else {
-      console.log(`Push Notification (fallback): [${title}] ${body}`);
+      if (isDevMode()) console.log(`Push Notification (fallback): [${title}] ${body}`);
     }
 
     // 2. Also save to in-app notification center

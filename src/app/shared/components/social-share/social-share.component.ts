@@ -1,4 +1,4 @@
-import { Component, input, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input, inject, ChangeDetectionStrategy, isDevMode } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotificationService } from '../../../core/services/notification.service';
 
@@ -40,7 +40,7 @@ export class SocialShareComponent {
       navigator.clipboard.writeText(text).then(() => {
         this.notificationService.show('Link copied to clipboard!', 'success');
       }).catch((err) => {
-        console.error('Failed to copy text:', err);
+        if (isDevMode()) console.error('Failed to copy text:', err);
         this.notificationService.show('Failed to copy link', 'error');
       });
     } else {

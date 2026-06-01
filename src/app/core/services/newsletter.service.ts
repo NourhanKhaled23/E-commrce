@@ -1,4 +1,4 @@
-import { Injectable, signal, computed, inject } from '@angular/core';
+import { Injectable, signal, computed, inject, isDevMode } from '@angular/core';
 import { NotificationService } from './notification.service';
 
 @Injectable({ providedIn: 'root' })
@@ -20,7 +20,7 @@ export class NewsletterService {
           this._subscribers.set(JSON.parse(stored));
         }
       } catch (e) {
-        console.error('Failed to parse newsletter subscribers', e);
+        if (isDevMode()) console.error('Failed to parse newsletter subscribers', e);
       }
     }
   }

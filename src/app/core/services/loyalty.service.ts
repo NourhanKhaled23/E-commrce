@@ -1,4 +1,4 @@
-import { Injectable, inject, effect, computed, signal } from '@angular/core';
+import { Injectable, inject, effect, computed, signal, isDevMode } from '@angular/core';
 import { AuthService } from './auth.service';
 import { OrderService } from './order.service';
 import { NotificationService } from './notification.service';
@@ -141,7 +141,7 @@ export class LoyaltyService {
               'success'
             );
           },
-          error: (err) => console.error('Failed to update loyalty points:', err),
+          error: (err) => { if (isDevMode()) console.error('Failed to update loyalty points:', err); },
         });
       }
     }, { allowSignalWrites: true });

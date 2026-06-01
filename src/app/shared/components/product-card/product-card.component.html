@@ -18,6 +18,8 @@
           class="product-card-img"
           [class.loaded]="imageLoadedState()"
           loading="lazy"
+          width="400"
+          height="400"
           (load)="onImgLoad()"
           (error)="onImgError()"
         />
@@ -41,10 +43,13 @@
           [class.animating]="heartAnimating()"
           (click)="onToggleWishlist($event)"
           [title]="'NAVBAR.WISHLIST' | translate"
+          [attr.aria-label]="(wishlistService.isWishlisted(product().id) ? 'Remove from wishlist: ' : 'Add to wishlist: ') + product().name"
+          [attr.aria-pressed]="wishlistService.isWishlisted(product().id)"
         >
           <i class="bi"
              [class.bi-heart-fill]="wishlistService.isWishlisted(product().id)"
-             [class.bi-heart]="!wishlistService.isWishlisted(product().id)">
+             [class.bi-heart]="!wishlistService.isWishlisted(product().id)"
+             aria-hidden="true">
           </i>
         </button>
       </div>
@@ -57,11 +62,12 @@
           [disabled]="product().stock <= 0"
           (click)="onAddToCart($event)"
           [title]="'PRODUCT_CARD.ADD_TO_CART' | translate"
+          [attr.aria-label]="'Add to cart: ' + product().name"
         >
           @if (justAdded()) {
-            <i class="bi bi-check-lg"></i>
+            <i class="bi bi-check-lg" aria-hidden="true"></i>
           } @else {
-            <i class="bi bi-bag-plus"></i>
+            <i class="bi bi-bag-plus" aria-hidden="true"></i>
           }
         </button>
         <button
@@ -70,8 +76,10 @@
           [class.active]="isInComparison()"
           (click)="onToggleComparison($event)"
           title="Compare"
+          [attr.aria-label]="(isInComparison() ? 'Remove from comparison: ' : 'Compare: ') + product().name"
+          [attr.aria-pressed]="isInComparison()"
         >
-          <i class="bi bi-bar-chart-steps"></i>
+          <i class="bi bi-bar-chart-steps" aria-hidden="true"></i>
         </button>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal, computed } from '@angular/core';
+import { Component, OnInit, inject, signal, computed, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +14,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal.dir
   selector: 'app-home',
   standalone: true,
   imports: [RouterModule, CommonModule, FormsModule, TranslateModule, ProductCardComponent, ScrollRevealDirective],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

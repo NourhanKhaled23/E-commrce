@@ -1,10 +1,11 @@
-import { Component, input, signal, computed, effect, inject } from '@angular/core';
+import { Component, input, signal, computed, effect, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AvatarService } from '../../../core/services/avatar.service';
 
 @Component({
   selector: 'app-user-avatar',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule],
   template: `
     <div class="avatar-wrapper"
