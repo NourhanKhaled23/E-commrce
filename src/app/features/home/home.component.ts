@@ -35,10 +35,6 @@ export class HomeComponent implements OnInit {
     return banners.find(b => b.active) || null;
   });
 
-  readonly parentCategories = computed(() => {
-    return this.categoryService.categories().filter(c => c.parentId === null).slice(0, 8);
-  });
-
   readonly newsletterEmail = signal('');
   readonly subscribed = signal(false);
 

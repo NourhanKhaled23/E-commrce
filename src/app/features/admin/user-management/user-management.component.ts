@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AdminService } from '../admin.service';
 import { DialogService } from '../../../core/services/dialog.service';
-import { UserAvatarComponent } from '../../../shared/components/user-avatar/user-avatar.component';
 
 @Component({
   selector: 'app-user-management',
   standalone: true,
-  imports: [CommonModule, FormsModule, UserAvatarComponent],
+  imports: [CommonModule, FormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './user-management.component.html',
   styleUrls: ['./user-management.component.scss']

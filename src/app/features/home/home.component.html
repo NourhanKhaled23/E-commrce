@@ -44,16 +44,16 @@
       <h2>Find Your Style</h2>
     </div>
     <div class="category-grid">
-      @for (cat of parentCategories(); track cat.id) {
+      @for (cat of categoryService.categories(); track cat.id) {
         <a [routerLink]="['/products']" [queryParams]="{category: cat.slug}" class="category-card">
-          <div class="category-card-img-wrapper">
-            <img [src]="cat.image || ''" [alt]="cat.name" class="category-card-img" loading="lazy" />
-            <div class="category-card-overlay"></div>
-            <div class="category-card-content">
-              <i class="bi bi-grid category-card-icon"></i>
-              <span class="category-name">{{ cat.name }}</span>
-            </div>
+          <div class="category-icon">
+            @if (cat.image) {
+              <img [src]="cat.image" [alt]="cat.name" class="category-img" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+            } @else {
+              <i class="bi bi-grid"></i>
+            }
           </div>
+          <span class="category-name">{{ cat.name }}</span>
         </a>
       }
     </div>

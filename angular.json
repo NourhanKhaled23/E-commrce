@@ -60,17 +60,14 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.css"
             ],
             "polyfills": [
               "zone.js"
             ],
-            "scripts": [],
-            "outputPath": {
-              "base": "dist/e-commerce",
-              "browser": ""
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {

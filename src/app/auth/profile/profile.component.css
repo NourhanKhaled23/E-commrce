@@ -70,7 +70,7 @@
   height: 28px;
   border-radius: 50%;
   background: var(--color-accent, #C8A96E);
-  color: var(--color-text-primary);
+  color: #0D0D0D;
   border: 2px solid #fff;
   cursor: pointer;
   display: flex;
