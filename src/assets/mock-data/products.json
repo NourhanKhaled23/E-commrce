@@ -9,10 +9,10 @@
     "stock": 120,
     "brand": "Essence",
     "category": "beauty",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p1/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
-      "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/2.png"
+      "https://picsum.photos/seed/p1i1/800/600",
+      "https://picsum.photos/seed/p1i2/800/600"
     ],
     "tags": [
       "mascara",
@@ -39,9 +39,9 @@
     "stock": 65,
     "brand": "Glamour",
     "category": "makeup",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p2/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
+      "https://picsum.photos/seed/p2i1/800/600"
     ],
     "tags": [
       "eyeshadow",
@@ -68,9 +68,9 @@
     "stock": 90,
     "brand": "SilkFinish",
     "category": "makeup",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p3/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"
+      "https://picsum.photos/seed/p3i1/800/600"
     ],
     "tags": [
       "powder",
@@ -97,9 +97,9 @@
     "stock": 85,
     "brand": "Glamour",
     "category": "makeup",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p4/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/1.png"
+      "https://picsum.photos/seed/p4i1/800/600"
     ],
     "tags": [
       "lipstick",
@@ -126,10 +126,10 @@
     "stock": 45,
     "brand": "Calvin Klein",
     "category": "fragrances",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p5/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/1.png",
-      "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/2.png"
+      "https://picsum.photos/seed/p5i1/800/600",
+      "https://picsum.photos/seed/p5i2/800/600"
     ],
     "tags": [
       "fragrance",
@@ -156,9 +156,9 @@
     "stock": 25,
     "brand": "Chanel",
     "category": "fragrances",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p6/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/1.png"
+      "https://picsum.photos/seed/p6i1/800/600"
     ],
     "tags": [
       "fragrance",
@@ -185,9 +185,9 @@
     "stock": 35,
     "brand": "Dior",
     "category": "fragrances",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p7/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/1.png"
+      "https://picsum.photos/seed/p7i1/800/600"
     ],
     "tags": [
       "fragrance",
@@ -214,9 +214,9 @@
     "stock": 8,
     "brand": "Annibale Colombo",
     "category": "furniture",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p8/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/1.png"
+      "https://picsum.photos/seed/p8i1/800/600"
     ],
     "tags": [
       "bed",
@@ -243,9 +243,9 @@
     "stock": 12,
     "brand": "Knoll",
     "category": "furniture",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Chair/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p9/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Chair/1.png"
+      "https://picsum.photos/seed/p9i1/800/600"
     ],
     "tags": [
       "chair",
@@ -272,9 +272,9 @@
     "stock": 20,
     "brand": "WoodCraft",
     "category": "furniture",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Oak%20Coffee%20Table/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p10/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/furniture/Oak%20Coffee%20Table/1.png"
+      "https://picsum.photos/seed/p10i1/800/600"
     ],
     "tags": [
       "table",
@@ -301,9 +301,9 @@
     "stock": 200,
     "brand": "FreshFarm",
     "category": "groceries",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Fresh%20Orange%20Juice/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p11/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/groceries/Fresh%20Orange%20Juice/1.png"
+      "https://picsum.photos/seed/p11i1/800/600"
     ],
     "tags": [
       "juice",
@@ -330,9 +330,9 @@
     "stock": 150,
     "brand": "NatureBest",
     "category": "groceries",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Organic%20Almonds/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p12/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/groceries/Organic%20Almonds/1.png"
+      "https://picsum.photos/seed/p12i1/800/600"
     ],
     "tags": [
       "almonds",
@@ -359,9 +359,9 @@
     "stock": 55,
     "brand": "ModernHome",
     "category": "home-decoration",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Minimalist%20Wall%20Clock/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p13/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/home-decoration/Minimalist%20Wall%20Clock/1.png"
+      "https://picsum.photos/seed/p13i1/800/600"
     ],
     "tags": [
       "clock",
@@ -388,9 +388,9 @@
     "stock": 40,
     "brand": "ArtisanCraft",
     "category": "home-decoration",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Ceramic%20Vase%20Set/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p14/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/home-decoration/Ceramic%20Vase%20Set/1.png"
+      "https://picsum.photos/seed/p14i1/800/600"
     ],
     "tags": [
       "vase",
@@ -417,9 +417,9 @@
     "stock": 30,
     "brand": "ChefMaster",
     "category": "kitchen-accessories",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Stainless%20Steel%20Pan%20Set/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p15/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Stainless%20Steel%20Pan%20Set/1.png"
+      "https://picsum.photos/seed/p15i1/800/600"
     ],
     "tags": [
       "pans",
@@ -446,9 +446,9 @@
     "stock": 65,
     "brand": "KitchenCraft",
     "category": "kitchen-accessories",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Wooden%20Cutting%20Board/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p16/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Wooden%20Cutting%20Board/1.png"
+      "https://picsum.photos/seed/p16i1/800/600"
     ],
     "tags": [
       "cutting-board",
@@ -475,9 +475,9 @@
     "stock": 15,
     "brand": "Apple",
     "category": "laptops",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/MacBook%20Pro%2014/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p17/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/laptops/MacBook%20Pro%2014/1.png"
+      "https://picsum.photos/seed/p17i1/800/600"
     ],
     "tags": [
       "laptop",
@@ -504,9 +504,9 @@
     "stock": 80,
     "brand": "PoloClassic",
     "category": "mens-shirts",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Classic%20Oxford%20Shirt/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p18/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mens-shirts/Classic%20Oxford%20Shirt/1.png"
+      "https://picsum.photos/seed/p18i1/800/600"
     ],
     "tags": [
       "shirt",
@@ -533,9 +533,9 @@
     "stock": 95,
     "brand": "UrbanStyle",
     "category": "mens-shirts",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Slim%20Fit%20Chinos/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p19/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mens-shirts/Slim%20Fit%20Chinos/1.png"
+      "https://picsum.photos/seed/p19i1/800/600"
     ],
     "tags": [
       "chinos",
@@ -562,9 +562,9 @@
     "stock": 25,
     "brand": "HeritageLeather",
     "category": "mens-shoes",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Leather%20Derby%20Shoes/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p20/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mens-shoes/Leather%20Derby%20Shoes/1.png"
+      "https://picsum.photos/seed/p20i1/800/600"
     ],
     "tags": [
       "shoes",
@@ -591,9 +591,9 @@
     "stock": 40,
     "brand": "RayBan",
     "category": "sunglasses",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/sunglasses/Classic%20Aviator%20Sunglasses/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p21/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/sunglasses/Classic%20Aviator%20Sunglasses/1.png"
+      "https://picsum.photos/seed/p21i1/800/600"
     ],
     "tags": [
       "sunglasses",
@@ -620,9 +620,9 @@
     "stock": 30,
     "brand": "Apple",
     "category": "smartphones",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2015%20Pro/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p22/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2015%20Pro/1.png"
+      "https://picsum.photos/seed/p22i1/800/600"
     ],
     "tags": [
       "iphone",
@@ -649,9 +649,9 @@
     "stock": 35,
     "brand": "PureLuxury",
     "category": "tops",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/tops/Cashmere%20Scarf/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p23/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/tops/Cashmere%20Scarf/1.png"
+      "https://picsum.photos/seed/p23i1/800/600"
     ],
     "tags": [
       "scarf",
@@ -678,9 +678,9 @@
     "stock": 18,
     "brand": "HeritageLeather",
     "category": "womens-bags",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-bags/Leather%20Tote%20Bag/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p24/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-bags/Leather%20Tote%20Bag/1.png"
+      "https://picsum.photos/seed/p24i1/800/600"
     ],
     "tags": [
       "bag",
@@ -707,9 +707,9 @@
     "stock": 50,
     "brand": "BohoChic",
     "category": "womens-dresses",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-dresses/Floral%20Maxi%20Dress/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p25/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-dresses/Floral%20Maxi%20Dress/1.png"
+      "https://picsum.photos/seed/p25i1/800/600"
     ],
     "tags": [
       "dress",
@@ -736,9 +736,9 @@
     "stock": 12,
     "brand": "LuxuryGems",
     "category": "womens-jewellery",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-jewellery/Small%20Diamond%20Earrings/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p26/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-jewellery/Small%20Diamond%20Earrings/1.png"
+      "https://picsum.photos/seed/p26i1/800/600"
     ],
     "tags": [
       "earrings",
@@ -765,9 +765,9 @@
     "stock": 55,
     "brand": "Nike",
     "category": "mens-shoes",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Max%2090/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p27/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Max%2090/1.png"
+      "https://picsum.photos/seed/p27i1/800/600"
     ],
     "tags": [
       "sneakers",
@@ -794,9 +794,9 @@
     "stock": 42,
     "brand": "Adidas",
     "category": "sports-accessories",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/sports-accessories/Adidas%20Ultraboost/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p28/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/sports-accessories/Adidas%20Ultraboost/1.png"
+      "https://picsum.photos/seed/p28i1/800/600"
     ],
     "tags": [
       "shoes",
@@ -823,9 +823,9 @@
     "stock": 20,
     "brand": "Apple",
     "category": "tablets",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/tablets/iPad%20Air%2011/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p29/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/tablets/iPad%20Air%2011/1.png"
+      "https://picsum.photos/seed/p29i1/800/600"
     ],
     "tags": [
       "ipad",
@@ -852,9 +852,9 @@
     "stock": 38,
     "brand": "SilkElegance",
     "category": "womens-dresses",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-dresses/Silk%20Blouse/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p30/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-dresses/Silk%20Blouse/1.png"
+      "https://picsum.photos/seed/p30i1/800/600"
     ],
     "tags": [
       "blouse",
@@ -881,9 +881,9 @@
     "stock": 60,
     "brand": "Nord",
     "category": "mens-watches",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-watches/Stainless%20Steel%20Watch/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p31/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mens-watches/Stainless%20Steel%20Watch/1.png"
+      "https://picsum.photos/seed/p31i1/800/600"
     ],
     "tags": [
       "watch",
@@ -910,9 +910,9 @@
     "stock": 75,
     "brand": "ZenFit",
     "category": "sports-accessories",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/sports-accessories/Yoga%20Mat%20Premium/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p32/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/sports-accessories/Yoga%20Mat%20Premium/1.png"
+      "https://picsum.photos/seed/p32i1/800/600"
     ],
     "tags": [
       "yoga",
@@ -939,9 +939,9 @@
     "stock": 45,
     "brand": "KitchenPro",
     "category": "kitchen-accessories",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Electric%20Kettle/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p33/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Electric%20Kettle/1.png"
+      "https://picsum.photos/seed/p33i1/800/600"
     ],
     "tags": [
       "kettle",
@@ -968,9 +968,9 @@
     "stock": 100,
     "brand": "GlowSkin",
     "category": "skin-care",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/skin-care/Facial%20Moisturizer/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p34/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/skin-care/Facial%20Moisturizer/1.png"
+      "https://picsum.photos/seed/p34i1/800/600"
     ],
     "tags": [
       "moisturizer",
@@ -997,9 +997,9 @@
     "stock": 48,
     "brand": "DenimCo",
     "category": "tops",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/tops/Denim%20Jacket/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p35/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/tops/Denim%20Jacket/1.png"
+      "https://picsum.photos/seed/p35i1/800/600"
     ],
     "tags": [
       "jacket",
@@ -1026,9 +1026,9 @@
     "stock": 90,
     "brand": "TrendyGems",
     "category": "womens-jewellery",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-jewellery/Rose%20Gold%20Hoop%20Earrings/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p36/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-jewellery/Rose%20Gold%20Hoop%20Earrings/1.png"
+      "https://picsum.photos/seed/p36i1/800/600"
     ],
     "tags": [
       "earrings",
@@ -1055,9 +1055,9 @@
     "stock": 120,
     "brand": "BasicWear",
     "category": "mens-shirts",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Cotton%20T-Shirt%20Pack/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p37/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mens-shirts/Cotton%20T-Shirt%20Pack/1.png"
+      "https://picsum.photos/seed/p37i1/800/600"
     ],
     "tags": [
       "t-shirt",
@@ -1084,9 +1084,9 @@
     "stock": 65,
     "brand": "MiniCarry",
     "category": "womens-bags",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-bags/Crossbody%20Phone%20Bag/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p38/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-bags/Crossbody%20Phone%20Bag/1.png"
+      "https://picsum.photos/seed/p38i1/800/600"
     ],
     "tags": [
       "bag",
@@ -1113,9 +1113,9 @@
     "stock": 18,
     "brand": "Samsung",
     "category": "tablets",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/tablets/Samsung%20Galaxy%20Tab%20S9/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p39/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/tablets/Samsung%20Galaxy%20Tab%20S9/1.png"
+      "https://picsum.photos/seed/p39i1/800/600"
     ],
     "tags": [
       "tablet",
@@ -1142,9 +1142,9 @@
     "stock": 70,
     "brand": "GlowSkin",
     "category": "skin-care",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/skin-care/Vitamin%20C%20Serum/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p40/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/skin-care/Vitamin%20C%20Serum/1.png"
+      "https://picsum.photos/seed/p40i1/800/600"
     ],
     "tags": [
       "serum",
@@ -1171,9 +1171,9 @@
     "stock": 15,
     "brand": "PureLuxury",
     "category": "womens-dresses",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-dresses/Wool%20Blend%20Coat/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p41/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-dresses/Wool%20Blend%20Coat/1.png"
+      "https://picsum.photos/seed/p41i1/800/600"
     ],
     "tags": [
       "coat",
@@ -1200,9 +1200,9 @@
     "stock": 85,
     "brand": "SoundPro",
     "category": "mobile-accessories",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Wireless%20Bluetooth%20Earbuds/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p42/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mobile-accessories/Wireless%20Bluetooth%20Earbuds/1.png"
+      "https://picsum.photos/seed/p42i1/800/600"
     ],
     "tags": [
       "earbuds",
@@ -1229,9 +1229,9 @@
     "stock": 22,
     "brand": "BohoChic",
     "category": "womens-dresses",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/womens-dresses/Linen%20Blazer/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p43/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/womens-dresses/Linen%20Blazer/1.png"
+      "https://picsum.photos/seed/p43i1/800/600"
     ],
     "tags": [
       "blazer",
@@ -1258,9 +1258,9 @@
     "stock": 12,
     "brand": "RideSafe",
     "category": "motorcycle",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/motorcycle/Motorcycle%20Helmet/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p44/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/motorcycle/Motorcycle%20Helmet/1.png"
+      "https://picsum.photos/seed/p44i1/800/600"
     ],
     "tags": [
       "helmet",
@@ -1287,9 +1287,9 @@
     "stock": 30,
     "brand": "HeritageLeather",
     "category": "vehicle",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/vehicle/Leather%20Driving%20Gloves/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p45/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/vehicle/Leather%20Driving%20Gloves/1.png"
+      "https://picsum.photos/seed/p45i1/800/600"
     ],
     "tags": [
       "gloves",
@@ -1316,9 +1316,9 @@
     "stock": 55,
     "brand": "SilkElegance",
     "category": "home-decoration",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Silk%20Pillowcase%20Set/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p46/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/home-decoration/Silk%20Pillowcase%20Set/1.png"
+      "https://picsum.photos/seed/p46i1/800/600"
     ],
     "tags": [
       "pillowcase",
@@ -1345,9 +1345,9 @@
     "stock": 10,
     "brand": "BrewMaster",
     "category": "kitchen-accessories",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Espresso%20Machine/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p47/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Espresso%20Machine/1.png"
+      "https://picsum.photos/seed/p47i1/800/600"
     ],
     "tags": [
       "espresso",
@@ -1374,9 +1374,9 @@
     "stock": 95,
     "brand": "CozyHome",
     "category": "home-decoration",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Scented%20Candle%20Collection/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p48/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/home-decoration/Scented%20Candle%20Collection/1.png"
+      "https://picsum.photos/seed/p48i1/800/600"
     ],
     "tags": [
       "candles",
@@ -1403,9 +1403,9 @@
     "stock": 78,
     "brand": "HeritageLeather",
     "category": "mens-shirts",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Men's%20Leather%20Belt/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p49/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/mens-shirts/Men's%20Leather%20Belt/1.png"
+      "https://picsum.photos/seed/p49i1/800/600"
     ],
     "tags": [
       "belt",
@@ -1432,9 +1432,9 @@
     "stock": 60,
     "brand": "PureLuxury",
     "category": "tops",
-    "thumbnail": "https://cdn.dummyjson.com/products/images/tops/Cashmere%20Beanie/thumbnail.png",
+    "thumbnail": "https://picsum.photos/seed/p50/400/400",
     "images": [
-      "https://cdn.dummyjson.com/products/images/tops/Cashmere%20Beanie/1.png"
+      "https://picsum.photos/seed/p50i1/800/600"
     ],
     "tags": [
       "beanie",
